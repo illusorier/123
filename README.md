@@ -1,3 +1,6 @@
-# JavaScript知识体系
+# 前端知识体系
 
-- 执行上下文
+#### ECMAScript before ES6
+- 类型 (Type)
+- 对象 (Object)
+- 函数 (Function)
