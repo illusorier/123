@@ -34,7 +34,7 @@ JavaScript has typed values, not typed variables.The following built-in **types*
 
 Only values have types in JavaScript; variables are just simple containers for those values.
 
-JS定义了七种值的类型。
+JS定义了七种内置值的类型。
 
 JavaScript defines seven built-in types:
 
@@ -46,6 +46,12 @@ JavaScript defines seven built-in types:
 - `symbol` -- added in ES6!
 
 All of these types except `object` are called "primitive".
+
+ECMAScript变量可能包含两种不同数据类型的值。
+
+基本类型值指的是简单的数据段，而引用类型值指那些可能由多个值构成的对象。
+
+在将一个值赋给变量时，解析器必须确认这个值是基本类型值还是引用类型值。
 
 JavaScript provides a `typeof` operator that can examine a value and tell you what type it is.
 
@@ -144,6 +150,10 @@ In most cases, this internal `[[Class]]` value correspond to the built-in native
     
 
 ### Boxing Wrapper
+
+基本包装类型
+
+为了便于操作基本类型值，ECMAScript还提供了3个特殊的引用类型: Boolean、Number和String.
 
 These object wrappers serve a very important purpose.
 
