@@ -27,9 +27,25 @@ A **block** on a webpage is an HTML element that appears on a new line, undernea
            padding: 10px;
        }
        
-如何实现宽度自适应按钮，即让按钮的其相对位置是如何的？大小自适应于文字的个数(不使用button元素)？
+问题3：如何实现宽度自适应按钮，即让按钮的其相对位置是如何的？大小自适应于文字的个数(不使用内置元素如span、button等等)？
+
+一种方法是使用`display:inline-block`属性，另一种方法就是使用`float`属性。
+
+浮动就是个带有方位的`display:inline-block`属性。
+
+`display:inline-block`某种意义上的作用就是包裹(wrap)，而浮动也有类似的效果。
+
+因此大多数类似于`display:block; float:left`这样的CSS都是不优雅的。
+
+浮动最原始的意义就是用来让图片环绕文字。
+
+`float`可以说是所有CSS属性中的“破坏之王”。
+
+参考：
+
+http://www.zhangxinxu.com/wordpress/2010/01/css-float%E6%B5%AE%E5%8A%A8%E7%9A%84%E6%B7%B1%E5%85%A5%E7%A0%94%E7%A9%B6%E3%80%81%E8%AF%A6%E8%A7%A3%E5%8F%8A%E6%8B%93%E5%B1%95%E4%B8%80/
        
-问题3：什么是列表布局以及列表布局的实现方式？
+问题4：什么是列表布局以及列表布局的实现方式？
 
 所谓列表布局就是具有相同DOM结构、水平排列可以repeat出来的一列元素的布局方式
 
@@ -37,7 +53,7 @@ A **block** on a webpage is an HTML element that appears on a new line, undernea
 
 元素内的文本节点属于匿名inline boxes。
 
-问题4：当文本与图片位于同一行时，其相对位置是如何的？
+问题5：当文本与图片位于同一行时，其相对位置是如何的？
 
 ![](./assets/css-1.png)
 
@@ -49,4 +65,8 @@ On block-level elements, it specifies the minimum height of line boxes within th
 
 On non-replaced inline elements, it specifies the height that is used to calculate line box height.
 
-`float`可以说是所有CSS属性中的“破坏之王”。
+在目前CSS的世界里中，所有的高度都是由两个CSS模型产生的，一个是box盒状模型，对应CSS为"height+padding+margin"，另外一个是line box模型，对应样式为"line-height"。
+
+问题6：三栏自适应布局有哪些实现方式？
+
+http://www.zhangxinxu.com/wordpress/2009/11/%E6%88%91%E7%86%9F%E7%9F%A5%E7%9A%84%E4%B8%89%E7%A7%8D%E4%B8%89%E6%A0%8F%E7%BD%91%E9%A1%B5%E5%AE%BD%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E6%96%B9%E6%B3%95/
