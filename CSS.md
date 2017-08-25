@@ -70,3 +70,21 @@ On non-replaced inline elements, it specifies the height that is used to calcula
 问题6：三栏自适应布局有哪些实现方式？
 
 http://www.zhangxinxu.com/wordpress/2009/11/%E6%88%91%E7%86%9F%E7%9F%A5%E7%9A%84%E4%B8%89%E7%A7%8D%E4%B8%89%E6%A0%8F%E7%BD%91%E9%A1%B5%E5%AE%BD%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E6%96%B9%E6%B3%95/
+
+问题7：如何实现比例固定图片自适应布局？
+
+问题8：居中问题
+
+我们可以使用*text-align*属性来居中行内元素。
+
+The *text-align* CSS property describes how inline content like text is aligned in its parent block element.
+
+*text-align* does not control the alignment of block elements, only their inline content.
+
+问题9：如何将一张图片设置为某页面的背景？
+
+每张图片都有自己的尺寸和比例，若不作任何设置，图片则会以原始比例作为页面背景，显示的区域大小由屏幕尺寸决定，这显然不是我们想要的。
+
+The `background-size` CSS property specifies the size of the background image.
+
+The size of the image can be fully constrained or only partially in 
