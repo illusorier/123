@@ -2,6 +2,10 @@ Angular is a framework for building client applications in HTML and either JavaS
 
 Then you launch the app by *bootstrapping* the *root module*.
 
+> Decorators are functions that modify JavaScript classes.
+
+## NgModules
+
 Angular apps are modular and Angular has its own modularity system called *NgModules*.
 
 Angular本身有自己的模块化系统。
@@ -10,15 +14,29 @@ Every Angular app has at least one NgModule class, the root module, conventional
 
 每个angular app都至少有一个NgModule class，作为根module。
 
-While the root module may be the only module in a small application, most apps have many more *feature modules*.
-
-> Decorators are functions that modify JavaScript classes.
+While the root module may be the only module in a small application, most apps have many more *feature modules*, each a cohesive block of code dedicated to an application domain.
 
 An NgModule, whether a root or feature, is a class with `@NgModule` decorator.
 
-`NgModule` is a decorator function that takes a single metadata object
+`NgModule` is a decorator function that takes a single metadata object whose properties describe the module.
 
-## NgModules
+Every Angular app has a *root module* class.
+
+By convention, the *root module* class is called `AppModule` and it exists in a file named `app.module.ts`.
+
+        import { Ngmodule } from '@angular/core';
+        import { BrowserModule } from '@angular/platform-browser'
+        
+        
+        @NgModule({
+        
+The `@NgModule.bootstrap` property identifies this `AppComponent` as the *bootstrap component*
+
+You launch the application by bootstrapping the `AppModule` in the `main.ts` file.
+
+Angular offers a variety of bootstrapping options targeting multiple platform.       
+
+## Angular libraries
 
 Angular ships as a collection of JavaScript modules.
 
@@ -56,3 +74,15 @@ The `@Component` decorator takes a required configuration object with the inform
 - `selector`: CSS selector that tells Angular to create and insert an instance of this component where it finds a `<hero-list>` tag in parent HTML.
 - `templateUrl`: module-relative address of this component's HTML template.
 - `providers`: array of dependency injection providers for services that the component requires.
+
+## Attribute Directives
+
+An Attribute directive changes the appearance or behavior of a DOM element.
+
+Directives的注册。
+
+If you ran the app now, Angular would not recognize the `highlight` attribute and would ignore it.
+
+You must declare the directive in `AppModule`
+
+`@Directive` requires a CSS selector to identify the HTML in the template that is associated with the directive.

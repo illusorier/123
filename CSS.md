@@ -10,13 +10,13 @@ Every box is composed of four parts (or areas).
 
 If the `box-sizing` property is set to *content-box*
 
-`box-sizing`是非常重要的一个CSS属性。
+`box-sizing`是非常重要的一个CSS属性。  
 
 A **block** on a webpage is an HTML element that appears on a new line, underneath the preceding element and above the following element.
 
-问题1：当你在空白页面中放入一个块级元素，比如div，不设置任何CSS，它的height和width属性的值分别为多少？
+##### 问题1：当你在空白页面中放入一个块级元素，比如div，不设置任何CSS，它的height和width属性的值分别为多少？
 
-问题2：以下两段代码的结果有什么区别？
+##### 问题2：以下两段代码的结果有什么区别？
 
         div {
             width: 100%;
@@ -27,7 +27,7 @@ A **block** on a webpage is an HTML element that appears on a new line, undernea
            padding: 10px;
        }
        
-问题3：如何实现宽度自适应按钮，即让按钮的其相对位置是如何的？大小自适应于文字的个数(不使用内置元素如span、button等等)？
+##### 问题3：如何实现宽度自适应按钮，即让按钮的其相对位置是如何的？大小自适应于文字的个数(不使用内置元素如span、button等等)？
 
 一种方法是使用`display:inline-block`属性，另一种方法就是使用`float`属性。
 
@@ -45,7 +45,7 @@ A **block** on a webpage is an HTML element that appears on a new line, undernea
 
 http://www.zhangxinxu.com/wordpress/2010/01/css-float%E6%B5%AE%E5%8A%A8%E7%9A%84%E6%B7%B1%E5%85%A5%E7%A0%94%E7%A9%B6%E3%80%81%E8%AF%A6%E8%A7%A3%E5%8F%8A%E6%8B%93%E5%B1%95%E4%B8%80/
        
-问题4：什么是列表布局以及列表布局的实现方式？
+##### 问题4：什么是列表布局以及列表布局的实现方式？
 
 所谓列表布局就是具有相同DOM结构、水平排列可以repeat出来的一列元素的布局方式
 
@@ -53,11 +53,11 @@ http://www.zhangxinxu.com/wordpress/2010/01/css-float%E6%B5%AE%E5%8A%A8%E7%9A%84
 
 元素内的文本节点属于匿名inline boxes。
 
-问题5：当文本与图片位于同一行时，其相对位置是如何的？
+##### 问题5：当文本与图片位于同一行时，其相对位置是如何的？
 
 ![](./assets/css-1.png)
 
-默认情况下，图片与文字混排应该是这个样子：图片与文字基线对齐，图片与文字在同一行上。
+默认情况下，图片与文字混排应该是这个样子：图片与文字**基线**对齐，图片与文字在同一行上。
 
 The `line-height` CSS property sets the amount of space used for lines, such as in text.
 
@@ -65,26 +65,108 @@ On block-level elements, it specifies the minimum height of line boxes within th
 
 On non-replaced inline elements, it specifies the height that is used to calculate line box height.
 
+**Replaced Element**: An element whose content is outside the scope of the CSS formatting modal, such as as image, embedded document, or applet.
+
+For example, the content of the HTML IMG elements is often replaced by the image that is "src" attribute  designates.
+
 在目前CSS的世界里中，所有的高度都是由两个CSS模型产生的，一个是box盒状模型，对应CSS为"height+padding+margin"，另外一个是line box模型，对应样式为"line-height"。
 
-问题6：三栏自适应布局有哪些实现方式？
+inline boxes(行内元素的box)的高度直接受`line-height`控制，整一行的实际高度由其中最高的inline box决定。
+
+对span元素应用height属性是没有效果的，但对img元素则有效果。
+
+- inline elements:
+
+    respect left & right margins and padding, but not top & bottom
+    
+    cannot have a width and height set
+    
+    allow other elements to sit to their left and right. (在正常文档流的情况下)
+    
+    
+
+###### 问题6：三栏自适应布局有哪些实现方式？
 
 http://www.zhangxinxu.com/wordpress/2009/11/%E6%88%91%E7%86%9F%E7%9F%A5%E7%9A%84%E4%B8%89%E7%A7%8D%E4%B8%89%E6%A0%8F%E7%BD%91%E9%A1%B5%E5%AE%BD%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E6%96%B9%E6%B3%95/
 
-问题7：如何实现比例固定图片自适应布局？
+补充：如何通过flex来实现？
 
-问题8：居中问题
+结合使用`flex-grow`和`flex-basis`。
 
-我们可以使用*text-align*属性来居中行内元素。
+补充：如何通过grid来实现？
 
-The *text-align* CSS property describes how inline content like text is aligned in its parent block element.
+结合使用`grid-template-columns`, `grid-column-start`和`grid-column-end`。
 
-*text-align* does not control the alignment of block elements, only their inline content.
+##### 问题7：如何实现比例固定图片自适应布局？
 
-问题9：如何将一张图片设置为某页面的背景？
+##### 问题8：居中问题
+
+居中问题分为这么几类，垂直居中、水平居中和垂直水平都居中。
+
+- 行内元素的水平居中问题：
+
+    我们可以给行内元素的父元素设置*text-align*属性来对其进行居中。
+    
+    The *text-align* CSS property describes how inline content like text is aligned in its parent block element.
+    
+    *text-align* does not control the alignment of block elements, only their inline content.
+    
+- 行内元素的垂直居中问题：
+    
+    行内元素垂直居中问题分为两个部分：单行和多行。
+    
+    单行：`padding-top`. `padding-bottom`或者`height`, `line-height`。
+
+- 绝对定位元素的居中实现：
+
+    元素尺寸已知且固定
+  
+        .element {
+            position: absolute;
+            width: $some-width;
+            height: $some-height;
+            top: 50%;
+            left: 50%;
+            margin-top: - $some-height/2;
+            margin-left: - $some-width/2;
+        }
+        
+    基于CSS3可以使用`transform`代替`margin`。
+   
+        .element {
+            position: absolute;
+            width: $some-width;
+            height: $some-height;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+    利用`margin: auto`实现绝对定位元素的居中
+    
+        .element {
+            position: absolute;
+            width: $some-width;
+            height: $some-height;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+##### 问题9：如何将一张图片设置为某页面的背景？
 
 每张图片都有自己的尺寸和比例，若不作任何设置，图片则会以原始比例作为页面背景，显示的区域大小由屏幕尺寸决定，这显然不是我们想要的。
 
 The `background-size` CSS property specifies the size of the background image.
 
-The size of the image can be fully constrained or only partially in 
+The size of the image can be fully constrained or only partially in order to preserve its  intrinsic ratio.
+
+        /* Keywords syntax */
+        background-size: cover;
+        background-size: contain;
+        
+        
+In addition to the default value(`auto`), there are two keywords you can use with `background-size`: `cover` and `contain`.  
+
+`contain`和`cover`都会保持图片原有的宽高比。
