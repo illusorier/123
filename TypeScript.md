@@ -35,6 +35,14 @@ These floating point numbers get the type `number`.
         let myFavoriteNumber =  'seven';
         myFavoriteNumber = 7;
         
+## Array
+
+        let fibonacci: number[] = [1, 1, 2, 3, 5];
+        
+        
+
+## Tuple
+        
 数组合并了相同类型的对象，而元组(Tuple)合并了不同类型的对象。
 
         let person: [string, number];
@@ -73,3 +81,6 @@ In TypeScript, each member is `public` by default.
 
 `abstract`关键字用于定义抽象类和其中的抽象方法。
 
+## Decorator
+
+装饰器的本质是函数。
