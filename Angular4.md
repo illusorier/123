@@ -1,5 +1,9 @@
 Angular is a framework for building client applications in HTML and either JavaScript or a language like TypeScript that compiles to JavaScript.
 
+在Ng4的开发中, Angular CLI占据了什么样的位置？
+
+The Angular CLI is a *command line interface* tool that can create a project, add files, and perform a variety of ongoing development tasks such as testing, bundling, and development.
+
 Then you launch the app by *bootstrapping* the *root module*.
 
 > Decorators are functions that modify JavaScript classes.
@@ -16,25 +20,41 @@ Every Angular app has at least one NgModule class, the root module, conventional
 
 While the root module may be the only module in a small application, most apps have many more *feature modules*, each a cohesive block of code dedicated to an application domain.
 
+从文件目录结构的角度去理解ng4：
+
+有一个`app.module.ts`文件，包含了该项目的根模块。
+
+Every Angular app has a *root module* class.
+
+You bootstrap that module to launch the application.
+
+By convention, the *root module* class is called `AppModule` and it exists in a file named `app.module.ts`.
+
 An NgModule, whether a root or feature, is a class with `@NgModule` decorator.
 
 `NgModule` is a decorator function that takes a single metadata object whose properties describe the module.
 
-Every Angular app has a *root module* class.
+The most important properties are:
 
-By convention, the *root module* class is called `AppModule` and it exists in a file named `app.module.ts`.
+- `declarations` - the *view classes* that belong to this module. Angular has three kinds of view classes
+
 
         import { Ngmodule } from '@angular/core';
         import { BrowserModule } from '@angular/platform-browser'
-        
+        import { AppComponent } from './app.component'
         
         @NgModule({
+            declarations: [ AppComponent ],
+            bootstrap: [ AppComponent ]
+        })
         
 The `@NgModule.bootstrap` property identifies this `AppComponent` as the *bootstrap component*
 
 You launch the application by bootstrapping the `AppModule` in the `main.ts` file.
 
-Angular offers a variety of bootstrapping options targeting multiple platform.       
+Angular offers a variety of bootstrapping options targeting multiple platform.
+
+Every component must be declared in one - and only one - NgModule.       
 
 ## Angular libraries
 
@@ -86,3 +106,13 @@ If you ran the app now, Angular would not recognize the `highlight` attribute an
 You must declare the directive in `AppModule`
 
 `@Directive` requires a CSS selector to identify the HTML in the template that is associated with the directive.
+
+## Service
+
+> The naming convention for service files is the service name in lowercase followed by `.service`.
+
+You could get the data from anywhere - a web service, local storage, or a mock data source.
+
+The `@Injectable()` decorator tells TypeScript to emit metadata about the service.
+
+The metadata specifies that Angular may need to inject other dependencies into this service.
