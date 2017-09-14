@@ -1,3 +1,17 @@
+在例如Angular和Vue这样的框架当中，我们依然需要
+
+什么是XML?
+
+什么是JSX？
+
+In computing, **Extensible Markup Language(XML)** is a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable through use of tags that can be created and defined by users.
+
+JSX is a XML-like syntax extension to ECMAScript without 
+
+JSX和JQuery中的`.before()`,`.after()`对比, cheap。
+
+##### Using JSX to express UI components
+    
     const element = <h1>Hello, world!</h1>;
     
 This funny tag syntax is neither a string nor HTML.
@@ -7,6 +21,8 @@ It is called JSX, and it is a syntax extension to JavaScript.
 We recommend using it with React to describe what the UI should look like.
 
 JSX produces React "elements", which will be rendered to the DOM.
+
+##### Embedding Expressions in JSX
 
 You can embed any JavaScript expression in JSX by wrapping it in **curly braces**.
 
@@ -24,20 +40,76 @@ You can embed any JavaScript expression in JSX by wrapping it in **curly braces*
         Hello, {formatName(user)}!
       </h1>
     };
+    
+    ReactDOM.render(
+      element,
+      document.getElementById('root')
+    };
 
 We split JSX over multiple lines for readability.
 
-We also recommend wrapping JSX in parentheses.
+We also recommend wrapping JSX in parentheses to avoid the pitfalls of automatic semicolon insertion.
 
 It is a JavaScript XML syntax transform which lets you write HTML-ish tags in your javascript.
 
-After compilation,JSX expressions become regular JavaScript objects.
+##### JSX is an Expression Too
 
-This means
+After compilation, JSX expressions become regular JavaScript objects.
+
+This means that you can use JSX inside of `if` statement and `for` loops, assign it to variables, accept it as arguments, and return it from functions:
+
+    function getGreeting(user) {
+      if (user) {
+        return <h1>Hello, {formatName(user)}!</h1>;
+      }
+      return <h1>Hello, Stranger.</h1>;
+    }
+    
+##### Specifying Attributes with JSX
+
+You may use quotes to specify string literals as attributes:
+
+    const element = <div tabIndex="0"></div>;
+    
+You may also use curly braces to embed a JavaScript expression in an attribute:
+
+    const element = <img src={user.avatarUrl}></img>;
+    
+You should either use quotes (for string values) or curly braces (for expressions), but not both in the same attribute.
+
+##### JSX Represents Objects
+
+Babel compiles JSX down to `React.createElement()` calls.
+
+`React.createElement()` performs a few checks to help you write bug-free code but essentially it creates an object like this:
+
+    const element = React.createElement(
+      type: 'h1',
+      props: {
+        className: 'greeting',
+        children: 'Hello, world!'
+      }
+    );
+    
+These objects are called "React elements".
+
+You can think of them as descriptions of what you want to see on the screen.
+
+React reads these objects and uses them to construct the DOM and keep it up to date.
+
+#### Rendering Elements
 
 Elements are the smallest building blocks of React apps.
 
+An element describes what you want to see on the screen:
 
+    const element = <h1>Hello, world</h1>;
+    
+Unlike browser DOM elements, React elements are plain objects, and are cheap to create.
+
+React DOM takes care of updating the DOM to match the React elements.
+
+##### Rendering an Element into the DOM
 
     <div id="root"></div>
     
