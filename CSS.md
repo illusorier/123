@@ -99,6 +99,19 @@ http://www.zhangxinxu.com/wordpress/2009/11/%E6%88%91%E7%86%9F%E7%9F%A5%E7%9A%84
 
 ##### 问题7：如何实现比例固定图片自适应布局？
 
+在默认的水平文档流方向下，CSS `margin` 和 `padding`属性的垂直方向的百分比值都是相对于containing block的宽度计算的，这个和`top`, `bottom`等属性的百分比值不一样
+
+The `padding` CSS property sets the padding area on all four sides of an element.
+
+It is a shorthand that sets all individual `paddings` at once.
+
+`padding`是`padding-left`, `padding-right`, `padding-bottom`, and `padding-left`的简写。
+
+        /* top | horizontal | bottom */
+        padding: 1em 2em 2em;
+
+对于绝大多数的布局，我们并不要求比例固定，但是有一种情况例外，那就是图片。
+
 ##### 问题8：居中问题
 
 居中问题分为这么几类，垂直居中、水平居中和垂直水平都居中。
@@ -170,3 +183,23 @@ The size of the image can be fully constrained or only partially in order to pre
 In addition to the default value(`auto`), there are two keywords you can use with `background-size`: `cover` and `contain`.  
 
 `contain`和`cover`都会保持图片原有的宽高比。
+
+##### 问题10：Pure Css如何实现标签页的切换效果？
+
+
+A block formatting context is created by one of the following:
+
+- the root element or something that contains it
+
+- floats (elements where `float` is not `none`)
+
+- absolutely positioned elements
+
+Though any of the above mentioned conditions can create a block formatting context, there will also be some other effects.
+
+> 
+
+#### Using a Block Formatting Context to Contain Floats
+
+
+##### resize

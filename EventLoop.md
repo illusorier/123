@@ -1,10 +1,30 @@
-In computer programming, **event-driven programming** is a programming paradigm in which the flow of 
+事件驱动编程
+
+In computer programming, **event-driven programming** is a programming paradigm in which the **flow of the program** is determined by events such as user actions ....
+
+JavaScript has a concurrency modal based on an "event loop".
+
+##### Stack
+
+Function calls form a stack of *frames*.
+
+##### Queue
+
+A JavaScript runtime contains a message queue, which is a list of messages to be processed.
+
+A function is associated with each message.
 
 You browser is one big infinite loop.
 
     while (queue.waitForMessage()) {
       queue.processNextMessage();
     }
+
+`queue.waitForMessage` waits synchronously for a message to arrive if there is none currently.
+
+##### Adding messages
+
+In  web browsers, messages are added anytime an event occurs and there is 
 
 It's waiting for you to do things all the time and, when you do, it fires off "Events" to describe what you just did.
 
@@ -37,3 +57,10 @@ This means that when an asynchronous event occurs (like )
 [示例][1]
 
 [1]:https://jsfiddle.net/op3Lmkga/
+
+#### Microtasks and Macrotasks
+
+It turns out that not all tasks are created the same.
+
+There are macrotasks and microtasks.
+
