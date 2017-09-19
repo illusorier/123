@@ -10,4 +10,10 @@ The best way to manage locally installed npm packages is to create a **package.j
 
 A **package.json** file affords you a lot of great things:
 
+##### npm-uninstall
+
+This uninstalls a package, completely removing everything npm installed on its behalf.
+
 1. It serves as documentation for what packages
+
+For the past couple of years, the npm ecosystem has been moving more and more towards installing tools 

@@ -1,0 +1,1 @@
+A **factory function** is any function which is not a class or constructor that returns a object
