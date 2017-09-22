@@ -118,6 +118,8 @@ DI
 
 ### Directives
 
+ng-show/ng-hide和ng-if的差异？
+
 不管是directives还是components，它们的作用都是将项目代码中重复部分提取出来，抽象成一个新的概念。
 
 Similar to the terminology used when an element matches a selector, we say an element **matches** a directive。
@@ -167,3 +169,8 @@ In AngularJS applications, you move the job of filling page templates with data 
 `$digest()`
 
 Processes all of the watchers of the current scope and its children.
+
+前端项目常见需求
+
+1：用Ajax通过API获取数据，渲染到一个table中，然后提供修改、新增、删除的功能。
+
