@@ -172,5 +172,7 @@ Processes all of the watchers of the current scope and its children.
 
 前端项目常见需求
 
-1：用Ajax通过API获取数据，渲染到一个table中，然后提供修改、新增、删除的功能。
+1：登陆系统，输入用户名密码，发起请求，获取token，存储在localstorage中，设置expire，当在app中一旦遇到401的错误，就自动登出，返回登陆页面。
+
+2：用Ajax通过API获取数据，渲染到一个table中，然后提供修改、新增、删除的功能。
 
