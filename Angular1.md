@@ -34,7 +34,7 @@ AngularJS lets you extend HTML vocabulary for your application.
 
 在ng1中，directives和components的区别是什么？
 
-据我了解，在ng1中，components这个概念是在后期版本中引入的，因此这两个概念的功能本身就有重叠的部分。
+据我了解，在ng1中，components这个概念是在后期版本 (1.5.x) 中引入的，因此这两个概念的功能本身就有重叠的部分。
 
 ##### ngApp
 
@@ -96,6 +96,10 @@ Scopes provides APIs ($watch) to observe model mutations.
 
 Scope
 
+##### Integration with the browser event loop
+
+1. The browser's event-loop waits for an event to arrive.
+
 ### Dependency Injection
 
 在ng1的文档中，components这个概念有两个含义，一个是
@@ -121,6 +125,8 @@ DI
 ng-show/ng-hide和ng-if的差异？
 
 不管是directives还是components，它们的作用都是将项目代码中重复部分提取出来，抽象成一个新的概念。
+
+At a high level, directives are markers on a DOM element (such as an attribute, element name or CSS class)
 
 Similar to the terminology used when an element matches a selector, we say an element **matches** a directive。
 
@@ -158,6 +164,9 @@ Compiler is an AngularJS service which traverses the DOM looking for attributes.
 
 The compilation process happens in two phases: 
 
+1. `$compile` traverses the DOM and matches directives. (遍历、性能)
+
+2.
 
 
 A directive is just a function which executes 
@@ -169,6 +178,30 @@ In AngularJS applications, you move the job of filling page templates with data 
 `$digest()`
 
 Processes all of the watchers of the current scope and its children.
+
+### Bootstrap
+
+AngularJS initialization process and manually initialize AngularJS.
+
+AngularJS initializes automatically的时间点。
+
+
+
+ng1的深入理解:
+
+理解ng1的角度：
+
+How data-binding works?
+
+There is a lot of vocabulary around this: `$watch`, `$apply`, 
+
+Angular extends this
+
+##### The $watch list
+
+Every time you bind something in the UI you insert a `$watch` in a `$watch list`.
+
+##### When angular 
 
 前端项目常见需求
 
