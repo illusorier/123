@@ -191,17 +191,41 @@ ng1的深入理解:
 
 理解ng1的角度：
 
-How data-binding works?
+#### How data-binding works?
 
-There is a lot of vocabulary around this: `$watch`, `$apply`, 
+There is a lot of vocabulary around this: `$watch`, `$apply`, `$digest`, `$dirty-checking`.
 
-Angular extends this
+浏览器和Angular更新DOM的机制: callback代码执行完后再更新DOM。
+
+Our browser is waiting for events, for example the user interactions.
+
+If you click on a button or write into an input, the event's callback will run inside JavaScript and there you can do any DOM manipulation, so when the callback is done, the browser will make the appropriate change in the DOM
+
+Angular extends this events-loop creating something called `angular context`.  
+
+Watches are not called periodically based on a timer.
 
 ##### The $watch list
 
 Every time you bind something in the UI you insert a `$watch` in a `$watch list`.
 
+##### $digest loop
+
+When the browser receives an event that can be managed by the `angular context`, the `$digest` loop will be fired. This loop is made from two smaller loops. One processes the `$evalAsync` queue and the other one processes the `$watch` list.
+
+When the `$digest loop` finishes, the DOM makes the changes.
+
 ##### When angular 
+
+Sometimes, in an AngularJS application, you have to explicitly tell AngularJS when to initiate it's $digest lifecycle (for dirty-data checking) 
+
+#### 'this' vs $scope in AngularJS controller
+
+- `this`: When the controller constructor function is called, `this` is the controller.
+
+- `$scope`: Every controller has an associated `$scope` object. A controller (constructor) function is responsible for setting model properties and functions/behaviour on its associated `$scope`.
+
+#### Kill $scope - Replace it with controllerAs
 
 前端项目常见需求
 
@@ -209,3 +233,6 @@ Every time you bind something in the UI you insert a `$watch` in a `$watch list`
 
 2：用Ajax通过API获取数据，渲染到一个table中，然后提供修改、新增、删除的功能。
 
+3：表单输入错误和提交时未填写完整的提示。
+
+4：table中数据的懒加载。
