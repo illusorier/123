@@ -140,11 +140,15 @@ On entering the execution context(but before the code execution), VO is filled w
 
 # This value
 
+`this`是JavaScript中十分令人困惑的概念，因为在不同的环境下，它指向的值是不一样的。
+
 One of the most confused mechanisms in JavaScript is the `this` keyword.
 
 It's a special identifier keyword that's automatically defined in the scope of every function.
 
 If the `this` mechanism is so confusing,even to seasoned JavaScript developers, one may wonder why it's even useful?
+
+我们为什么需要`this`：
 
 The motivation and utility of `this`:
 
@@ -183,6 +187,8 @@ The more complex your usage pattern is, the more clearly you'll see that passing
 We must inspect the call-site (the location in code where a function is called) to answer the question:what's this `this` a reference to?
 
 #### Default Binding
+
+默认情况下，`this`指向全局对象
 
 `this` points to the global object.
 

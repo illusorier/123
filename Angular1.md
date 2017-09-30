@@ -20,6 +20,10 @@ angular-phonecat这个项目中并没有使用任何构建工具。
 
 而用generator-gulp-angular生成的目录结构更适合实际项目，它使用了gulp作为构建工具。
 
+在远古angular开发中，我们甚至会看到这样的代码，哈哈哈。
+
+        <script src="bower_components/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js"></script>
+
 我们为什么需要前端路由？
 
 在ng1中我们有angular-ui-router, 在vue中有vue-router.
@@ -132,9 +136,23 @@ Similar to the terminology used when an element matches a selector, we say an el
 
 `$compile` can match 
 
+During the compilation process the compiler matches text and attributes using the `$interpolate` 
+
 Let's talk about the **API for registering directives**.
 
 Much like controllers, directives are registered on modules.
+
+While creating directives, AngularJS allows you to create an `isolated scope` with some custom bindings to the parent scope.
+
+These bindings are specified by the attribute defined in `HTML` and the definition of the `scope` property in the directive definition object.
+
+There are 3 types of binding options
+
+### Components
+
+#### differences from directive
+
+The `return {};` statement inside the `.directive()` becomes the Object definition inside `.component()`
 
 ##### Creating a Directive that Manipulates the DOM
 
@@ -166,8 +184,9 @@ The compilation process happens in two phases:
 
 1. `$compile` traverses the DOM and matches directives. (遍历、性能)
 
-2.
+2.  Once all directives matching a DOM element have been 
 
+3. `$compile` links the template 
 
 A directive is just a function which executes 
 
@@ -214,6 +233,16 @@ Every time you bind something in the UI you insert a `$watch` in a `$watch list`
 When the browser receives an event that can be managed by the `angular context`, the `$digest` loop will be fired. This loop is made from two smaller loops. One processes the `$evalAsync` queue and the other one processes the `$watch` list.
 
 When the `$digest loop` finishes, the DOM makes the changes.
+
+#### $parse
+
+Advanced Angular
+
+If you want to step up in your AngularJS knowledge, $parse is one of the most important services that you should know about.
+
+Converts Angular expression into a function.
+
+`$parse` takes an expression, and returns you a function.
 
 ##### When angular 
 
