@@ -148,6 +148,10 @@ These bindings are specified by the attribute defined in `HTML` and the definiti
 
 There are 3 types of binding options
 
+There are a few special events that AngularJS emits.
+
+When a DOM node that has been compiled with Angular's compiler is destroyed, it emits a $destroy event.
+
 ### Components
 
 #### differences from directive
