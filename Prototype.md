@@ -1,17 +1,22 @@
 ## Prototype
 
-Every object has a prototype(exceptions can be with some system objects).Communication with a prototype is organized via the internal,implicit and inaccessible directly `[[Prototype]]` property.A prototype can be either an object,or the
+Every object has a prototype (exceptions can be with some system objects).
+
+Communication with a prototype is organized via the internal, implicit and inaccessible directly `[[Prototype]]` property.A prototype can be either an object,or the
  `null` value.
  
- `Constructor` property is set to function's `prototype` property at function creation.The value of this property is the circular reference to the function itself.
+`Constructor` property is set to function's `prototype` property at function creation.The value of this property is the circular reference to the function itself.
  
  The `constructor` belongs to a prototype and is accessible to object via inheritance.
  
- Via the inherited `constructor` property instances can indirectly get the reference to the prototype object.
+Via the inherited `constructor` property instances can indirectly get the reference to the prototype object.
  
- If we add new or modify existing property 
+If we add new or modify existing property 
  
- #### Object is independent from its constructor
+#### Non-standard `_proto_` property
+
+ 
+#### Object is independent from its constructor
  
  
 

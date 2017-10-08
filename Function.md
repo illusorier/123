@@ -1,3 +1,9 @@
+ECMAScript函数的参数与大多数其他语言中函数的参数有所不同。
+
+ECMAScript函数不介意传递进来多少个参数，
+
+ECMAScript中的参数在内部是用一个数组来表示的
+
 ## Types of functions
 
 In ECMAScript there are three function types and each of them has its own features.

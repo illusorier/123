@@ -1,3 +1,9 @@
+一个大的议题就是如何学习和理解一个编程语言。
+
+一些常见的building block，比如变量、常量、值、类型、函数、运算符、语句、数据结构等等。
+
+比如面向对象语言都会共有的一些概念，类，继承等等。
+
 ## JavaScript的类型
 
 本文的绝大多数英文内容摘选自《You Don't know JS》 一书的电子版(https://github.com/getify/You-Dont-Know-JS)
