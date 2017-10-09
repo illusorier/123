@@ -1,9 +1,14 @@
+# ECMAScript中的面向对象
+
+ECMAScript也是一个面向对象的语言，但它的实现方式与C、Java这样的语言十分不同。
+
 ## Prototype
 
 Every object has a prototype (exceptions can be with some system objects).
 
-Communication with a prototype is organized via the internal, implicit and inaccessible directly `[[Prototype]]` property.A prototype can be either an object,or the
- `null` value.
+Communication with a prototype is organized via the internal, implicit and inaccessible directly `[[Prototype]]` property.
+
+A prototype can be either an object, or the `null` value.
  
 `Constructor` property is set to function's `prototype` property at function creation.The value of this property is the circular reference to the function itself.
  
@@ -36,23 +41,36 @@ If we add new or modify existing property
 
 #### 原型模式
 
-我们创建的每个函数都有一个prototype(原型)属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。
+看完下面的内容，你应该能回答这个问题：对象和函数中的哪些属性是与原型的实现相关的（包括内部属性和浏览器提供的特殊属性）？
+
+我们创建的每个函数都有一个`prototype属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。
 
     function Person(){}
+    
     Person.prototype.name = "Nicholas";
     Person.prototype.sayName = function() {
       alert(this.name);
     };
     
-在默认情况下，所有原型对象都会自动获得一个constructor属性，这个属性包含一个指向prototype属性所在函数的指针。
+在默认情况下，所有原型对象都会自动获得一个`constructor`属性，这个属性包含一个指向prototype属性所在函数的指针。
 
-当调用构造函数创建了一个新实例后，该实例的内部将包含一个指针（内部属性），指向构造函数的原型对象。ECMA-262-5中管这个指针叫[[Prototype]]。
+当调用构造函数创建了一个新实例后，该实例的内部将包含一个指针（内部属性），指向构造函数的原型对象。ECMA-262-5中管这个指针叫[Prototype]]。
 
-虽然在脚本中没有标准的方式访问[[Prototype]]，但Firefox,Safari和Chrome在每个对象上都支持一个属性__proto__。
+虽然在脚本中没有标准的方式访问[[Prototype]]，但Firefox, Safari和Chrome在每个对象上都支持一个属性`__proto__`。
+        
+        function Person(){}
+        
+        let p = new Person();
+        
+        console.log(Person.prototype === p.__proto__); // true
+        
+        console.log(Person.prototype.__proto__);
 
 要明确的一点是，这个连接存在于实例与构造函数的原型对象之间，而非与构造函数。
 
-ECMAScript5增加了一个新方法，叫Object.getPrototypeOf(),这个方法返回[[Prototype]]的值。
+还要注意的一点是，原型对象也是一个普通对象，它也有`__proto__`属性。
+
+ECMAScript5增加了一个新方法，叫`Object.getPrototypeOf()`,这个方法返回[[Prototype]]的值。
 
 虽然可以通过对象实例访问保存在原型中的值，但却不能通过对象实例重写原型中的值。如果我们在实例中添加了一个属性，而该属性与实例原型中的一个属性同名，该属性将会屏蔽原型中的那个属性。
 

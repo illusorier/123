@@ -1,16 +1,30 @@
-ECMAScript函数的参数与大多数其他语言中函数的参数有所不同。
+# ECMAScript中的函数
 
-ECMAScript函数不介意传递进来多少个参数，
+函数的基本概念：A **function** is a code snippet that can be called by other code or by itself.
 
-ECMAScript中的参数在内部是用一个数组来表示的
+When a function is called, arguments are passed to the function as input, and the function can optionally return an output.
 
-## Types of functions
+        function f() {}
+        
+        console.dir(f);
+        
+看完下面的内容，你应该能回答这个问题：这时候在控制台打印出来的是什么？
+
+### Different types of functions
+
+首先我们从函数的类型来理解。
 
 In ECMAScript there are three function types and each of them has its own features.
 
-How each type influences *variables object*
+除此之外，函数还有其他的一些分类方式：anonymous function, named function, inner function and outer function。
+
+How each type influences *variables object*.
 
 #### Function Declaration
+
+函数声明是我们最熟悉的一种创建函数的方式。
+    
+A Function Declaration (FD) is a function which:
 
 - has a required name;
 - position: either at the Program level or directly in the body of another function;
@@ -19,10 +33,46 @@ How each type influences *variables object*
 
 #### Function Expression
 
-- in the source code can only be 
+函数表达式对只学过一点C和Java的我来说是个全新的东西。
+
+A Function Expression (FE) is a function which:
+
+- in the source code can only be at the expression position;
 - can have an optional name;
 - it's definition has no effect on variable object;
+- and is created at the code execution stage;
 
+        var foo = function _foo() {
+            ...
+        };
+        
+What's important here to note 
+
+#### Functions created via Function constructor
+
+This type of function objects is discussed separately from FD and FE since 
+
+### Arguments
+
+接下来我们从参数的角度理解。
+
+ECMAScript函数的参数与大多数其他语言中函数的参数有所不同，不介意传递进来多少个参数，
+
+ECMAScript中的参数在内部是用一个数组来表示的接下来我们从参数的角度理解。
+
+### A Function is also an Object
+
+接下来我们从函数的对象性理解。
+
+函数内部有两个特殊的对象：`arguments`和`this`。
+
+### Algorithm of function creation
+
+        F = new NativeObject();
+        
+        F.[[Class]] = "Function"
+        
+        F.[[Construct]] = internalConstructor
 
 ## General theory
 
