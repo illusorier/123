@@ -218,6 +218,24 @@ Whatever facility we use to *transport* an inner function outside of its lexical
 
     for (
 
+下面这个例子结合了闭包、单线程和Event Loop相关知识：
+
+        function f() {
+        	function fInner() {}
+          
+        	setTimeout(function(){
+                 f1.a = 1;
+             },0);
+          
+             return fInner;
+        }
+        
+        var fReturned = f();
+        console.log(fReturned.a);
+        
+        setTimeout(function(){
+          	console.log(fReturned.a);
+        },0);
 
 ## 相关概念
 Function.caller - this property returns the function that invoked the specified function.
