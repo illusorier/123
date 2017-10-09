@@ -56,23 +56,52 @@ This type of function objects is discussed separately from FD and FE since
 
 接下来我们从参数的角度理解。
 
-ECMAScript函数的参数与大多数其他语言中函数的参数有所不同，不介意传递进来多少个参数，
+ECMAScript函数的参数与大多数其他语言中函数的参数有所不同，不介意传递进来多少个参数，也不在乎传进来的参数是什么类型。
 
-ECMAScript中的参数在内部是用一个数组来表示的接下来我们从参数的角度理解。
+    function howManyArgs() {
+      alert(arguments.length);
+    }
+    
+    howManyArgs("string", 45); // 2
+    howManyArgs(); // 0
+    howManyArgs(12); // 1
+     
+这个事实说明了ECMAScript函数的一个重要特点： 命名参数只提供便利，但不是必需的。
+
+其他语言可能需要事先创建一个函数签名，而将来的调用必需与该签名一致。
+
+ECMAScript中的参数在内部是用一个数组来表示的
 
 ### A Function is also an Object
 
 接下来我们从函数的对象性理解。
 
-函数内部有两个特殊的对象：`arguments`和`this`。
+在函数内部，有两个特殊的对象：`arguments`和`this`。
+
+ECMAScript 5也规范化了另一个函数对象的属性：caller。
+
+这个属性中保存着调用当前函数的函数的引用，如果是在全局作用域中调用当前函数，它的值为null。
+
+每个函数都包含两个非继承
 
 ### Algorithm of function creation
 
-        F = new NativeObject();
-        
-        F.[[Class]] = "Function"
-        
-        F.[[Construct]] = internalConstructor
+    F = new NativeObject();
+            
+    // property [[Class]] is "Function"
+    F.[[Class]] = "Function"
+    
+    F.[[Prototype]] = Function.prototype
+    
+    // reference to function itself
+    // [[Call]] is activated by call expression F()
+    F.[[Call]] = <reference to function>
+    
+    // and it is 
+    F.[[Construct]] = internalContructor
+    
+    _objectPrototype = new Object();
+    _objectPrototype.constructor = F
 
 ## General theory
 
@@ -135,26 +164,6 @@ A *free variable* is a variable which is used by a function, but is neither a pa
 ### Closure
 
 A *closure* is combination of a *code block* and *data* of 
-
-#### Algorithm of function creation
-
-    F = new NativeObject();
-    
-    // property [[Class]] is "Function"
-    F.[[Class]] = "Function"
-    
-    F.[[Prototype]] = Function.prototype
-    
-    // reference to function itself
-    // [[Call]] is activated by call expression F()
-    F.[[Call]] = <reference to function>
-    
-    // and it is 
-    F.[[Construct]] = internalContructor
-    
-    _objectPrototype = new Object();
-    _objectPrototype.constructor = F
-    
 
 
 ## Closure
