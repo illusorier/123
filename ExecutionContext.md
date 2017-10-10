@@ -1,12 +1,19 @@
-## Execution context 
+## Execution Contexts && Variable Object
 
 执行上下文是从JS引擎角度理解JS的一个出发点。
 
-执行上下文、变量对象和作用域这几个概念都是紧密相关的。
+背景：
 
-执行上下文们本身是一个栈。
+Always in programs we declare functions and variables which then successfully use building our systems.
 
-如何理解执行上下文？
+But how and where the interpreter finds our data (functions, variable)?
+
+What occurs, when we reference to needed objects?
+
+Variables are closely related with execution context.
+
+从数据结构的角度理解，执行上下文们本身是一个栈。
+
 
 从JS引擎执行代码的过程来看，可执行的代码可以被分为两类:全局代码和函数代码，分别对应
 
@@ -46,11 +53,9 @@ It is necessary to notice that the code of concrete function dose not include co
 
 ## Variable Object
 
-Always in programs we declare functions and variables which then successfully use building our systems.
 
-But how and where the interpreter finds our data?
 
-They are closely related with execution context.
+
 
 If variables are related with the execution context,it should know where its data are stored and how to get them
 

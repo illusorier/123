@@ -82,7 +82,7 @@ ECMAScript 5也规范化了另一个函数对象的属性：caller。
 
 这个属性中保存着调用当前函数的函数的引用，如果是在全局作用域中调用当前函数，它的值为null。
 
-每个函数都包含两个非继承
+每个函数都包含两个非继承的方法：`apply`和`call`。
 
 ### Algorithm of function creation
 
@@ -103,11 +103,15 @@ ECMAScript 5也规范化了另一个函数对象的属性：caller。
     _objectPrototype = new Object();
     _objectPrototype.constructor = F
 
-## General theory
+## Closure
+
+### General theory
+
+函数式编程
 
 Before the discussion of closures directly in ECMAScript, it is necessary to specify a number of definitions from the general theory of **functional programming**.
 
-As is known, in functional languages (and ECMAScript supports this paradigm and stylistics), functions are data,
+As is known, in functional languages (and ECMAScript supports this paradigm and stylistics), functions are data, they can be **assigned** to **variables**, passed as **arguments** to other functions, **returned** from functions.
 
 ### Definitions
 
@@ -123,13 +127,15 @@ A functional argument("Funarg") - is an argument which value is a function.
     
 The actual parameter related with "funArg" in this case is the anonymous function passed to the `exampleFunc` function.
 
+高序函数
+
 In turn, the function which receives another function as the argument is called a **higher-order function (HOF)**.
 
 A function can also be returned as a value from another function.
 
 The functions which return other functions are called *functions with functional value*.
 
-Functions which can participate as
+Functions which can participate as normal data, be passed as arguments, receive functional arguments or be returned as functional value, are called *first-class* functions.
 
 In ECMAScript all functions are first-class.
 
@@ -163,7 +169,9 @@ A *free variable* is a variable which is used by a function, but is neither a pa
 
 ### Closure
 
-A *closure* is combination of a *code block* and *data* of 
+A *closure* is combination of a *code block* and *data* of a context in which this code block is created.
+
+
 
 
 ## Closure

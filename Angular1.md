@@ -186,6 +186,8 @@ Compiler is an AngularJS service which traverses the DOM looking for attributes.
 
 The compilation process happens in two phases: 
 
+1. **Compile**:
+
 1. `$compile` traverses the DOM and matches directives. (遍历、性能)
 
 2.  Once all directives matching a DOM element have been 
@@ -237,6 +239,14 @@ Every time you bind something in the UI you insert a `$watch` in a `$watch list`
 When the browser receives an event that can be managed by the `angular context`, the `$digest` loop will be fired. This loop is made from two smaller loops. One processes the `$evalAsync` queue and the other one processes the `$watch` list.
 
 When the `$digest loop` finishes, the DOM makes the changes.
+
+##### When angular does not use $apply for us
+
+ #### Compile vs Link
+ 
+ ![](./assets/angular-compile.png)
+ 
+  ![](./assets/angular-link.png)
 
 #### $parse
 
