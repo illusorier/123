@@ -244,6 +244,10 @@ When the `$digest loop` finishes, the DOM makes the changes.
 
  #### Compile vs Link
  
+ ##### The compile phase
+ 
+ When the DOM is loaded Angular starts the compile phase, 
+ 
  ![](./assets/angular-compile.png)
  
   ![](./assets/angular-link.png)
