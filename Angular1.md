@@ -122,6 +122,12 @@ DI
 
 #### Dependency Annotation
 
+### Interpolation
+
+Interpolation markup with embedded expressions is used by AngularJS to provide data-binding to text nodes and attribute values.
+
+        <a ng-href="img/{{username}}.jpg">Hello {{username}}!</a>
+        
 
 
 ### Directives
@@ -135,8 +141,6 @@ At a high level, directives are markers on a DOM element (such as an attribute, 
 Similar to the terminology used when an element matches a selector, we say an element **matches** a directive。
 
 `$compile` can match 
-
-During the compilation process the compiler matches text and attributes using the `$interpolate` 
 
 Let's talk about the **API for registering directives**.
 
@@ -212,23 +216,23 @@ AngularJS initializes automatically的时间点。
 
 
 
-ng1的深入理解:
+## Advanced AngularJS
 
-理解ng1的角度：
-
-#### How data-binding works?
+看完以下部分，应当能回答这个问题：How data-binding works in AngularJS?
 
 There is a lot of vocabulary around this: `$watch`, `$apply`, `$digest`, `$dirty-checking`.
 
-浏览器和Angular更新DOM的机制: callback代码执行完后再更新DOM。
+浏览器和Angular中DOM和视图更新的先后顺序: callback代码执行完后再更新DOM。
 
 Our browser is waiting for events, for example the user interactions.
 
-If you click on a button or write into an input, the event's callback will run inside JavaScript and there you can do any DOM manipulation, so when the callback is done, the browser will make the appropriate change in the DOM
+If you click on a button or write into an input, the event's callback will run inside JavaScript and there you can do any DOM manipulation, so when the callback is done, the browser will make the appropriate change in the DOM.
 
 Angular extends this events-loop creating something called `angular context`.  
 
-Watches are not called periodically based on a timer.
+Angular扩展了浏览器本身的event loop。
+
+> Watches are not called periodically based on a timer.
 
 ##### The $watch list
 
@@ -239,6 +243,12 @@ Every time you bind something in the UI you insert a `$watch` in a `$watch list`
 When the browser receives an event that can be managed by the `angular context`, the `$digest` loop will be fired. This loop is made from two smaller loops. One processes the `$evalAsync` queue and the other one processes the `$watch` list.
 
 When the `$digest loop` finishes, the DOM makes the changes.
+
+> If you want to be notified whenever $digest is called, you can register a watchExpression function with no listener.
+
+        $rootScope.$watch(function() {
+          console.log('digest!');
+        }); 
 
 ##### When angular does not use $apply for us
 
@@ -262,9 +272,13 @@ Converts Angular expression into a function.
 
 `$parse` takes an expression, and returns you a function.
 
-##### When angular 
+##### $scope.$evalAsync() vs $timeout()
 
-Sometimes, in an AngularJS application, you have to explicitly tell AngularJS when to initiate it's $digest lifecycle (for dirty-data checking) 
+Sometimes, in an AngularJS application, you have to explicitly tell AngularJS when to initiate it's $digest lifecycle (for dirty-data checking).
+
+Most of time, this can be easily accomplished with the $scope.$apply method.
+
+However, some of the time, you have to defer the $apply() invocation because it may or may not conflict with an already-running $digest phase.
 
 #### 'this' vs $scope in AngularJS controller
 

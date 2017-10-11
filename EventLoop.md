@@ -1,3 +1,11 @@
+JavaScript是单线程的，也就是说，同一时间只能做一件事。
+
+问题来了，为什么JavaScript不设计成多线程的呢？
+
+这与它的用途有关，作为浏览器的脚本语言，JS的主要用途是与用户交互，更新DOM，发起请求等等。
+
+但要注意的一点是，浏览器并不是单线程的！
+
 事件驱动编程
 
 In computer programming, **event-driven programming** is a programming paradigm in which the **flow of the program** is determined by events such as user actions ....

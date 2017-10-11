@@ -12,12 +12,16 @@ Webkit is an open source rendering engine
 
 The rendering engine 
 
- ![](./assets/browser-flow.png)
+![](./assets/browser-flow.png)
  
-  ![](./assets/browser-webkitflow.png)
+![](./assets/browser-webkitflow.png)
  
- ### Reflows and Repaints
+### Reflows and Repaints
  
-  用脚本进行DOM操作的代价很昂贵。
+ 用脚本进行DOM操作的代价很昂贵。
   
-  有个贴切的比喻，把DOM和ECMAScript各自想象为一个岛屿，它们之间用收费桥粱连接，ECMAScript每次访问DOM，都要途径这座桥，并交纳“过桥费”。
+有个贴切的比喻，把DOM和ECMAScript各自想象为一个岛屿，它们之间用收费桥粱连接，ECMAScript每次访问DOM，都要途径这座桥，并交纳“过桥费”。
+
+console.time()
+
+console.timeEnd()
