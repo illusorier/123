@@ -14,8 +14,12 @@ The `path.resolve()` method resolves a sequence of
 
 The given sequence of paths is processes from right to left, with each subsequent `path` prepended until an absolute
 
+## Process
+
+The `process` object is an instance of EventEmitter.
+
 ## Net
 
-The `net` module provides an asynchronous 
+The `net` module provides an asynchronous network API
 
 ##### net.createServer

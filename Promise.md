@@ -1,4 +1,4 @@
-    // ajax(..) is some arbitrart Ajax function given by a library.
+    // ajax(..) is some arbitrary Ajax function given by a library.
     var data = ajax( url );
     
     console.log( data );
