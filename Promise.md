@@ -1,22 +1,52 @@
-    // ajax(..) is some arbitrary Ajax function given by a library.
-    var data = ajax( url );
-    
-    console.log( data );
-    
-The simplest (but definitely not only, or )
-    
-You may have heard that it's possible to make synchronous Ajax requests.
+One of the most important and yet often misunderstood parts of programming in a language like JavaScript is how to express and manipulate program behavior spread out over a period of time.
 
-While that's technically true, you should never, ever do it, under any circumstances, because it locks the browser UI and prevents any user interaction.
+JS异步问题来源于JS的单线程特性和Event Loop机制。
+    
+        // ajax(..) is some arbitrary Ajax function given by a library.
+        
+        var data = ajax(url);
+        console.log(data);
+        
+在ES6之前，对于异步问题，ECMAScript原生提供的解决方案就是callback。
+    
+The simplest (but definitely not only, or necessarily event best!) way of "waiting" from now until later is to use a function, commonly called a callback function:
+    
+        // ajax(..) is some arbitrary Ajax function given by a library.
+        
+        ajax(url, function myCallbackFunction(data){
+            console.log(data);
+        });
 
 ## Event Loop
 
-    // `eventLoop` is an array that acts as a queue (first-in, first out)
-    var eventLoop = [ ];
+What is the *event loop*?
 
-It's important to note that `setTimeout(..)` doesn't put your callback on the event loop.
+Let's conceptualize it first through some fake-ish code:
 
-What it does is set up a timer; when the timer expires, the environment places your callback into the event loop,
+        // `eventLoop` is an array that acts as a queue (first-in, first out)
+        var eventLoop = [ ];
+        var event;
+        
+        // keep going "forever"
+        while(true) {
+            // perform a "tick"
+            if (eventLoop.length > 0) {
+                // get the next event in the queue
+                event = eventLoop.shift();
+        
+                // now, execute the next event
+                try {
+                    event();
+                }
+                catch (err) {
+                    reportError(err);
+                }
+            }
+        }
+        
+As you can see, there's continuously running loop represented by the `while` loop, and each iteration of this loop is called a "**tick**"
+
+> It's important to note that `setTimeout(..)` doesn't put your callback on the event loop. What it does is set up a timer; when the timer expires, the environment places your callback into the event loop,
 
 ## Parallel Threading
 
@@ -62,9 +92,9 @@ A
 
 To construct a promise instance,use the `Promise(..)` constructor:
 
-    var p = new Promise( function pr(resolve,reject){
-      // ..
-    });
+        var p = new Promise( function pr(resolve,reject){
+          // ..
+        });
     
 The `Promise(..)` constructor takes a single function `(pr(..))`,which is called immediately and receives two control functions as arguments,usually named `resolve(..)` and `reject(..)`.
 
@@ -74,18 +104,18 @@ The `Promise(..)` constructor takes a single function `(pr(..))`,which is called
 
 Here's how you'd typically use a promise to refactor
 
-    funcrion ajax(url,cb) {
-      // make request,eventually call `cb(..)`
-    }
-    
-    ajax( "http://some.url.1",function handeler(err,contents){
-      if (err) {
-        // handle ajax error
-      }
-      else {
-        //  handle `contents` success
-      }
-    } );
+        funcrion ajax(url,cb) {
+          // make request,eventually call `cb(..)`
+        }
+        
+        ajax( "http://some.url.1",function handeler(err,contents){
+          if (err) {
+            // handle ajax error
+          }
+          else {
+            //  handle `contents` success
+          }
+        } );
     
 上面这段代码是不用Promise的典型API写法，该API有两个参数，一个url和一个callback。
   
