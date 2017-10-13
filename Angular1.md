@@ -280,6 +280,14 @@ Most of time, this can be easily accomplished with the $scope.$apply method.
 
 However, some of the time, you have to defer the $apply() invocation because it may or may not conflict with an already-running $digest phase.
 
+But, the $scope.$evalAsync() is likely to execute in the same tick of the JavaScript event loop.
+
+        angular
+            .module('demo', [])
+            .directive('demoDirective', function() {
+            
+            
+
 #### 'this' vs $scope in AngularJS controller
 
 - `this`: When the controller constructor function is called, `this` is the controller.
