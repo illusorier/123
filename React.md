@@ -1,4 +1,4 @@
-在例如Angular和Vue这样的框架当中，我们依然需要
+在例如Angular和Vue这样的框架当中，我们依然需要书写HTML，
 
 什么是XML?
 
@@ -9,6 +9,10 @@ In computing, **Extensible Markup Language(XML)** is a markup language that defi
 JSX is a XML-like syntax extension to ECMAScript without 
 
 JSX和JQuery中的`.before()`,`.after()`对比, cheap。
+
+## Installation
+
+While 
 
 ##### Using JSX to express UI components
     

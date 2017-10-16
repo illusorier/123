@@ -14,6 +14,12 @@ IE的事件流叫事件冒泡(event bubbling)，即事件开始时由最具体�
 
 某个元素支持的每种事件，都可以使用一个与相应事件处理程序同名的
 
+## EventTarget
+
+`EventTarget` is an interface implemented by objects that can receive events and may have listeners for them.
+
+`Element`, `document`, and `window` are the most common event targets, but 
+
 #### MouseEvent
 
 The **MouseEvent** interface represents events that occur due to the user interacting with a pointing device (such as a mouse).
@@ -27,3 +33,12 @@ MouseEvent derives from UIEvent, which in turn derives from Event.
 ##### transitionstart
 
 A CSS transition has actually started.
+
+## Event Order
+
+#### W3C model
+
+W3C has very sensibly decided to take a middle position in this struggle.
+
+Any event taking place in the W3C event model is first captured until it reaches the target element and then bubbles up again.
+

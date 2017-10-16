@@ -214,7 +214,13 @@ AngularJS initialization process and manually initialize AngularJS.
 
 AngularJS initializes automatically的时间点。
 
+##### $event
 
+Directives like `ngClick` and `ngFocus` expose a `$event` object within the scope of that expression.
+
+The object is an instance of a JQuery Event Object.
+
+        <button ng-click="clickMe($event)">Event</button>
 
 ## Advanced AngularJS
 
