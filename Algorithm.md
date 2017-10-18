@@ -38,35 +38,56 @@ Interestingly, many JavaScript libraries already had `includes` or similarly wor
 
 ##### Array.prototype.splice()
 
-The `splice()` method changes the contents of an array by removing 
+The `splice()` method changes the contents of an array by removing existing elements and/or adding new elements.
 
 `splice`方法的作用是在数组的某个位置删除若干个元素，同时可以插入若干个指定元素。
 
-
+demo code:
 
        originArr, oldIndex, newIndex
        
+       var item = originArr[oldIndex];
        
+       originArr.splice(oldIndex, 1);
+       originArr.splice(newIndex, 0 , item);
        
-        
-        
-
+   
 ##### Array.prototype.slice()
 
-The `slice()` method returns 
+The `slice()` method returns a shallow copy of a portion of an array into a new array object selected from `begin` to `end` (`end` not included).
 
-        var arr = ["Apple", "Banana", "Orange"];
+The original array will not be modified.
+
+demo code:
+
+        var a = ['zero', 'one', 'two', 'three'];
+        var sliced = a.slice(1, 3);
+        
+        console.log(a);      // ['zero', 'one', 'two', 'three']
+        console.log(sliced); // ['one', 'two']
         
         
-
 #### JavaScript Arrays are passed by reference
 
 Arrays are passed to functions by reference, or as a pointer to the original.
 
 This means anything you do to the Array inside the function affects the original.
 
-        var arr1 = ['hello']
+#### JavaScript Arrays are assigned by reference
+
+Assigning an Array to a new variable creates a pointer to the original Array.
+
+For instance:
+
+        var myArray = [ 'zero', 'one', 'two', 'three', 'four', 'five' ];
+        var newArray= myArray;
         
+        newArray[1] = 'changed';
+        console.log(myArray[1]); // Will output: changed
+        
+下面是个很有趣的例子：
+
+        var arr1 = ['hello']
         var arr2 = arr1;
         
         arr1 = ['world'];
