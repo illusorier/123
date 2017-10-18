@@ -33,3 +33,53 @@ Interestingly, many JavaScript libraries already had `includes` or similarly wor
 - jQuery: `$.inArray`
 
 - Lodash: `_.includes`
+
+问题7：如何将数组中某个元素移到某个新的位置？
+
+##### Array.prototype.splice()
+
+The `splice()` method changes the contents of an array by removing 
+
+`splice`方法的作用是在数组的某个位置删除若干个元素，同时可以插入若干个指定元素。
+
+
+
+       originArr, oldIndex, newIndex
+       
+       
+       
+        
+        
+
+##### Array.prototype.slice()
+
+The `slice()` method returns 
+
+        var arr = ["Apple", "Banana", "Orange"];
+        
+        
+
+#### JavaScript Arrays are passed by reference
+
+Arrays are passed to functions by reference, or as a pointer to the original.
+
+This means anything you do to the Array inside the function affects the original.
+
+        var arr1 = ['hello']
+        
+        var arr2 = arr1;
+        
+        arr1 = ['world'];
+        
+        console.log(arr2);
+        // ['hello']
+
+##### Create an Array 
+
+        var fruits = ['Apple', 'Banana'];
+
+##### Add to the end of an Array
+
+        var newFruits = fruits.push('Orange');
+        // ["Apple", "Banana", "Orange"]
+
