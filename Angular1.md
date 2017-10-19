@@ -50,7 +50,7 @@ The `ngApp` directive designates the **root element** of the application
 
 ngApp应当写在哪个标签上：`ngApp` is typically placed near the root element of the page: `<body>` or `<html>` tags.
 
-### Conceptual Overview 
+## Conceptual Overview 
 
 - Template: HTML with additional markup
 
@@ -60,7 +60,7 @@ ngApp应当写在哪个标签上：`ngApp` is typically placed near the root ele
 
 - Controller: the business logic behind views
 
-### Module
+## Module
 
 You can think of a module as a container for the different parts of your app - controllers, services, filters, directives, etc.
 
@@ -69,7 +69,7 @@ You can think of a module as a container for the different parts of your app - c
         
 那么在实际项目中，应该设置多少模块，这些模块之间的关系又是如何的？
 
-### Controllers
+## Controllers
 
 Controllers在Angular中是非常重要的概念，它连接了model和view。
 
@@ -90,7 +90,21 @@ Do not use controllers to:
 
 Typically, when you create an application you need to set up  
 
-### Scopes
+## Services
+
+A Service is just a function for the business layer of the application, it's just a simple function.
+
+It acts as a `constructor` function and is invoked once at runtime with `new`, much like you would with plain JavaScript (Angular is just calling a `new` instance under the hood for us).
+
+>  `.service()` 并不是 `.factory()` 的一种简化写法。
+
+A factory is not just "another way" for doing services.
+
+It can however, give you the same capabilities of a `.service()`, but is much more powerful and flexible.
+
+#### Creating Services
+
+## Scopes
 
 我们为什么需要scopes这个概念？
 
@@ -104,9 +118,9 @@ Scope
 
 1. The browser's event-loop waits for an event to arrive.
 
-### Dependency Injection
+## Dependency Injection
 
-在ng1的文档中，components这个概念有两个含义，一个是
+在ng1的文档中，components这个概念有两个含义，一个是UI组件，一个是组成angular的组件。
 
 在软件开发中，依赖是一个被广泛运用的概念。
 
@@ -116,7 +130,7 @@ The AngularJS **injector subsystem** is in charge of
 
 DI 
 
-- Components such as services, directives, filters, and animations are defined by 
+- Components such as services, directives, filters, and animations are defined by an injectable factory method or constructor function.
 
 - Controllers are defined by a constructor function, which can be injected 
 
@@ -124,9 +138,9 @@ DI
 
 #### Why Dependency Injection?
 
+There are only three ways a component (object or function) can get a hold of its dependencies:
 
-
-### Interpolation
+## Interpolation
 
 Interpolation markup with embedded expressions is used by AngularJS to provide data-binding to text nodes and attribute values.
 
@@ -134,7 +148,7 @@ Interpolation markup with embedded expressions is used by AngularJS to provide d
         
 
 
-### Directives
+## Directives
 
 ng-show/ng-hide和ng-if的差异？
 
@@ -160,7 +174,7 @@ There are a few special events that AngularJS emits.
 
 When a DOM node that has been compiled with Angular's compiler is destroyed, it emits a $destroy event.
 
-### Components
+## Components
 
 #### differences from directive
 
@@ -170,7 +184,7 @@ The `return {};` statement inside the `.directive()` becomes the Object definiti
 
 Directives that want to modify the DOM typically use the `link` option to register
 
-### Providers
+## Providers
 
 Each web application you build is composed of objects
 
@@ -182,7 +196,7 @@ Services are objects whose API is defined by the developer writing the service.
 
 Specialized objects conform to a specific AngularJS framework API. These objects are 
 
-### HTML Compile
+## HTML Compile
 
 AngularJS's HTML compiler allows the developer to teach the browser new HTML syntax.
 
@@ -212,7 +226,7 @@ In AngularJS applications, you move the job of filling page templates with data 
 
 Processes all of the watchers of the current scope and its children.
 
-### Bootstrap
+## Bootstrap
 
 AngularJS initialization process and manually initialize AngularJS.
 
