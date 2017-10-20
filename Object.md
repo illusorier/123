@@ -1,22 +1,20 @@
 # Objects
 
-我们可以用两种方式创建一个对象。
-
-一种方式是使用new操作符后跟Object构造函数，另一种方式是使用对象字面量表示法。
+在ECMAScript中，我们如何创建一个对象？
 
 对象字面量是对象定义的一种简写形式，目的在于简化创建包含大量属性的对象的过程。
 
 Objects come in two forms: the declarative (literal) form, and the constructed form.
 
-It's extremely uncommon to use the "con"
+It's extremely uncommon to use the "constructed form" for creating objects.
 
-You would pretty much always want to use the literal syntax form.The same will be true of most of the built-in objects.
+You would pretty much always want to use the literal syntax form.
 
-
-
+The same will be true of most of the built-in objects.
 
 ### Contents
 
+The contents of an object consists of 
 
 ### Computed Property Names
 
@@ -30,7 +28,7 @@ You would pretty much always want to use the literal syntax form.The same will b
     
 ### Property Descriptors
 
-Prior to ES5, the JavaScript language gave no
+Prior to ES5, the JavaScript language gave no direct way for your code to inspect or draw any distinction between the characteristics of properties, such as whether the property is read-only or not.
 
 But as of ES5, all properties are described in terms of a **property descriptor**.
 
@@ -61,15 +59,19 @@ The `Object.preventExtensions()`
 
 #### `[[Get]]`
 
+How property accesses are performed?
+
     var myObject = {
       a: 2
     }
     
     myObject.2;
 
-According to the spec,the code above actually performs a `[[Get]]` operation(kinda like a function call:`[[Get]]()`) on the `myObject`.
+According to the spec, the code above actually performs a `[[Get]]` operation (kinda like a function call: `[[Get]]()`) on the `myObject`.
 
-The default build-in  `[[Get]]` operation for an object *first* inspects the object for a property of the requested name,and if it finds it,it will return the value accordingly.If not,it will traversal the `[[Prototype]]` chain,if any.
+The default build-in  `[[Get]]` operation for an object *first* inspects the object for a property of the requested name, and if it finds it, it will return the value accordingly. If not,it will traversal the `[[Prototype]]` chain, if any.
+
+
 
 When you define a property to have either a getter or a setter or both,its definition becomes an "accessor descriptor"(as opposed to a "data descriptor").For accessor descriptor,the `value` and `writable` characteristics of the descriptor are moot and ignored.
 

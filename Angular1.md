@@ -174,6 +174,37 @@ There are a few special events that AngularJS emits.
 
 When a DOM node that has been compiled with Angular's compiler is destroyed, it emits a $destroy event.
 
+#### Template-expanding directive
+
+#### Creating a Directive that Wraps Other Elements
+
+##### What is the difference between a source template and an instance template?
+
+The fact that Angular allows DOM manipulation 
+
+`compile`
+
+        function compile($element, $attrs) { ... }
+
+The compile function deals with transforming the template DOM.
+
+Since most directives do not do template transformation, it is not used often.
+
+A compile function can have a return value which can be either a function or an object.
+
+`link`
+
+This property is used only if the `compile` property is not defined.
+
+        function link($scope, $element, $attrs, 
+        
+The link function is responsible for registering DOM listeners 
+
+#### Transclusion
+
+Transclusion is the process of extracting a collection of DOM elements from one part of the DOM
+
+
 ## Components
 
 #### differences from directive
@@ -210,7 +241,9 @@ The compilation process happens in two phases:
 
 1. **Compile**:
 
-1. `$compile` traverses the DOM and matches directives. (遍历、性能)
+1. `$compile` traverses the DOM and matches directives. 
+
+    If 
 
 2.  Once all directives matching a DOM element have been 
 

@@ -208,13 +208,50 @@ Local state is exactly that: a feature available only to classes.
 [1]:https://reactjs.org/docs/state-and-lifecycle.html
 
 #### Adding Lifecycle Methods to a Class
+
 In application with many components, it's very important to free up resources taken by the component when they are destroyed.
 
 We can declare special methods on the component class to run some code when a component mounts and unmounts.
 
+These methods are called "lifecycle hooks".
+
+
+
 #### Using State Correctly
 
+There are three things you should know about `setState()`.
+
+##### Do Not Modify State Directly
+
+For example, this will not re-render a component:
+
+        // Wrong
+        this.state.comment = 'Hello';
+        
+Instead, use `setState()`:
+
+        // Correct
+        this.setState({comment: 'Hello'});
+        
+The only place where you can assign `this.state` is the constructor.
+
+
+
+
+
 ## Handling Events
+
+Handling events with 
+
+## Conditional Rendering
+
+Condition rendering in React works the same way conditions work in JavaScript.
+
+## Lists and Keys
+
+#### Rendering Multiple Components
+
+
 
 ## React Top-Level API
 
