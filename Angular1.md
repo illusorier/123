@@ -198,11 +198,17 @@ This property is used only if the `compile` property is not defined.
 
         function link($scope, $element, $attrs, 
         
-The link function is responsible for registering DOM listeners 
+The link function is responsible for registering DOM listeners as well as updating the DOM.
+
+It is executed after the template has been cloned.
+
+This is where most of the directive logic will be put.
 
 #### Transclusion
 
-Transclusion is the process of extracting a collection of DOM elements from one part of the DOM
+Transclusion is the process of extracting a collection of DOM elements from one part of the DOM elements and copying them to another part of the DOM, while maintaining their connection to the original AngularJS scope from where they were taken.
+
+Transclusion is used (often with `ngTransclude`) to 
 
 
 ## Components

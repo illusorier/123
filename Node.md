@@ -1,6 +1,28 @@
+## Buffer
+
+Prior to the introduction of `TypedArray` in ES6, the JavaScript language had no mechanism for reading or manipulating streams of binary data.
+
 ## Events
 
-Much of the Node.js core API is built around an idiomatic asynchronous event-driven architecture in which certain kinds of objects (called "`emitters`") 
+异步的、事件驱动的架构。 
+
+Much of the Node.js core API is built around an idiomatic asynchronous event-driven architecture in which certain kinds of objects (called "`emitters`") periodically 
+
+All objects that emits events 
+
+## File System
+
+One of the most common things you'll want to do with just about any programming language is open and read a file.
+
+All the methods have asynchronous and synchronous forms.
+
+####  fs.readFile
+
+This is the most common way to read a file with Node.js.
+
+#### fs.createReadStream
+
+A readable stream object can be useful for a lot of reasons, a few of which include:
 
 ## Path
 
@@ -23,3 +45,7 @@ The `process` object is an instance of EventEmitter.
 The `net` module provides an asynchronous network API
 
 ##### net.createServer
+
+## Stream
+
+All streams are instances of `EventEmitter`.
