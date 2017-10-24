@@ -36,9 +36,35 @@ A CSS transition has actually started.
 
 ## Event Order
 
+If an element and one of its ancestors have an event handler for the same event, which one should fire first?
+
+        <div id="element1">
+            <div id="element2"></div>
+        </div>
+
+#### Event capturing
+
+事件捕获，由外层元素到内层元素。
+
+the event handler of element1 fires first, the event handler of element2 fires last.
+
+#### Event bubbling
+
+事件冒泡，由内层元素到外层元素。
+
+the event handler of element2 fires first, the event handler of element1 fires last.
+
 #### W3C model
 
 W3C has very sensibly decided to take a middle position in this struggle.
 
 Any event taking place in the W3C event model is first captured until it reaches the target element and then bubbles up again.
+
+If not specified, `useCapture` defaults to `false`.
+
+##### Event.currentTarget
+
+Identifies the current target for the event, as the event traverses the DOM.
+
+
 
