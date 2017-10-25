@@ -6,9 +6,13 @@ Prior to the introduction of `TypedArray` in ES6, the JavaScript language had no
 
 异步的、事件驱动的架构。 
 
-Much of the Node.js core API is built around an idiomatic asynchronous event-driven architecture in which certain kinds of objects (called "`emitters`") periodically 
+Much of the Node.js core API is built around an idiomatic asynchronous event-driven architecture in which certain kinds of objects (called "`emitters`") periodically emit named events that    
 
 All objects that emits events 
+
+When the `EventEmitter` object emits (触发)
+
+与DOM
 
 ## File System
 
@@ -48,4 +52,17 @@ The `net` module provides an asynchronous network API
 
 ## Stream
 
+A stream 
+
 All streams are instances of `EventEmitter`.
+
+There are four fundamental stream types within Node.js:
+
+- Readable - 可读的流
+- Writable - 可写的流
+- Duplex - 可读写的流
+- Transform - 
+
+#### Writable Streams
+
+Writable streams are an abstraction for a destination to which data is written.

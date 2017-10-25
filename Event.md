@@ -62,6 +62,10 @@ Any event taking place in the W3C event model is first captured until it reaches
 
 If not specified, `useCapture` defaults to `false`.
 
+Events can be created with the `Event` constructor as follow:
+
+        
+
 ##### Event.currentTarget
 
 Identifies the current target for the event, as the event traverses the DOM.
