@@ -100,6 +100,11 @@ CSS provides two pseudo-elements - `:first-letter` and `:first-line`.
 
 The `:before` pseudo-element does something no other selector can:It lets you add content preceding a given element.
 
+##### ::placeholder
+
+The `::placeholder` CSS pseudo-element represents the placeholder text of a form element.
+
+##### :hover:before
 
 ## Saving Time with Style Inheritance
 

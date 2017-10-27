@@ -52,9 +52,13 @@ The `net` module provides an asynchronous network API
 
 ## Stream
 
-A stream 
+A stream is an abstract interface for working with streaming data in Node.js
+
+流在Node.js中是处理流数据的抽象接口。
 
 All streams are instances of `EventEmitter`.
+
+While it is important for all Node.js users to understand how stream work, the `stream` module itself is most useful for developers that are creating new types of stream instances.
 
 There are four fundamental stream types within Node.js:
 
@@ -63,6 +67,42 @@ There are four fundamental stream types within Node.js:
 - Duplex - 可读写的流
 - Transform - 
 
+#### API for Stream Consumers
+
+流消费者
+
+Almost all Node.js applications, no matter how simple, use streams in some manner.
+
 #### Writable Streams
 
 Writable streams are an abstraction for a destination to which data is written.
+
+All Writable streams implement the interface defined by the `stream.Writable` class.
+
+所有Writable流都实现了`stream.Writable`类定义的接口。
+
+#### Readable Streams
+
+Readable streams are an abstraction for a source from which data is consumed.
+
+可读流（Readable streams）是对提供数据的 源头 （source）的抽象。
+
+#### Two Modes
+
+Readable streams effectively operate in one of two modes: flowing and paused.
+
+可读流事实上工作在下面两种模式之一：flowing 和 paused 。
+
+When in flowing mode, data is read from the underlying system automatically and provided to an application as quickly as possible using events via the `EventEmitter` interface.
+
+When in flowing mode, 
+
+All Readable streams begin in paused mode but can be switched to flowing mode in one of the following ways:
+
+#### Three States
+
+The "two modes" of operation for a Readable stream are a simplified abstraction for 
+    
+Specifically, at any given point in time, every Readable is in one of three possible states:
+
+- readable._readableState.flowing
