@@ -32,13 +32,36 @@ A readable stream object can be useful for a lot of reasons, a few of which incl
 
 The `path` module provides utilities for working with file and directory paths.
 
+在使用前端构建工具，如gulp或webpack时，我们往往需要处理文件或者目录的路径，这时候就会用到node的path模块。
+
+`path`模块提供了一些工具函数，用于处理文件与目录的路径。
+
+##### path.isAbsolute(path)
+
+判定`path`是否为一个绝对路径。
+
+##### path.join([...paths])
+
+`path.join()`方法使用平台特定的分隔符把全部给定的`path`片段连接到一起，并规范化生成的路径。
+
+长度为零的`path`片段会被忽略。
+
+如果连接后的路径字符串是一个长度为零的字符串，则返回`.`，表示当前工作目录。
+
+下面这个例子挺有趣的：
+
+        path.join('/foo', 'bar', 'baz/asdf', 'quux', '..');
+        // 返回: '/foo/bar/baz/asdf'
+
 ##### path.resolve([...paths])
 
-The `path.resolve()` method resolves a sequence of 
+The `path.resolve()` method resolves a sequence of path or path segments.
+
+把路径或路径片段的序列解析为一个绝对路径。
 
 这里要注意的是路径片段的组合是从右往左的。
 
-The given sequence of paths is processes from right to left, with each subsequent `path` prepended until an absolute
+The given sequence of paths is processes from right to left, with each subsequent `path` prepended until an absolute path 
 
 ## Process
 

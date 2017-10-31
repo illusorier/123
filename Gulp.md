@@ -1,12 +1,28 @@
-gulp.src(globs[,options])
+### gulp.src(globs[,options])
+
+Emits files matching provided glob or an array of globs.
 
 什么是globs？
 
-In computer 
+In computer programming, in particular in a Unix-like environment, **glob** patterns specify sets of filenames with wildcard characters.
 
 gulp当中的路径问题，我们将目标路径以字符串的形式传入如`gulp.src()`中，那么应当如何书写这个字符串？
 
-The write path is calculated by
+`gulp.dest()`中填写的是相对路径。
+
+gulp.src()和node的fs模块对比。
+
+目前的感觉是基于globs的文件匹配十分强大。
+
+#### options
+
+##### options.read
+
+### gulp.dest(path[,options])
+
+Can be piped to and it will write files.
+
+The write path is calculated by appending the file 
 
 ### gulp.task()
 
