@@ -136,6 +136,12 @@ DI
 
 #### Dependency Annotation
 
+##### Implicit Annotation
+
+> If you plan to minify your code, your service names will get renamed and break your code.
+
+The simplest way to get hold of the dependencies is to assume that the function parameter are the names of dependencies.
+
 #### Why Dependency Injection?
 
 There are only three ways a component (object or function) can get a hold of its dependencies:
