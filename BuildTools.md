@@ -18,6 +18,19 @@ Transform source code before parsing it for `require()` calls.
 
 Babel browserify transform.
 
+         .pipe($.babel())
+         .pipe($.browserify())
+         
+如上的gulp工作流在某种类型的项目结构中会出现以下报错：
+
+        ParseError: 'import' and 'export' may appear only with 'sourceType: module
+        
+这是因为我们仅仅用babel编译了一个js文件，其他作为依赖的js文件并没有进行编译，因此会报错。
+
+## Browsersync
+
+There's no official 
+
 ## Yemoman
 
 Yeoman helps you to **kickstart** new projects, prescribing **best practices** and tools to help you stay **productive**.

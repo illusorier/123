@@ -28,6 +28,13 @@ The write path is calculated by appending the file
 
 ### gulp.task()
 
+Define a task.
+
+##### fn
+
+Type: `Function`
+
+The function performs the task's main operation.
 
 ### gulp-inject
 
