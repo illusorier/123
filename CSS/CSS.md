@@ -55,7 +55,7 @@ http://www.zhangxinxu.com/wordpress/2010/01/css-float%E6%B5%AE%E5%8A%A8%E7%9A%84
 
 ##### 问题5：当文本与图片位于同一行时，其相对位置是如何的？
 
-![](./assets/css-1.png)
+![](../assets/css-1.png)
 
 默认情况下，图片与文字混排应该是这个样子：图片与文字**基线**对齐，图片与文字在同一行上。
 
