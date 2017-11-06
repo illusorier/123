@@ -1,3 +1,7 @@
+Every system uses resources.
+
+These resources can be pictures, video files, Web pages, business information, or anything that can be represented in a computer-based system.
+
 The purpose of a service is to provide a window to its clients so that they can access these resources.
 
 In general, RESTful services should have following properties and features.
