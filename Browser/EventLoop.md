@@ -10,7 +10,7 @@ JavaScript是单线程的，也就是说，同一时间只能做一件事。
 
 同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；异步任务指的是，不进入主线程、而进入“任务队列”(task queue)的任务，只有“任务队列”通知主线程，某个异步任务可以执行了，
 
-![](./assets/event-loop.png)
+![](../assets/event-loop.png)
 
 事件驱动编程
 
@@ -74,7 +74,7 @@ This means that when an asynchronous event occurs (like )
 
 > In JavaScript, timer delay is not guaranteed.
 
-![](./assets/Timers.png)
+![](../assets/Timers.png)
 
 The blue boxes represent portions of JavaScript being executed.
 

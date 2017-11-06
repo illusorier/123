@@ -26,9 +26,9 @@ The rendering engine will start getting the contents of the requested document f
 
 After that this is the basic flow of the rendering engine:
 
-![](./assets/browser-flow.png)
+![](../assets/browser-flow.png)
  
-![](./assets/browser-webkitflow.png)
+![](../assets/browser-webkitflow.png)
  
 ### Reflows and Repaints
  
