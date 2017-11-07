@@ -50,6 +50,12 @@ A stylesheet, javascript and webcomponent reference injection plugin for gulp.
 
 `gulp-inject` takes a stream of source files, transforms each file to a string and injects each transformed string into placeholders in the target stream files.
 
+Each pair of comments are the injection placeholders (`options.starttag`, `options.endtag` ).
+
+        inject(sources, options)
+        
+##### options.ignorePath
+
 ### gulp-uglify
 
 Minify JavaScript with UglifyJS3. 
