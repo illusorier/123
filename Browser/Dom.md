@@ -41,7 +41,7 @@ The W3C's DOM Level 1 Core is a powerful object model for changing the content t
     </body>
     </html>
     
-![](./assets/DOMTree.jpg)
+![](../assets/DOMTree.jpg)
 
 Each box in the tree above is a node in the tree.
  

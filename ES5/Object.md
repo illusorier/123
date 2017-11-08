@@ -1,6 +1,6 @@
-# Objects
+## Objects
 
-在ECMAScript中，我们如何创建一个对象？
+创建对象，初始化对象，访问对象，修改对象，删除对象。
 
 对象字面量是对象定义的一种简写形式，目的在于简化创建包含大量属性的对象的过程。
 
@@ -14,7 +14,7 @@ The same will be true of most of the built-in objects.
 
 ### Contents
 
-The contents of an object consists of 
+The contents of an object consists of values (any type) stored at 
 
 ### Computed Property Names
 
@@ -28,11 +28,27 @@ The contents of an object consists of
     
 ### Property Descriptors
 
+这是ECMAScript中非常重要的一个特性。
+
 Prior to ES5, the JavaScript language gave no direct way for your code to inspect or draw any distinction between the characteristics of properties, such as whether the property is read-only or not.
 
 But as of ES5, all properties are described in terms of a **property descriptor**.
 
-ECMAScript中有两种属性:数据属性和访问器属性。
+也就是说，每个ECMAScript中的对象的所有属性都有对应的属性描述符，我们可以访问甚至更改它们。
+
+Property descriptors present in objects come in two main flavors: data descriptors and access descriptors.
+
+A property descriptor is a record with some of the following attributes:
+
+如何访问：
+
+The `Object.getOwnPropertyDescriptor(obj, prop)` method returns a property descriptor for 
+
+如何更改：
+
+The `Object.defineProperty(obj, prop, descriptor)` method defines a new property directly on an object, or modifies an existing property on an object, and returns the object.
+
+The `Object.defineProperties()`
 
 ##### Writable
 
@@ -46,34 +62,41 @@ Changing `configurable` to `false` is a one-way action, and cannot be undone.
 
 Another thing  `configurable:false` prevents is the 
 
-The `Object.getOwnPropertyDescriptor(obj, prop)` method returns 
-
-The `Object.defineProperty(obj, prop, descriptor)` method defines a new property directly on an object, or modifies an existing property on an object, and returns the object.
-
 The `Object.preventExtensions()`
 
-- [[Configurable]] - As long as a property is currently configurable,we can modify its descriptor definition.
+- [[Configurable]] - As long as a property is currently configurable,we can modify its descriptor definition
+.
 - [[Writable]] - The ability for you to change the value of a property.
+
 - [[Enumerable]] - if the property is enumerable by a `for..in` loop.
+
 - [[Value]]
 
 #### `[[Get]]`
 
 How property accesses are performed?
 
-    var myObject = {
-      a: 2
-    }
+        var myObject = {
+          a: 2
+        }
+        
+        myObject.2;
     
-    myObject.2;
+The `myObject.a` is a property access, 
 
 According to the spec, the code above actually performs a `[[Get]]` operation (kinda like a function call: `[[Get]]()`) on the `myObject`.
 
-The default build-in  `[[Get]]` operation for an object *first* inspects the object for a property of the requested name, and if it finds it, it will return the value accordingly. If not,it will traversal the `[[Prototype]]` chain, if any.
+The default build-in  `[[Get]]` operation for an object *first* inspects the object for a property of the requested name.
+
+And if it finds it, it will return the value accordingly. 
+
+If not,it will traversal the `[[Prototype]]` chain, if any.
 
 
 
 When you define a property to have either a getter or a setter or both,its definition becomes an "accessor descriptor"(as opposed to a "data descriptor").For accessor descriptor,the `value` and `writable` characteristics of the descriptor are moot and ignored.
+
+The `get` syntax binds an object property to a function that will be called when that property is looked up.
 
 ### Prototypes
 
