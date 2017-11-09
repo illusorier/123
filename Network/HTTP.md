@@ -38,3 +38,7 @@ A firewall is a network
 Common uses for a reverse proxy server include:
 
 - Loading balancing - 
+
+TCP is a unicast(单播) 
+
+A TCP connection is defined to be a 4-tuple 

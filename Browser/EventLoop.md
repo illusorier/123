@@ -10,19 +10,37 @@ JavaScript是单线程的，也就是说，同一时间只能做一件事。
 
 同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；异步任务指的是，不进入主线程、而进入“任务队列”(task queue)的任务，只有“任务队列”通知主线程，某个异步任务可以执行了，
 
+A **JavaScript engine** is a program or an interpreter which executes JavaScript code.
+
+The V8 Engine which is built by Google is open source and written in C++.
+
+This engine is used inside Google Chrome.
+
+V8 is also used for the popular Node.js runtime.
+
+V8 was first designed to increase the performance of JavaScript execution inside web browsers.
+
 ![](../assets/event-loop.png)
 
 事件驱动编程
 
 In computer programming, **event-driven programming** is a programming paradigm in which the **flow of the program** is determined by events such as user actions ....
 
+JS引擎的工作原理
+
 JavaScript has a concurrency modal based on an "event loop".
 
-##### Stack
+下面是一些相关的基本概念
+
+#### Stack
 
 Function calls form a stack of *frames*.
 
-##### Queue
+Each entry in the Call Stack is called a **Stack Frame**.
+
+> This is exactly how stack traces are being constructed when an exception is being thrown.
+
+#### Queue
 
 A JavaScript runtime contains a message queue, which is a list of messages to be processed.
 
