@@ -1,5 +1,7 @@
 在例如Angular和Vue这样的框架当中，我们依然需要书写HTML，在React当中，我们用JSX在JS中书写HTML。
 
+目前来说，相比Angular2+当中用decorator声明组件的方式，我更喜欢React中通过继承声明组件的方式。
+
 什么是XML?
 
 In computing, **Extensible Markup Language(XML)** is a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable through use of tags that can be created and defined by users.

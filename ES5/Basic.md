@@ -4,11 +4,15 @@
 A program,often referred to as *source code* or just *code*,is a set of special instructions to tell the computer what tasks to perform.
 
 ### Statements
-In a computer language,a group of words,numbers,and operators that perform a specific task is a *statement*.
+
+In a computer language, a group of words, numbers, and operators that perform a specific task is a *statement*.
 
 Programs are just collections of many statements.
 
-### Expressions
+## Expressions
+
+什么是表达式？
+
 Statements are made up of one or more *expressions*.An expression is any reference to a variable or value,or a set of variable(s) and value(s) combined with operators.
 
     a = b * 2;
@@ -17,6 +21,14 @@ This statement has four expressions in it:
 - `2` is a *literal value expression*
 - `b` is a *variable expression*,which means to retrieve its current value.
 - `b * 2` is a *arithmetic expression*,which means to do the multiplication.
+
+An *expression* is any valid unit of code that resolves to a value.
+
+有两种类型的表达式
+
+There are two types of expressions
+
+- 
 
 ### Operators
 

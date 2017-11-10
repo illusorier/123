@@ -1,25 +1,24 @@
+##### 什么是MVC模式
 
 Model View Controller or MVC as it is popularly called, is a software design pattern for developing web application.
 
 - Model - It is the lowest level of the pattern responsible for maintaining data.
-
 - View - It is responsible for displaying all or a portion of the data to the user.
+- Controller - It is a software Code that controls the interactions between the Modal and View.
 
-- Controller - It is a software Code that controls
+##### 我们为什么需要AngularJS?
 
-我的理解是：在过去前后端不分离的开发背景下，动态的HTML是由后台生成的，数据的处理和填充也是后台完成的，前端JS只负责与DOM相关的操作。但在如今前后端分离的时代， 后台仅仅负责提供API，前端调用API获取数据、处理数据、填充数据，因此我们就需要一些传统的软件开发思想，如MVC，指导前端的开发过程。
+因为前端变得越来越牛逼!
 
-ng1项目的目录结构：所有项目代码放在根目录的app文件夹下, 一些配置文件如package.json, bower.json等直接放在根目下。
+##### AngularJs项目的目录结构
 
-angular-phonecat这个项目中并没有使用任何构建工具。
+所有项目代码放在根目录的app文件夹下, 一些配置文件如package.json, bower.json等直接放在根目下ar-phonecat这个项目中并没有使用任何构建工具。
 
-而用generator-gulp-angular生成的目录结构更适合实际项目，它使用了gulp作为构建工具。
-
-在远古angular开发中，我们甚至会看到这样的代码，哈哈哈。
+##### 我们为什么需要构建工具？
 
         <script src="bower_components/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js"></script>
 
-我们为什么需要前端路由？
+##### 我们为什么需要前端路由？
 
 在ng1中我们有angular-ui-router, 在vue中有vue-router.
 

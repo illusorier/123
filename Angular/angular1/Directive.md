@@ -1,5 +1,13 @@
 ## Directives
 
+最基本的问题就是：如何去写一个Directive?
+
+        angular
+            .module('moduleName')
+            .directive('directiveName', {
+                // DDO
+            })
+
 ng-show/ng-hide和ng-if的差异？
 
 不管是directives还是components，它们的作用都是将项目代码中重复部分提取出来，抽象成一个新的概念。
@@ -26,11 +34,16 @@ When a DOM node that has been compiled with Angular's compiler is destroyed, it 
 
 #### Template-expanding directive
 
+可以
+
 #### Creating a Directive that Wraps Other Elements
 
 ##### What is the difference between a source template and an instance template?
 
 The fact that Angular allows DOM manipulation 
+
+### Directive Definition Object
+
 
 `compile`
 
