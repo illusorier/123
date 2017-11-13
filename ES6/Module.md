@@ -1,3 +1,20 @@
+在ES6之前，社区制定了一些模块加载方案，最主要的有 CommonJS 和 AMD 两种。
+
+前者用于服务器，后者用于浏览器。
+
+### Design goals for ES6 modules
+
+
+
+ES6 的模块自动采用严格模式，不管你有没有在模块头部加上` "use strict" `。
+
+严格模式是 ES5 引入的，不属于 ES6 。
+
+ES6 modules are stored in files.
+
+#### Multiple named exports
+
+
 
     // ES6
     import { funA, funB, funC } from 'someModule';
@@ -100,3 +117,12 @@ For convenience,`module.exports` is also accessible via the `exports`
 `require`关键字的基本功能是，读入并执行一个JS文件内包含的代码，然后返回该模块的exports对象。
 
 
+### Node.js require vs ES6 import/export
+
+动态VS静态
+
+Current JavaScript module formats have a dynamic structure: What is imported and exported can change at runtime 
+
+It means that you can determine imports and exports at compile time (statically) - you only need to look at the source code, you don't have to execute it.
+
+ES6 enforces this syntactically
