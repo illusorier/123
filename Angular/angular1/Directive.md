@@ -80,6 +80,10 @@ The compile function deals with transforming the template DOM.
 
 Since most directives do not do template transformation, it is not used often.
 
+The compile function takes the following arguments:
+
+- `tElement` - 
+
 A compile function can have a return value which can be either a function or an object.
 
 `controller`
@@ -94,7 +98,7 @@ Controller constructor function.
 
 This property is used only if the `compile` property is not defined.
 
-        function link($scope, $element, $attrs, 
+        function link($scope, $element, $attrs, controller) { ... }
         
 The link function is responsible for registering DOM listeners as well as updating the DOM.
 
@@ -106,4 +110,11 @@ This is where most of the directive logic will be put.
 
 Transclusion is the process of extracting a collection of DOM elements from one part of the DOM elements and copying them to another part of the DOM, while maintaining their connection to the original AngularJS scope from where they were taken.
 
-Transclusion is used (often with `ngTransclude`) to 
+会有一个常见的需求：我们希望directive中的template是可以被扩充的，是动态的。
+
+    <modal>
+      <modal-body></modal-body>
+      <modal-foot></modal-foot>
+    </modal>
+    
+Transclusion is used (often with `ngTransclude`) to insert  
