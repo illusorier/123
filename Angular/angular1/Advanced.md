@@ -34,15 +34,15 @@ When the `$digest loop` finishes, the DOM makes the changes.
 
 ##### When angular does not use $apply for us
 
- #### Compile vs Link
+#### Compile vs Link
  
- ##### The compile phase
+##### The compile phase
  
- When the DOM is loaded Angular starts the compile phase, 
+When the DOM is loaded Angular starts the compile phase, 
  
- ![](../../assets/angular-compile.png)
+![](../../assets/angular-compile.png)
  
-  ![](../../assets/angular-link.png)
+![](../../assets/angular-link.png)
 
 #### $parse
 
@@ -77,3 +77,41 @@ But, the $scope.$evalAsync() is likely to execute in the same tick of the JavaSc
 - `$scope`: Every controller has an associated `$scope` object. A controller (constructor) function is responsible for setting model properties and functions/behaviour on its associated `$scope`.
 
 #### Kill $scope - Replace it with controllerAs
+
+Controllers as we know them are class-like Objects that drive Modal and View changes, but they all seem to revolve around this mystical `$scope`.
+
+
+
+运用controllerAs和this代替$scope.
+
+我们为什么要这么做？
+
+Class-like Object Pattern and Namespacing
+
+看下面这个例子：
+
+    <div ng-controller="someCtrl">
+      <h1>{{name}}</h1>
+      <modal>
+        <p>{{name}}</p>
+      </modal>
+    </div>
+    
+在Angular1.2中加入的`controllerAs`语法，避免了上面这种情况，同时允许按下面这种方式书写controller。
+
+
+    <div ng-controller="someCtrl as vm">
+        <h1>{{vm.name}}</h1>
+    </div>
+        
+    angular
+    .module('someModule')
+    .controller('someCtrl', function(){
+      this.name = 'bill';
+    });
+    
+实际上发生了什么：$scope下新增了一个对象vm，引用了该controller的实例。
+
+
+
+

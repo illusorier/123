@@ -4,8 +4,10 @@
 
         angular
             .module('moduleName')
-            .directive('directiveName', {
+            .directive('directiveName', function() {
+              return {
                 // DDO
+              }
             })
 
 ng-show/ng-hide和ng-if的差异？
@@ -34,9 +36,29 @@ When a DOM node that has been compiled with Angular's compiler is destroyed, it 
 
 #### Template-expanding directive
 
-可以
+可以实现HTML的复用，提高代码的可维护性和扩展性。
+
+> Unless your template is very small, it's typically better to break it apart into its own HTML file and load it with the `templateUrl` option.
+
+你可以register一个最简单的directive, 它的DDO中只有templateUrl，但这样的directive功能十分局限。
+
+You need to create a different controller each time in order to re-use such a directive.
+
+#### Isolating the Scope of a Directive
+
+
+
+
 
 #### Creating a Directive that Wraps Other Elements
+
+#### Creating Directives that Communicate
+
+Sometimes it's desirable to be able to pass in an entire template rather than a string or an object.
+
+To do this, we need to use the `transclude` option.
+
+
 
 ##### What is the difference between a source template and an instance template?
 
@@ -44,6 +66,11 @@ The fact that Angular allows DOM manipulation
 
 ### Directive Definition Object
 
+`scope`
+
+The scope property can be `false`, `true`, or an object.
+
+- `false` (default): 
 
 `compile`
 
@@ -54,6 +81,14 @@ The compile function deals with transforming the template DOM.
 Since most directives do not do template transformation, it is not used often.
 
 A compile function can have a return value which can be either a function or an object.
+
+`controller`
+
+Controller constructor function.
+
+`require`
+
+
 
 `link`
 
