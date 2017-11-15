@@ -1,4 +1,3 @@
-
 ### HTTP access control (CORS)
 
 A resource makes a **cross-origin HTTP request** when it requests a resource from a different domain, protocol, or port to its own.
@@ -75,5 +74,8 @@ A connection typically goes through three phases:
 2. Data transfer (called established)
 3. Teardown (closing)
 
+### HTTP Server
+
+HTTP服务器本质上也是一种应用程序——它通常运行在服务器之上，绑定服务器的IP地址并监听某一个tcp端口来接收并处理HTTP请求。
 
 
