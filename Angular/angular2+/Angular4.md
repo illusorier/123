@@ -8,54 +8,6 @@ Then you launch the app by *bootstrapping* the *root module*.
 
 > Decorators are functions that modify JavaScript classes.
 
-## NgModules
-
-Angular apps are modular and Angular has its own modularity system called *NgModules*.
-
-Angular本身有自己的模块化系统。
-
-Every Angular app has at least one NgModule class, the root module, conventionally named `AppModule`.
-
-每个angular app都至少有一个NgModule class，作为根module。
-
-While the root module may be the only module in a small application, most apps have many more *feature modules*, each a cohesive block of code dedicated to an application domain.
-
-从文件目录结构的角度去理解ng4：
-
-有一个`app.module.ts`文件，包含了该项目的根模块。
-
-Every Angular app has a *root module* class.
-
-You bootstrap that module to launch the application.
-
-By convention, the *root module* class is called `AppModule` and it exists in a file named `app.module.ts`.
-
-An NgModule, whether a root or feature, is a class with `@NgModule` decorator.
-
-`NgModule` is a decorator function that takes a single metadata object whose properties describe the module.
-
-The most important properties are:
-
-- `declarations` - the *view classes* that belong to this module. Angular has three kinds of view classes
-
-
-        import { Ngmodule } from '@angular/core';
-        import { BrowserModule } from '@angular/platform-browser'
-        import { AppComponent } from './app.component'
-        
-        @NgModule({
-            declarations: [ AppComponent ],
-            bootstrap: [ AppComponent ]
-        })
-        
-The `@NgModule.bootstrap` property identifies this `AppComponent` as the *bootstrap component*
-
-You launch the application by bootstrapping the `AppModule` in the `main.ts` file.
-
-Angular offers a variety of bootstrapping options targeting multiple platform.
-
-Every component must be declared in one - and only one - NgModule.       
-
 ## Angular libraries
 
 Angular ships as a collection of JavaScript modules.
@@ -116,3 +68,9 @@ You could get the data from anywhere - a web service, local storage, or a mock d
 The `@Injectable()` decorator tells TypeScript to emit metadata about the service.
 
 The metadata specifies that Angular may need to inject other dependencies into this service.
+
+## Directives
+
+Angular template are *dynamic*.
+
+When Angular renders them, it transform 
