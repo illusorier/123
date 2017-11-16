@@ -1,3 +1,3 @@
-Vuex is a
+Vuex uses a **single state tree** - that is, this 
 
-It serves as a 
+Sometimes we may need to compute derived state 

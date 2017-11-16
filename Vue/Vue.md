@@ -1,8 +1,30 @@
-Vue这个框架解决了什么样的问题？
+### Angular1 vs Vue
 
-提供了双向数据绑定的支持
+Bootstrap:
 
-提供了组件化开发的方案
+Every Vue vm is **bootstrapped** by creating a **root Vue instance** with the Vue constructor function:
+
+        var vm = new Vue({
+            // options
+        })
+
+代码结构：
+
+When you create a Vue instance, you pass in an **options object**.
+
+How you can use these options to create your desired behavior.
+
+组件写法：
+
+组件写法上的差异反映两个框架代码结构上的差异。
+
+组件这个概念是在Angular1的后期版本 (1.5) 中引入的，而Vue完整支持组件化的代码结构，每个路由对应的都是某个组件，而不是像Angular当中controller + template。
+
+每个组件都由相应的数据(modal)，决定了该组件目前所处于的状态。
+
+### Angular2 vs Vue
+
+
 
 - Compiler: code that is responsible for compiling template strings into JavaScript render functions.
 
@@ -17,12 +39,6 @@ Vue这个框架解决了什么样的问题？
 我们通过构造函数Vue创建一个Vue的实例来启动Vue。
 
 类似于面向对象中类的实例化。
-
-Every Vue vm is **bootstrapped** by creating a **root Vue instance** with the Vue constructor function:
-
-    var vm = new Vue({
-      options
-    })
 
 Using the variable vm (short for ViewModel) to refer to our Vue instances.
 
