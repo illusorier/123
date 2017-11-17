@@ -6,7 +6,7 @@ RxJS can be used both in browser or in the server-side using Node.js.
 
 **Asynchronous data streams** are not new.
 
-They have been around since Unix systems, 
+They have been around since Unix systems, and come in different flavours and names: streams (Node.js), pipes (Unix) or async pipes (Angular2).
 
 ### Observable sequence
 
@@ -51,4 +51,6 @@ You can pass in your observer when calling
 Creates an observer from the specified 
 
 ### Using RxJS with Angular1
+
+`rx.angular.js` serves as a bridge between RxJS and AngularJS.
 

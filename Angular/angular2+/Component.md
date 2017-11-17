@@ -15,6 +15,8 @@
 
 Component initialization: Constructor or variable initialization?
 
+ES6和TS声明class的语法是否有差异？
+
 ### Creating a class for the data
 
 我认为这是一个非常好的实践。
