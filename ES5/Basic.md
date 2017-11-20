@@ -13,22 +13,23 @@ Programs are just collections of many statements.
 
 什么是表达式？
 
-Statements are made up of one or more *expressions*.An expression is any reference to a variable or value,or a set of variable(s) and value(s) combined with operators.
+Statements are made up of one or more *expressions*.
 
-    a = b * 2;
+An expression is any reference to a variable or value,　or a set of variable(s) and value(s) combined with operators.
+
+        a = b * 2;
 
 This statement has four expressions in it:
 - `2` is a *literal value expression*
 - `b` is a *variable expression*,which means to retrieve its current value.
-- `b * 2` is a *arithmetic expression*,which means to do the multiplication.
+- `b * 2` is a *arithmetic expression*,　which means to do the multiplication.
+- `a = b * 2` is an *assignment expression*.
 
-An *expression* is any valid unit of code that resolves to a value.
+> An *expression* is any valid unit of code that resolves to a value.
+
+函数调用是不是表达式?
 
 有两种类型的表达式
-
-There are two types of expressions
-
-- 
 
 ### Operators
 

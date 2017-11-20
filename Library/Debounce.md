@@ -4,7 +4,7 @@ Having a debounced or throttled version of our function is especially useful whe
 
 背景:
 
-在某些情景下，DOM事件会多次触发，但我们希望callback多次执行。
+在某些情景下，DOM事件会多次触发，但我们不希望callback多次执行。
 
 ### Debounce
 

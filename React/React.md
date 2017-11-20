@@ -1,5 +1,3 @@
-在例如Angular和Vue这样的框架当中，我们依然需要书写HTML，在React当中，我们用JSX在JS中书写HTML。
-
 目前来说，相比Angular2+当中用decorator声明组件的方式，我更喜欢React中通过继承声明组件的方式。
 
 什么是XML?
@@ -236,14 +234,6 @@ Instead, use `setState()`:
         this.setState({comment: 'Hello'});
         
 The only place where you can assign `this.state` is the constructor.
-
-
-
-
-
-## Handling Events
-
-Handling events with 
 
 ## Conditional Rendering
 

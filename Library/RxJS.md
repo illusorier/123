@@ -1,5 +1,7 @@
 There are many libraries that make up the Reactive Extensions for JavaScript.
 
+You are able to create data streams of anything, not just from click and hover events.
+
 Reactive Extensions for JavaScript (RxJS) is a reactive streams library that allows you to work with *asynchronous data streams*. 
 
 RxJS can be used both in browser or in the server-side using Node.js.
