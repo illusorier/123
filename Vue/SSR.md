@@ -9,3 +9,5 @@ Compared to a traditional SPA (Single-Page Application), the advantage of SSR pr
 There are also some trade-offs to consider when using SSR:
 
 When you render a Vue app, the rendered only generates the markup of the app.
+
+In a client-only app, every 
