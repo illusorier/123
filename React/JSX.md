@@ -17,3 +17,5 @@ You can embed any JavaScript expression in JSX by wrapping it in **curly braces*
 > You may also use curly braces to embed a JavaScript expression in an attribute:
 
         const element = <img src={user.avatarUrl}></img>;
+        
+> Fundamentally, JSX 

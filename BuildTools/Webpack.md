@@ -47,6 +47,8 @@ When compiling all these modules, a static analysis tries to find its dependenci
 
 Webpack is fed via a configuration object.
 
+Webpack的两种使用方式：
+
 There are two ways to pass the `configuration object`.
 
 #### CLI
@@ -186,5 +188,9 @@ The webpack-dev-server is a little Node.js Express server, which uses
 ### webpack-dev-middleware
 
 ### webpack-hot-middleware
+
+### Target
+
+webpack can compile for multiple environments or *targets*.
  
  
