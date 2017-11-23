@@ -4,88 +4,11 @@
 
 In computing, **Extensible Markup Language(XML)** is a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable through use of tags that can be created and defined by users.
 
-什么是JSX？
-
-JSX is a XML-like syntax extension to ECMAScript without any defined semantics.
-
-It's NOT intended to be implemented by engines or browsers.
-
-
-
 JSX和JQuery中的`.before()`,`.after()`对比, cheap。
 
 ## Installation
 
 While React can be used without a build pipeline, we recommend setting it up so you can be more productive.
-
-## Introducing JSX
-    
-    const element = <h1>Hello, world!</h1>;
-    
-This funny tag syntax is neither a string nor HTML.
-
-It is called JSX, and it is a syntax extension to JavaScript.
-
-We recommend using it with React to describe what the UI should look like.
-
-JSX may remind you of a template language, but it comes with the full power of JavaScript.
-
-JSX produces React "elements", which will be rendered to the DOM.
-
-#### Embedding Expressions in JSX
-
-You can embed any JavaScript expression in JSX by wrapping it in **curly braces**.
-
-    function formatName(user) {
-      return user.firstName + ' ' + user.lastName;
-    }
-    
-    const user = {
-      firstName: Bill,
-      lastName: Wei
-    }
-
-    const element = {
-      <h1>
-        Hello, {formatName(user)}!
-      </h1>
-    };
-    
-    ReactDOM.render(
-      element,
-      document.getElementById('root')
-    };
-
-We split JSX over multiple lines for readability.
-
-We also recommend wrapping JSX in parentheses to avoid the pitfalls of automatic semicolon insertion.
-
-It is a JavaScript XML syntax transform which lets you write HTML-ish tags in your javascript.
-
-#### JSX is an Expression Too
-
-After compilation, JSX expressions become regular JavaScript objects.
-
-This means that you can use JSX inside of `if` statement and `for` loops, assign it to variables, accept it as arguments, and return it from functions:
-
-    function getGreeting(user) {
-      if (user) {
-        return <h1>Hello, {formatName(user)}!</h1>;
-      }
-      return <h1>Hello, Stranger.</h1>;
-    }
-    
-#### Specifying Attributes with JSX
-
-You may use quotes to specify string literals as attributes:
-
-    const element = <div tabIndex="0"></div>;
-    
-You may also use curly braces to embed a JavaScript expression in an attribute:
-
-    const element = <img src={user.avatarUrl}></img>;
-    
-You should either use quotes (for string values) or curly braces (for expressions), but not both in the same attribute.
 
 #### JSX Represents Objects
 
@@ -162,32 +85,6 @@ With our knowledge so far, the only way to update the UI is to create a new elem
     setInterval(tick, 1000);
     
 > In practice, most React apps only call `ReactDOM.render()` once.
-
-## Components and Props
-
-Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.
-
-Conceptually, components are like JavaScript function.
-
-They accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen,
-
-#### Functional and Class Component
-
-The simplest way to define a component is to write a JavaScript function:
-
-    function Welcome(props) {
-      return <h1>Hello, {props.name}</h1>
-    }
-
-This function is a valid React component because it accepts a single "props" object argument with data and returns a React element.
-
-You can also use an `ES6 class` to define a component:
-
-    class Welcome extends React.Component {
-       render() {
-         return <h1>Hello, {this.props.name}</h1>;
-       }
-    }
 
 Elements can also represent user-defined components:
    

@@ -2,6 +2,39 @@
 
 组件最基本的用途就是HTML的封装和复用。
 
+Conceptually, components are like JavaScript function (在ES6中可以叫做类).
+
+They accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen.
+
+怎么去理解组件的属性？
+
+### Functional and Class Component
+
+在React中，有两种方式去声明组件：Functional or Class。
+
+The simplest way to define a component is to write a JavaScript function:
+
+        function Welcome(props) {
+            return <h1>Hello, {props.name}</h1>
+        }
+        
+This function is a valid React component because it accepts a single "props" object argument with data and returns a React element.
+
+We call such components "functional" because they are literally JavaScript functions.
+
+You can also use an `ES6 class` to define a component:
+
+        class Welcome extends React.Component {
+            render() {
+                return <h1>Hello, {this.props.name}</h1>;
+            }
+        }
+
+The above two components are equivalent from React’s point of view.
+
+Classes have some additional features.
+
 Whether you declare as a function or a class, it must never modify its own props.
 
 > All React components must act like pure functions with respect to their props.
+    
