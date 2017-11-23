@@ -20,19 +20,31 @@ Angular扩展了浏览器本身的event loop。
 
 Every time you bind something in the UI you insert a `$watch` in a `$watch list`.
 
-##### $digest loop
+## $digest loop
 
-When the browser receives an event that can be managed by the `angular context`, the `$digest` loop will be fired. This loop is made from two smaller loops. One processes the `$evalAsync` queue and the other one processes the `$watch` list.
+When the browser receives an event that can be managed by the `angular context`, the `$digest` loop will be fired. 
+
+Processes all the watchers of the current scope and its children.
+
+Because a watcher's listener can change the model, the `$digest` keeps calling the watchers until no more listeners are firing.
+
+This loop is made from two smaller loops. 
+
+One processes the `$evalAsync` queue and the other one processes the `$watch` list.
 
 When the `$digest loop` finishes, the DOM makes the changes.
 
 > If you want to be notified whenever $digest is called, you can register a watchExpression function with no listener.
 
         $rootScope.$watch(function() {
-          console.log('digest!');
+            console.log('digest!');
         }); 
+        
+#### When $digest cycle is called?
 
-##### When angular does not use $apply for us
+![](../../assets/angular-digest-process.png)
+
+#### When angular does not use $apply for us
 
 #### Compile vs Link
  

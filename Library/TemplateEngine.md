@@ -17,6 +17,10 @@
 
 当然模板引擎也可以输出任意格式的文本，如Text, XML, Markdown等等。
 
+### DOM-based
+
+A DOM-based templating language relies on a DOM tree to recognize templating directives. 
+
 Nunjucks是Mozilla开发的一个纯JavaScript编写的模板引擎。
 
 Available in node and all modern web browsers.

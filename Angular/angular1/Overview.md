@@ -91,20 +91,6 @@ Scope
 
 1. The browser's event-loop waits for an event to arrive.
 
-## Interpolation
-
-Interpolation markup with embedded expressions is used by AngularJS to provide data-binding to text nodes and attribute values.
-
-        <a ng-href="img/{{username}}.jpg">Hello {{username}}!</a>
-
-## Decorators
-
-## Bootstrap
-
-AngularJS initialization process and manually initialize AngularJS.
-
-AngularJS initializes automatically的时间点。
-
 ##### $event
 
 Directives like `ngClick` and `ngFocus` expose a `$event` object within the scope of that expression.
