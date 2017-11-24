@@ -40,11 +40,30 @@ When the `$digest loop` finishes, the DOM makes the changes.
             console.log('digest!');
         }); 
         
-#### When $digest cycle is called?
+`$apply()` is used to execute an expression in AngularJS from outside of the AngularJS framework. 
+
+For example from browser DOM events, setTimeout, XHR or third party libraries.
+
+当自己写directive时，会常常需要用到$apply.
+        
+### When $digest cycle is called?
 
 ![](../../assets/angular-digest-process.png)
 
-#### When angular does not use $apply for us
+### $scope.$evalAsync() vs $timeout()
+
+Sometimes, in an AngularJS application, you have to explicitly tell AngularJS when to initiate it's $digest lifecycle (for dirty-data checking).
+
+Most of time, this can be easily accomplished with the $scope.$apply method.
+
+However, some of the time, you have to defer the $apply() invocation because it may or may not conflict with an already-running $digest phase.
+
+In those cases, you can use the $timeout service (which implicitly calls $apply() after a delay).
+
+But, the $scope.$evalAsync() is likely to execute in the same tick of the JavaScript event loop.
+
+[相关文章][1]        
+[1]:https://www.bennadel.com/blog/2605-scope-evalasync-vs-timeout-in-angularjs.htm         
 
 #### Compile vs Link
  
@@ -65,22 +84,6 @@ If you want to step up in your AngularJS knowledge, $parse is one of the most im
 Converts Angular expression into a function.
 
 `$parse` takes an expression, and returns you a function.
-
-##### $scope.$evalAsync() vs $timeout()
-
-Sometimes, in an AngularJS application, you have to explicitly tell AngularJS when to initiate it's $digest lifecycle (for dirty-data checking).
-
-Most of time, this can be easily accomplished with the $scope.$apply method.
-
-However, some of the time, you have to defer the $apply() invocation because it may or may not conflict with an already-running $digest phase.
-
-But, the $scope.$evalAsync() is likely to execute in the same tick of the JavaScript event loop.
-
-        angular
-            .module('demo', [])
-            .directive('demoDirective', function() {
-            
-            
 
 #### 'this' vs $scope in AngularJS controller
 

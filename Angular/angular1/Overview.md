@@ -77,16 +77,6 @@ It can however, give you the same capabilities of a `.service()`, but is much mo
 
 #### Creating Services
 
-## Scopes
-
-我们为什么需要scopes这个概念？
-
-当有了数据，我们就需要对其进行管理，就会有作用域、命名空间等等概念。
-
-Scopes provides APIs ($watch) to observe model mutations.
-
-Scope
-
 ##### Integration with the browser event loop
 
 1. The browser's event-loop waits for an event to arrive.

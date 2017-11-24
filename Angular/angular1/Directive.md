@@ -34,6 +34,40 @@ There are a few special events that AngularJS emits.
 
 When a DOM node that has been compiled with Angular's compiler is destroyed, it emits a $destroy event.
 
+### How directives are processed in AngularJS?
+
+How AngularJS processes the element depends on the actual directive definition object.
+
+有若干种情况需要考虑，这是最简单的情况：
+
+        <div directive></div>
+
+另一种是内部包含子节点：
+
+        <div directive>
+            <div></div>
+        </div>
+        
+下面这种更为复杂：
+
+         <div directive-a directive-b>
+            <div></div>
+         </div>
+
+Compile, Controller, post link , pre link <= 这些都是什么鬼？
+
+Some directives such as `ng-repeat` clone DOM elements once for each item in a collection. 
+
+Having a compile and link phase improves performance since the cloned template only needs to be compiled once, and then linked once for each clone instance.
+
+所以分为compile和link仅仅是为了ng-repeat这类的directive？
+
+`tElem` => template element
+
+> If you create a directive that only has a link function, AngularJS treats the function as a post-link function. 
+
+![](../../assets/angular-compile-link.png)
+
 #### Template-expanding directive
 
 可以实现HTML的复用，提高代码的可维护性和扩展性。
@@ -70,7 +104,7 @@ The fact that Angular allows DOM manipulation
 
 The scope property can be `false`, `true`, or an object.
 
-- `false` (default): 
+- `false` (default): No scope will be created for the directive. The directive will use its parent's scope.
 
 `compile`
 
@@ -99,6 +133,8 @@ Controller constructor function.
 This property is used only if the `compile` property is not defined.
 
         function link($scope, $element, $attrs, controller) { ... }
+        
+- scope - The scope to be used by the directive for registering watches.
         
 The link function is responsible for registering DOM listeners as well as updating the DOM.
 
