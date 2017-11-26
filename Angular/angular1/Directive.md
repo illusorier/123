@@ -68,6 +68,14 @@ Having a compile and link phase improves performance since the cloned template o
 
 ![](../../assets/angular-compile-link.png)
 
+AngularJS provides an additional **hook**,
+
+It's rare for directives to have a **compile function**, since most directives
+
+Directive often have a **link function**.
+
+A link function 
+
 #### Template-expanding directive
 
 可以实现HTML的复用，提高代码的可维护性和扩展性。
@@ -105,6 +113,8 @@ The fact that Angular allows DOM manipulation
 The scope property can be `false`, `true`, or an object.
 
 - `false` (default): No scope will be created for the directive. The directive will use its parent's scope.
+
+- `true`: A new 
 
 `compile`
 

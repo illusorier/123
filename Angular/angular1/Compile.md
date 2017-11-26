@@ -14,7 +14,7 @@ The compilation process happens in two phases:
 
 1. `$compile` traverses the DOM and matches directives.
 
-    If the compiler finds
+    If the compiler finds that element matches a directive, 
 
 2.  Once all directives matching a DOM element have been identified, the compiler sorts the directive by their `priority`.
 
