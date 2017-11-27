@@ -2,6 +2,8 @@
 
 最基本的问题就是：如何去写一个Directive?
 
+Directive在AngularJS是一个非常强大的特性，但也十分令人困惑。
+
         angular
             .module('moduleName')
             .directive('directiveName', function() {
@@ -33,6 +35,26 @@ There are 3 types of binding options
 There are a few special events that AngularJS emits.
 
 When a DOM node that has been compiled with Angular's compiler is destroyed, it emits a $destroy event.
+
+### How ng-repeat works in AngularJS
+
+ng-repeat executes at priority level 1000.
+
+Implement my own version of ng-repeat:
+
+          angular
+            .module('moduleName')
+            .directive('ngRepeat', function() {
+              return {
+                restrict: 'A',
+                compile: function(tElement, tAttrs) {
+                    // 通过正则解析tAttrs获得parent scope中相应array的标识符。
+                    return function($scope, iElement, iAttrs) {
+                        // watch相应array
+                        $scope.$watchCollection();
+                    }
+              }
+            })
 
 ### How directives are processed in AngularJS?
 
