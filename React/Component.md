@@ -34,6 +34,38 @@ The above two components are equivalent from React’s point of view.
 
 Classes have some additional features.
 
+### Composing Components 
+
+Components can refer to other components in their output.
+
+This lets us use the same component abstraction for any level of detail.
+
+A button, a form, a dialog, a screen: in React apps, all those are commonly expressed as components.
+
+        function Welcome(props) {
+          return <h1>Hello, {props.name}</h1>;
+        }
+        
+        function App() {
+          return (
+            <div>
+              <Welcome name="Sara" />
+              <Welcome name="Cahal" />
+              <Welcome name="Edite" />
+            </div>
+          );
+        }
+        
+        ReactDOM.render(
+          <App />,
+          document.getElementById('root')
+        );
+        
+Typically, new React apps have a single `App` component at the very top.
+
+
+### Props are Read-Only
+
 Whether you declare as a function or a class, it must never modify its own props.
 
 > All React components must act like pure functions with respect to their props.

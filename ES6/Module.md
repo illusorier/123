@@ -2,6 +2,10 @@
 
 前者用于服务器，后者用于浏览器。
 
+JavaScript has had modules for a long time.
+
+However, they were implemented via libraries, not built into the language.
+
 ### Design goals for ES6 modules
 
 
@@ -14,10 +18,27 @@ ES6 modules are stored in files.
 
 #### Multiple named exports
 
+可以export Variable, Class and Function，就是在声明前加上`export`关键字。
 
+        //------ lib.js ------
+        export const sqrt = Math.sqrt;
+        export function square(x) {
+            return x * x;
+        }
+        export function diag(x, y) {
+            return sqrt(square(x) + square(y));
+        }
+        
+        //------ main.js ------
+        import { square, diag } from 'lib';
+       
+You can also import the complete module:    
 
-    // ES6
-    import { funA, funB, funC } from 'someModule';
+        import * as lib from 'lib';
+
+#### Single default export   
+
+在声明前加上`export default`关键字。
 
 ES6模块不是对象，而是通过`export`命令显式
 
