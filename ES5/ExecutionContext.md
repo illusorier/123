@@ -14,7 +14,6 @@ Variables are closely related with execution context.
 
 从数据结构的角度理解，执行上下文们本身是一个栈。
 
-
 从JS引擎执行代码的过程来看，可执行的代码可以被分为两类:全局代码和函数代码，分别对应
 
 当执行JS中上述两类代码时，
@@ -83,7 +82,7 @@ VO is a property of an execution context:
 
 Indirect referencing VO is possible in global context.
 
-For other contexts,it is purely mechanism of implementation.
+For other contexts, it is purely mechanism of implementation.
 
 ### Variable object in different execution contexts
 
@@ -141,9 +140,7 @@ On entering the execution context(but before the code execution), VO is filled w
     
     console.log(x);
       
-
-
-# This value
+## This value
 
 `this`是JavaScript中十分令人困惑的概念，因为在不同的环境下，它指向的值是不一样的。
 
@@ -157,39 +154,70 @@ If the `this` mechanism is so confusing,even to seasoned JavaScript developers, 
 
 The motivation and utility of `this`:
 
-    function identify() {
-      return this.name.toUpperCase();
-    }
-    
-    function speak() {
-      var greeting = "Hello, I'm " + identify.call( this );
-      console.log( greeting );
-    }
-    
-    var me = {
-      name: "Kyle"
-    };
-    
-    var you = {
-      name: "Reader"
-    };
-    
-    identify.call( me );
-    identify.call( you );
-    
-     speak.call( me );
-     speak.call( you );
+        function identify() {
+          return this.name.toUpperCase();
+        }
+          
+        function speak() {
+          var greeting = "Hello, I'm " + identify.call( this );
+          console.log( greeting );
+        }
+        
+        var me = {
+          name: "Kyle"
+        };
+        
+        var you = {
+          name: "Reader"
+        };
+        
+        identify.call( me );
+        identify.call( you );
+        
+        speak.call( me );
+        speak.call( you );
+        
+我们知道，代码（函数）有其相应的执行上下文。
+
+如果某个函数的执行，依赖于某个对象中包含的数据；那么，除了显式得将该对象作为参数传入函数，是否还有其他解决方法？
+
+利用作用域链：可以将这些数据作为局部变量声明在函数调用的上下文中，但这显然会造成很多问题。
     
 This code snippet allows the `identify()` and `speak()` functions to be re-used against multiple context (`me` and `you`) objects.
 
-`this` mechanism provides a more elegant way of implicitly "passing along" an object reference,leading to cleaner API design and easier re-use.
+Instead of relying on `this`, you could have explicitly passed in a context object to both `identify()` and `speak()`.
+
+        function identify(context) {
+        	return context.name.toUpperCase();
+        }
+        
+        function speak(context) {
+        	var greeting = "Hello, I'm " + identify( context );
+        	console.log( greeting );
+        }
+        
+        identify( you ); 
+        speak( me ); 
+
+`this` mechanism provides a more elegant way of implicitly "passing along" an object reference, leading to cleaner API design and easier re-use.
 
 The more complex your usage pattern is, the more clearly you'll see that passing context around as an explicit parameter is often messier than passing around a `this` context.
 
+#### call vs apply
+
+它们的作用是什么，有什么区别？
+
+Calls a function with a given this value and arguments provided individually.
+
+区别在于参数的格式
+
+        fun.call(thisArg, arg1, arg2, ...)
+        
+        fun.apply(thisArg, [argsArray])
 
 #### Call-site
 
-We must inspect the call-site (the location in code where a function is called) to answer the question:what's this `this` a reference to?
+We must inspect the call-site (the location in code where a function is called) to answer the question: what's this `this` a reference to?
 
 #### Default Binding
 

@@ -64,11 +64,17 @@ If not specified, `useCapture` defaults to `false`.
 
 Events can be created with the `Event` constructor as follow:
 
-        
+##### Event.target
+
+A reference to the object that dispatched the event.
+
+It is different from `event.currentTarget`  
 
 ##### Event.currentTarget
 
 Identifies the current target for the event, as the event traverses the DOM.
+
+Unlike the `input` event, the `change` event is not necessarily fired for each change to an element's `value`.
 
 
 

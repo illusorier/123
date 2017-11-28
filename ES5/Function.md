@@ -258,24 +258,6 @@ Whatever facility we use to *transport* an inner function outside of its lexical
 Function.caller - this property returns the function that invoked the specified function.
 
 If the function f was invoked by the top level code,the value of f.caller is null.
-
-#### Function.prototype.call()
-
-The call() method calls a function with a given this value and arguments provided individually.
-
-    fun.call(thisArg, arg1, arg2, ...)
-
-A 
-
-#### Function.prototype.apply()
-
-The **apply()** method calls a function with a given this value, and arguments provided as an array (or an array-like object).
-
-    fun.apply(thisArg, [argsArray])
-    
-While the syntax of this function is almost identical to that of call(), the fundamental difference is that call() accepts an argument list, while apply() accepts a single array of arguments.
-
-You can 
     
 #### Function.prototype.bind()
 

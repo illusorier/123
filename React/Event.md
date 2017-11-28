@@ -7,3 +7,5 @@ There are some syntactic differences:
 - With JSX 
 
 When you define a component using an `ES6 class`, a common pattern is for an event handler to be a method on the class.
+
+You have to be 

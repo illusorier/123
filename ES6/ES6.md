@@ -51,29 +51,54 @@ That form is what i call explicit block scoping.
 
 `let` + `for`
 
+### Spread/Rest
 
+ES6 introduces a new `...` operator that is typically referred to as the *spread* or *rest* operator.
 
-###Spread/Rest
-
-ES6 introduces a new `...` operator that's typically 
-
-    function foo(x,y,z){
-        console.log( x, y, z );
-    }
+        function foo(x,y,z){
+            console.log( x, y, z );
+        }
+        
+        foo( ...[1,2,3] );        // 1 2 3
     
-    foo( ...[1,2,3] );        // 1 2 3
-    
-When `...` is used in front of an array, it acts to "spread" it out into its individual values.
+When `...` is used in front of an array (actually, any *iterable*), it acts to "spread" it out into its individual values.
 
 Spreading out an array as a set of arguments to a function call.
 
-`...` acts to give us a simply syntactic
+`...` acts to give us a simply syntactic replacement for the `apply(..)` method, which we would typically have used pre-ES6 as:
+
+        foo.apply( null, [1,2,3] );	
 
 But `...` can be used to spread out/expand a value in other contexts as well,
 
 ### Destructuring
 
-ES6 introduces a new syntactic feature called destructuring,which may be a little less confusing if you instead think of it as *structured assignment*.
+ES6 introduces a new syntactic feature called destructuring, which may be a little less confusing if you instead think of it as *structured assignment*.
+
+ES6允许按照一定模式，从数组和对象中提取值，对变量赋值。
+
+以前，为变量赋值，只能直接指定值。
+
+        let a = 1;
+        let b = 2;
+        let c = 3;
+        
+ES6允许写成下面这样：
+
+        let [a, b, c] = [1, 2, 3];
+
+解构赋值
+
+如果解构不成功，变量的值等于`undefined`。
+
+另一种情况是不完全解构，即等号左边的模式，只匹配一部分的等号右边的数组。
+
+解构不仅可以用于数组，还可以用于对象。
+
+        let { foo, bar } = { foo: "aaa", bar: "bbb" };
+        
+        foo // "aaa"
+        bar // "bbb"
 
 ### Object Literal Extensions
 
@@ -101,6 +126,8 @@ Generators also have a concise method form:
 ##### ES5 Getter/Setter
 
 ### Arrow Functions
+
+箭头函数
 
     function foo(x,y) {
       return x + y;

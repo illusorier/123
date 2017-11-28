@@ -59,3 +59,5 @@ No other structures create their own scope bubbles.
 
 
 ## Blocks As Scopes
+
+The scope chain is exactly 
