@@ -1,0 +1,1 @@
+Node.js can not only load the JavaScript libraries, but also be extended with native modules (compiled C/C++ code).
