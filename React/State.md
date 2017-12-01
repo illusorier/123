@@ -24,9 +24,24 @@ In React, sharing state is accomplished by moving it up to the closest common an
 
 这个组件的功能很简单，但假如我们创建了多个该组件的实例，我们希望在一个实例中input的修改能得到同步，该怎么做？
 
-我们将“这个值”作为属性传入这些实例中，但这就产生了一个问题，子组件不能修改这些"props"。
+我们可以将“这个值”作为属性传入这些实例中，那么这些实例显示的都是同一个值。
+但这就产生了一个问题，子组件不能修改这些"props"。
+
+React是如何解决这个问题的？
 
 In React, this is usually solved by making a component "controlled".
+
+Just like the DOM `<input>` accepts both a `value` and an `onChange` prop.
+
+### Containment
+
+Some components do not know their children ahead of time.
+
+We recommend that such components use the special `children` prop to pass children elements directly into their output.
+
+还有一种很常见的需求，组件所包含的模板是动态的。
+
+Sometimes you might need multiple "holes" in a component.
 
 ##### setState()
 
