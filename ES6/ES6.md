@@ -1,8 +1,3 @@
-ES2015 (aka ES6)
-
-ES2016 (aka ES7)
-# Syntax
-
 ### Block-Scoped Declarations
 
 The fundamental unit of variable scoping in JavaScript has always been the `function`.
@@ -51,7 +46,7 @@ That form is what i call explicit block scoping.
 
 `let` + `for`
 
-### Spread/Rest
+## Spread/Rest
 
 ES6 introduces a new `...` operator that is typically referred to as the *spread* or *rest* operator.
 
@@ -71,7 +66,11 @@ Spreading out an array as a set of arguments to a function call.
 
 But `...` can be used to spread out/expand a value in other contexts as well,
 
-### Destructuring
+The other common usage of `...` can be seen as essentially the opposite;
+
+## Destructuring
+
+解构赋值
 
 ES6 introduces a new syntactic feature called destructuring, which may be a little less confusing if you instead think of it as *structured assignment*.
 
@@ -87,11 +86,20 @@ ES6允许写成下面这样：
 
         let [a, b, c] = [1, 2, 3];
 
-解构赋值
+本质上，这种写法属于“模式匹配”，只要等号两边的模式相同,左边的变量就会被赋予对应的值。
+
+        let [ , , third] = ["foo", "bar", "baz"];
+        third // "baz"
+        
+        let [x, , y] = [1, 2, 3];
+        x // 1
+        y // 3
 
 如果解构不成功，变量的值等于`undefined`。
 
 另一种情况是不完全解构，即等号左边的模式，只匹配一部分的等号右边的数组。
+
+如果等号的右边不是数组（或者严格地说，不是可遍历结构），那么将会报错。
 
 解构不仅可以用于数组，还可以用于对象。
 
@@ -364,6 +372,4 @@ ES6 classes also have syntactic sugar
         
         
         
-In the constructor, `super` automatically refer to the "parent constructor".In a method
-
-### Decorator
+In constructor, `super` automatically refer to the "parent constructor".In a method
