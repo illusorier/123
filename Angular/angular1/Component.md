@@ -10,8 +10,7 @@ angular1的官方文档中详细介绍了directive的common use cases.
 
 其中第一种用法的示例非常非常有意思，它向我们演示了如何不使用scope属性来实现数据的单向绑定。
 
-[文档链接][1]        
-[1]:https://docs.angularjs.org/guide/directive#creating-a-directive-that-manipulates-the-dom
+https://docs.angularjs.org/guide/directive#creating-a-directive-that-manipulates-the-dom
 
 ## Components
 
