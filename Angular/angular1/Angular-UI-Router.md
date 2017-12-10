@@ -1,3 +1,7 @@
+UI-Router v1.0 for AngularJS(1.x) introduced the 
+
+In legacy UI-Router (version 0.x.x), views can only be defined using a template 
+
 #### ui-view
 
 The ui-view directive tells $state where to place your templates.

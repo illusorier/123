@@ -130,6 +130,8 @@ The fact that Angular allows DOM manipulation
 
 ### Directive Definition Object
 
+封装HTML和CSS并不是组件(component or directive)仅有的功能，它们也包含了逻辑，那么这些逻辑(function)处理的数据(params)又是来源于哪里呢？
+
 `scope`
 
 The scope property can be `false`, `true`, or an object.
@@ -137,6 +139,22 @@ The scope property can be `false`, `true`, or an object.
 - `false` (default): No scope will be created for the directive. The directive will use its parent's scope.
 
 - `true`: A new 
+
+- `{...}` (an object hash)
+
+The 'isolate' 
+
+The keys in the object hash map to the name of the property on the isolate scope;
+
+子组件需要得到重新渲染
+
+- `@` or `@attr`
+
+- `=` or `=attr` - set up a bidirectional binding between a local scope property and an expression passed via the attribute `attr`.
+
+  The expression is evaluated in the context of the parent scope.
+  
+- `<` or `<attr` - set up a one-way(one-directional) binding between a local scope property and an expression passed via the attribute `attr`.
 
 `compile`
 
