@@ -16,6 +16,8 @@ Angular扩展了浏览器本身的event loop。
 
 > Watches are not called periodically based on a timer.
 
+dirty-checking: Angular checks if there are any changes to all the variables watched by all the $scope.
+
 ##### The $watch list
 
 Every time you bind something in the UI you insert a `$watch` in a `$watch list`.
