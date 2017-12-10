@@ -148,13 +148,17 @@ The keys in the object hash map to the name of the property on the isolate scope
 
 子组件需要得到重新渲染
 
-- `@` or `@attr`
+- `@` or `@attr` - bind 
+
+  The result is always a string 
 
 - `=` or `=attr` - set up a bidirectional binding between a local scope property and an expression passed via the attribute `attr`.
 
   The expression is evaluated in the context of the parent scope.
   
 - `<` or `<attr` - set up a one-way(one-directional) binding between a local scope property and an expression passed via the attribute `attr`.
+
+- `&` or `&attr` - provides a way to execute an expression in the context of the parent scope.
 
 `compile`
 
