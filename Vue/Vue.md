@@ -1,18 +1,27 @@
-### Angular1 vs Vue
+## The Vue Instance
 
-Bootstrap:
-
-Every Vue vm is **bootstrapped** by creating a **root Vue instance** with the Vue constructor function:
+Every Vue application starts by creating a new **Vue instance** with the `Vue` function:
 
         var vm = new Vue({
             // options
         })
 
-代码结构：
-
 When you create a Vue instance, you pass in an **options object**.
 
 How you can use these options to create your desired behavior.
+
+### Data and Methods
+
+When a Vue instance is created, it adds all the properties found 
+
+        var vm = new Vue({
+            data: {
+                name: 'bill'
+            }
+        });
+        
+When you pass a plain JavaScript object to a Vue instance as its `data` option, Vue will walk through all of its properties and convert them to getter/setters using `Object.defineProperty`.
+
 
 组件写法：
 
@@ -22,17 +31,9 @@ How you can use these options to create your desired behavior.
 
 两者组件注册(register)的写法是类似的，vue并没有采用react和ng2的基于class的组件声明方式。
 
-### Angular2 vs Vue
-
-
-
 - Compiler: code that is responsible for compiling template strings into JavaScript render functions.
 
 - Runtime: code
-
-
-
-## The Vue Instance
 
 #### Constructor
 
@@ -207,11 +208,6 @@ Putting too much logic into your templates can make them bloated and hard to mai
     </div>
     
 You can data-bind to computed properties in
-
-      
-## Class and Style Bindings
-
-A comm
 
 ## Event Handling
 
