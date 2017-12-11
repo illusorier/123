@@ -17,3 +17,13 @@ If it's a top-level state
 There are three main ways to activate a state:
 
 1. Call `$state.go()`.
+
+在AngularJS中，当应用在不同路由间切换时，会存在这样的一个需求：我们希望某些参数能在路由之间进行传递。
+
+Often, URLs have dynamic parts to them which are called parameters.
+
+There are several options for specifying parameters.
+
+#### Using Parameters without Specifying Them in State URLs
+
+You still can specify what parameters to receive even though the parameters don't appear in the url.
