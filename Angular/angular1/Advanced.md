@@ -16,6 +16,8 @@ Angular扩展了浏览器本身的event loop。
 
 > Watches are not called periodically based on a timer.
 
+脏检查是AngularJS中一个为人诟病的特性。
+
 dirty-checking: Angular checks if there are any changes to all the variables watched by all the $scope.
 
 ##### The $watch list

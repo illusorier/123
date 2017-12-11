@@ -130,6 +130,10 @@ The fact that Angular allows DOM manipulation
 
 ### Directive Definition Object
 
+`bindToController`
+
+This property is used to bind scope properties directly to the controller.
+
 封装HTML和CSS并不是组件(component or directive)仅有的功能，它们也包含了逻辑，那么这些逻辑(function)处理的数据(params)又是来源于哪里呢？
 
 `scope`
@@ -158,7 +162,16 @@ The keys in the object hash map to the name of the property on the isolate scope
   
 - `<` or `<attr` - set up a one-way(one-directional) binding between a local scope property and an expression passed via the attribute `attr`.
 
+理论上，运用双向绑定，我们并不需要`&`，只不过同样的逻辑在父子组件中可能会重复出现。
+
 - `&` or `&attr` - provides a way to execute an expression in the context of the parent scope.
+
+    Often it's desirable to pass data from the isolated scope via an expression to the parent scope.
+    
+    就是说调用父组件的函数，但是参数值的解析是在子组件的scope当中。
+    
+
+All 4 kinds of bindings (`@`, `=`, `<` and `&`) can be made optional by adding `?` to the expression.
 
 `compile`
 
