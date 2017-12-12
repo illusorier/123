@@ -341,35 +341,3 @@ Objects are the primary mechanism for creating unordered key/value-pair data str
 The major drawback with object is the inability to use a non-string value as the key.
 
 The only drawback is that you can't use the `[ ]` bracket syntax for setting and retrieving values.But `get(..)` and `set(..)` work perfectly suitably instead.
-
-### Classes
-
-`class`
-
-At the heart of the new ES6 class mechanism is the `class` keyword,which identifies a block where the contents define the members of a function's prototype.
-
-    class Foo {
-      constructor(a,b) {
-        this.x = a;
-        this.y = b;
-      }
-      
-      gimmeXY() {
-        return this.x * this.y;
-      }
-    }
-
-- `class Foo` implies creating a (special) function of the name
-
-`extends` and `super`
-
-ES6 classes also have syntactic sugar
-
-    class Bar extends Foo {
-      constructor(a,b,c) {
-        super(a,b);
-        this.z = c;
-        
-        
-        
-In constructor, `super` automatically refer to the "parent constructor".In a method

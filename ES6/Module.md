@@ -16,6 +16,8 @@ ES6 的模块自动采用严格模式，不管你有没有在模块头部加上`
 
 ES6 modules are stored in files.
 
+You have two ways of exporting things from a module.
+
 #### Multiple named exports
 
 可以export Variable, Class and Function，就是在声明前加上`export`关键字。
