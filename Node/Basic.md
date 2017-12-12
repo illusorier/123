@@ -4,11 +4,11 @@ Prior to the introduction of `TypedArray` in ES6, the JavaScript language had no
 
 ## Events
 
-异步的、事件驱动的架构。 
+异步的、事件驱动的架构。
 
-Much of the Node.js core API is built around an idiomatic asynchronous event-driven architecture in which certain kinds of objects (called "`emitters`") periodically emit named events that    
+Much of the Node.js core API is built around an idiomatic asynchronous event-driven architecture in which certain kinds of objects (called "`emitters`") periodically emit named events that
 
-All objects that emits events 
+All objects that emits events
 
 When the `EventEmitter` object emits (触发)
 
@@ -20,11 +20,11 @@ One of the most common things you'll want to do with just about any programming 
 
 All the methods have asynchronous and synchronous forms.
 
-####  fs.readFile
+##### fs.readFile
 
 This is the most common way to read a file with Node.js.
 
-#### fs.createReadStream
+##### fs.createReadStream
 
 A readable stream object can be useful for a lot of reasons, a few of which include:
 
@@ -42,17 +42,17 @@ The `path` module provides utilities for working with file and directory paths.
 
 ##### path.join([...paths])
 
-`path.join()`方法使用平台特定的分隔符把全部给定的`path`片段连接到一起，并规范化生成的路径。
+`path.join()`方法使用平台特定的分隔符把全部给定的path片段连接到一起，并规范化生成的路径。
 
 长度为零的`path`片段会被忽略。
 
-如果连接后的路径字符串是一个长度为零的字符串，则返回`.`，表示当前工作目录。
+如果连接后的路径字符串是一个长度为零的字符串，则返回.，表示当前工作目录。
 
 下面这个例子挺有趣的：
 
         path.join('/foo', 'bar', 'baz/asdf', 'quux', '..');
         // 返回: '/foo/bar/baz/asdf'
-
+    
 ##### path.resolve([...paths])
 
 The `path.resolve()` method resolves a sequence of path or path segments.
@@ -61,7 +61,7 @@ The `path.resolve()` method resolves a sequence of path or path segments.
 
 这里要注意的是路径片段的组合是从右往左的。
 
-The given sequence of paths is processes from right to left, with each subsequent `path` prepended until an absolute path 
+The given sequence of paths is processes from right to left, with each subsequent `path` prepended until an absolute path
 
 ## Process
 
@@ -71,7 +71,7 @@ The `process` object is an instance of EventEmitter.
 
 The `net` module provides an asynchronous network API
 
-##### net.createServer
+net.createServer
 
 ## Stream
 
@@ -81,22 +81,22 @@ A stream is an abstract interface for working with streaming data in Node.js
 
 All streams are instances of `EventEmitter`.
 
-While it is important for all Node.js users to understand how stream work, the `stream` module itself is most useful for developers that are creating new types of stream instances.
+While it is important for all Node.js users to understand how stream work, the stream module itself is most useful for developers that are creating new types of stream instances.
 
 There are four fundamental stream types within Node.js:
 
 - Readable - 可读的流
 - Writable - 可写的流
 - Duplex - 可读写的流
-- Transform - 
+- Transform -
 
-#### API for Stream Consumers
+##### API for Stream Consumers
 
 流消费者
 
 Almost all Node.js applications, no matter how simple, use streams in some manner.
 
-#### Writable Streams
+##### Writable Streams
 
 Writable streams are an abstraction for a destination to which data is written.
 
@@ -104,13 +104,13 @@ All Writable streams implement the interface defined by the `stream.Writable` cl
 
 所有Writable流都实现了`stream.Writable`类定义的接口。
 
-#### Readable Streams
+##### Readable Streams
 
 Readable streams are an abstraction for a source from which data is consumed.
 
 可读流（Readable streams）是对提供数据的 源头 （source）的抽象。
 
-#### Two Modes
+##### Two Modes
 
 Readable streams effectively operate in one of two modes: flowing and paused.
 
@@ -118,14 +118,14 @@ Readable streams effectively operate in one of two modes: flowing and paused.
 
 When in flowing mode, data is read from the underlying system automatically and provided to an application as quickly as possible using events via the `EventEmitter` interface.
 
-When in flowing mode, 
+When in flowing mode,
 
 All Readable streams begin in paused mode but can be switched to flowing mode in one of the following ways:
 
-#### Three States
+##### Three States
 
-The "two modes" of operation for a Readable stream are a simplified abstraction for 
-    
+The "two modes" of operation for a Readable stream are a simplified abstraction for
+
 Specifically, at any given point in time, every Readable is in one of three possible states:
 
 - readable._readableState.flowing
