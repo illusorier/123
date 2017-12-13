@@ -2,6 +2,8 @@ Express是什么？
 
 Express - Node.js web application framework
 
+Use Express for the server framework.
+
 最早接触到express是在学习node.js时，当时尝试在本地架设HTTP服务器。
 
 使用express的第一步是创建一个express应用程序。

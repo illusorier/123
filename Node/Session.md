@@ -1,16 +1,12 @@
-In client-server protocols, like HTTP, sessions consist of three phases:
-
-1.
-
-无状态
+HTTP是无状态的，因此我们无法在通信过程中识别用户。
 
 HTTP is a stateless protocol.
 
 In order to associate a request to any other request, you need a way to store user data between HTTP requests.
 
-Cookies and URL parameters are both suitable ways to
+Cookies and URL parameters are both suitable ways to transport data between the client and the server.
 
-But
+But they are both readable and on the client side.
 
 ### What is a "Cookie"?
 
@@ -31,6 +27,20 @@ Instead of storing large and constantly changing information via cookies in the 
 This session id is passed to the web server every time the browser makes an HTTP request (ie a page link or AJAX request). 
 
 The web application pairs this session id with it's internal database and retrieves the stored variables for use by the requested page.
+
+### express-session
+
+Session data is not saved in the cookie itself, just the session ID.
+
+Session data is stored server-side.
+
+##### secret
+
+**Required option**
+
+##### store
+
+The session store instance, defaults to a new `MemoryStore` instance.
 
 ### cookie-parser
 
