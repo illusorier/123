@@ -26,7 +26,13 @@ UI-Router states are hierarchical.
 
 states can be nested inside other states, forming a tree.
 
+Child states may inherit data and behavior from their parent state.
+
 ##### Views
+
+A state defines a feature's UI (and UI behavior) using a view (or multiple views).
+
+A view is a UI component, which is placed into a viewport (`<ui-view>`) when the state is activated.
 
 Views can be **nested** inside other views.
 
@@ -87,10 +93,22 @@ Alternatively you can also use curly brackets:
 
 You still can specify what parameters to receive even though the parameters don't appear in the url.
 
+### Route to Component
 
+UI-Router v1.0 for AngularJS(1.x) introduced the ability to route directly to AngularJS 1.5+ components. 
 
+In legacy UI-Router (version 0.x.x), views can only be defined using *a template* and *a controller*.
 
+create a component => update the state definition
 
-UI-Router v1.0 for AngularJS(1.x) introduced the 
+In the state definition, replace `template / controller` properties with a `component` property which refers to the name of the new component.
 
-In legacy UI-Router (version 0.x.x), views can only be defined using a template 
+        .state('userlist', {
+          url: '/users',
+          component: 'users', // The component's name
+          resolve: {
+            users: function(UserService) {
+              return UserService.list();
+            }
+          }
+        });  
