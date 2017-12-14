@@ -195,20 +195,6 @@ But Vue.js actually supports the full power of JavaScript expressions inside all
 
 Directive are special attributes with the `v-` prefix
 
-## Computed Properties and Watchers
-
-#### Computed Properties
-
-In-template expressions are very convenient,but they are really only meant for simple operations.
-
-Putting too much logic into your templates can make them bloated and hard to maintain.
-
-    <div id="example">
-      {{ message.split('').reverse().join('') }}
-    </div>
-    
-You can data-bind to computed properties in
-
 ## Event Handling
 
 我们通过`v-on`这个directive来实现对DOM
@@ -234,41 +220,6 @@ The logic for many event handlers will be more complex though, so keeping
 You can use the `v-model` directive to create two-way data bindings on form input and textarea elements.
 
 You can use the  `v-model` directive to create two-way data binding way 
-
-## Render Functions
-
-大多数情况下，我们使用template元素来构建HTML文档。
-
-Vue recommends using templates to build your HTML in the vast majority of cases. 
-
-但这不意味着我们不能用JS来生成HTML。
-
-这时我们便使用Vue实例Options的render属性。
-
-There are situations however, where you really need the full programmatic power of JavaScript.
-
-That's where you can use the **render function**, a closer-to-the-compiler alternative to templates.
-
-render属性是一个函数
-
-
-##### createElement Arguments
-
-How to use template features in the createElement function.
-
-    render: function (createElement) {
-      // @returns {VNode}
-      return createElement(
-        // {String | Object | Function}
-        // {Object}
-        // A data object corresponding to the attributes you would use in a template.Optional.
-        // {String | Array}
-        // Children VNodes.Optional
-      )
-    }
-The `render` function has priority over the render function compiled from `template` option or in-DOM HTML template of the mounting element which is specified by the `el` option.
-
-> Aliasing `createElement` to `h` is a common convention you'll see in the Vue ecosystem and 
 
 ## Custom Directives
 
