@@ -36,3 +36,14 @@ For components however, only the component that owns the data should modify it, 
 - Outputs are realized with `&` bindings, which function as callbacks to component events.
 - Instead of manipulating Input Data, the component calls the correct Output Event with the changed data.
 
+#### Using Angular 1.5's Multiple Transclusion Slots
+
+在组件的开发中，常常会有这样一个需求：我们希望自定义模板中的某些部分。
+
+Most (well maintained) Angular projects eventually reach the point where they would benefit from having a few generic components that use transclusion.
+
+Prior to Angular 1.5 a component could only transclude a single entry: whatever you gave it was had to be used as a whole.
+
+那么如果实现这样的一一对应关系呢？
+
+相比之下，Vue的实现方式简洁很多，AngularJS中还需要在JS中进行声明。
