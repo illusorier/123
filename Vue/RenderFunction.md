@@ -16,6 +16,10 @@ There are situations however, where you really need the full programmatic power 
 
 That's where you can use the **render function**, a closer-to-the-compiler alternative to templates.
 
+Components with `render function` do not have a template tag or property.
+
+Instead they define a function called `render` 
+
 render属性是一个函数
 
 ##### createElement Arguments
@@ -26,12 +30,19 @@ How to use template features in the createElement function.
       // @returns {VNode}
       return createElement(
         // {String | Object | Function}
+        'div'
+        // An HTML tag name, 
         // {Object}
         // A data object corresponding to the attributes you would use in a template.Optional.
+        {}
         // {String | Array}
-        // Children VNodes.Optional
+        // Children VNodes, built using createElement()
+        // Optional
       )
     }
+    
+This object also allows you to bind normal HTML attributes as well as 
+
 The `render` function has priority over the render function compiled from `template` option or in-DOM HTML template of the mounting element which is specified by the `el` option.
 
 > Aliasing `createElement` to `h` is a common convention you'll see in the Vue ecosystem and
