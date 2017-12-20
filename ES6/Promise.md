@@ -84,21 +84,33 @@ A Promise is an object that is used as a
 Any Promise object is in one of three mutually exclusive states.
 
 
-Promises are not about replacing callbacks.Promises provide a trustable intermediary -- that is,between your calling code and the async code that will perform the task -- to manage callbacks.
+Promises are not about replacing callbacks.
 
-A 
+Promises provide a trustable intermediary -- that is, between your calling code and the async code that will perform the task -- to manage callbacks.
+
+语法糖 回调代码 异步代码
+
+Promise是一个抽象的概念，但在代码中它就是一个类，我们可以创建它的实例。
+
+在创建过程中，我们需要传入一个函数。
+
+这个函数有两个参数：resolve和reject(这两个参数也是函数)。
+
+具体的代码是写在这个函数中的，我们通过调用resolve和reject函数来resolve Promise。
+
+A Promise can only have one of two possible resolution outcomes: fulfilled or rejected.
 
 #### Making and Using Promises
 
 To construct a promise instance,use the `Promise(..)` constructor:
 
-        var p = new Promise( function pr(resolve,reject){
+        var p = new Promise(function pr(resolve,reject){
           // ..
         });
     
-The `Promise(..)` constructor takes a single function `(pr(..))`,which is called immediately and receives two control functions as arguments,usually named `resolve(..)` and `reject(..)`.
+The `Promise(..)` constructor takes a single function `(pr(..))`, which is called immediately and receives two control functions as arguments, usually named `resolve(..)` and `reject(..)`.
 
-- If you call `reject(..)`,the promise is rejected,and if any value is passed to `reject(..)`,it is set as the reason for rejection.
+- If you call `reject(..)`, the promise is rejected, and if any value is passed to `reject(..)`, it is set as the reason for rejection.
     
 - If you call 
 
@@ -120,11 +132,18 @@ Here's how you'd typically use a promise to refactor
 上面这段代码是不用Promise的典型API写法，该API有两个参数，一个url和一个callback。
   
 
-Promises have a `then(..)` method that accepts one or two callback functions.The first function (if present) is treated as the handler to call if the promise is fulfilled successfully.
+Promises have a `then(..)` method that accepts one or two callback functions.
+
+The first function (if present) is treated as the handler to call if the promise is fulfilled successfully.
+
+The second function (if present) is treated 
 
 The shorthand for calling `then(null,handleRejection)` is `catch(handleRejection)`.
 
-Both `then(..)` and `catch(..)` automatically construct and return another promise instance,
+Both `then(..)` and `catch(..)` automatically construct and return another promise instance, which is wired to receive the resolution 
+
+如果没有写return，那么会发生什么？
+
 
 #### Thenables
 
