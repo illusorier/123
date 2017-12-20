@@ -1,3 +1,9 @@
+Vue是什么，它能被应用在什么样的场景中，可以解决哪些问题？
+
+Vue可以被应用于Web App的开发的场景中。
+
+The core library focuses on the view layer only,
+
 ## Class and Style Bindings
 
 A comm

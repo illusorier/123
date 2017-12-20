@@ -1,3 +1,29 @@
+MVC, MVP and MVVM are three popular design patterns in software development.
+
+#### Model View Controller (MVC)
+
+MVC design pattern divides an application into three major aspects: Model, View, and Controller.
+
+#### Model
+
+Model means data that is required to display in the view.
+
+#### Model View Presenter (MVP)
+
+
+#### Model View View-model (MVVM)
+
+React did not invent components, but it did take this idea one step further.
+
+Single Responsibility Principle
+
+You do not have a separate way of managing **UI State** and **Application State**.
+
+Application State: View层所依赖的数据
+
+UI State：例如登陆页面中，可分未登陆，登陆中，已登陆三个状态；又如某页面有一个表格，这个表格可存在多个状态，如浏览、编辑、新增等。
+
+
 ## Angular1 vs Vue
 
 启动方法：
