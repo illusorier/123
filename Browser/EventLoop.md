@@ -10,6 +10,42 @@ JavaScript是单线程的，也就是说，同一时间只能做一件事。
 
 同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；异步任务指的是，不进入主线程、而进入“任务队列”(task queue)的任务，只有“任务队列”通知主线程，某个异步任务可以执行了，
 
+主线程运行的时候，产生堆(heap)和栈(stack)，栈中的代码调用各种外部API
+
+执行栈(Call Stack)中的代码（同步任务），总是在读取“任务队列”（异步任务）之前执行。
+
+除了放置异步任务的事件，“任务队列”还可以放置定时事件，
+
+        function test(i){
+            return Promise.resolve().then(function() {
+                    // update the DOM
+                    document.getElementById('progress').innerHTML += i;
+                    return i;
+             });
+        }
+        
+        var loadSequence = [];
+        // loop through all the frames!
+        for (var i = 0; i < 9999; i++) {
+            loadSequence.push(test(i));
+        }
+        
+        Promise.all(loadSequence).then(function(){
+            window.console.log('all set...');
+        });
+        
+改进的版本：
+        
+        function test(i){
+            return Promise.resolve().then(function() {
+                // update the DOM
+                setTimeout(function() {
+                    document.getElementById('progress').innerHTML += i;
+                }, 0);
+            return i;
+          });
+        }
+
 A **JavaScript engine** is a program or an interpreter which executes JavaScript code.
 
 The V8 Engine which is built by Google is open source and written in C++.
@@ -26,13 +62,18 @@ V8 was first designed to increase the performance of JavaScript execution inside
 
 In computer programming, **event-driven programming** is a programming paradigm in which the **flow of the program** is determined by events such as user actions ....
 
-JS引擎的工作原理
 
-JavaScript has a concurrency modal based on an "event loop".
+下面是一些和JavaScript运行机制有关的概念：
 
-下面是一些相关的基本概念
+The following sections explain a theoretical model.
 
-#### Stack
+Modern JavaScript engines implement and optimize heavily the described semantics.
+
+![](../assets/event_loop_stack.png)
+
+### Stack
+
+执行栈
 
 Function calls form a stack of *frames*.
 
@@ -40,7 +81,13 @@ Each entry in the Call Stack is called a **Stack Frame**.
 
 > This is exactly how stack traces are being constructed when an exception is being thrown.
 
-#### Queue
+### Heap
+
+Objects are allocated in a heap which is just a name to denote a large mostly unstructured region of memory.
+
+### Queue
+
+任务队列 消息队列
 
 A JavaScript runtime contains a message queue, which is a list of messages to be processed.
 
@@ -101,4 +148,5 @@ The blue boxes represent portions of JavaScript being executed.
 It turns out that not all tasks are created the same.
 
 There are macrotasks and microtasks.
+
 
