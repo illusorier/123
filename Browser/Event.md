@@ -76,5 +76,17 @@ Identifies the current target for the event, as the event traverses the DOM.
 
 Unlike the `input` event, the `change` event is not necessarily fired for each change to an element's `value`.
 
+#### GlobalEventHandlers.onscroll
 
+An event handler for scroll events on `element`.
+
+### MutationRecord
+
+A `MutationRecord` represents an individual DOM mutation.
+
+It is the object that is passed to `MutationObserver`'s callback.
+
+### MutationObserver
+
+`MutationObserver` provides developers with a way to react to change in a DOM.
 
