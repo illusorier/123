@@ -16,8 +16,18 @@ The simplest (but definitely not only, or necessarily event best!) way of "waiti
         ajax(url, function myCallbackFunction(data){
             console.log(data);
         });
+        
+#### Async Console
+        
+`console.*`并不是标准的一部分。
+        
+There is no specification or set of requirements around how the `console.*` methods work - they are not officially part of JavaScript, but are instead added to JS by the *hosting environment*.
+
+In particular, there are some 
 
 ## Event Loop
+
+The JS engine does not run in isolation.
 
 What is the *event loop*?
 
@@ -76,6 +86,10 @@ At their most basic,promises are a bit like event listeners expect:
 1.A promise can only succeed or fail once.
 2.If a promise has succeeded or failed and you later add a success/failure callback,the correct callback will be called,even though the event took place earlier.
 
+在AngularJS和Vue的开发过程中，我们会用一些对Ajax进行了封装的库，如$http, vue-resource, axios等等。
+
+Axios的github上对它的描述：Promise based HTTP client for the browser and node.js.
+
 Terminology
 
 A promise can be: fulfilled rejected pending settled.
@@ -83,12 +97,13 @@ A promise can be: fulfilled rejected pending settled.
 A Promise is an object that is used as a 
 Any Promise object is in one of three mutually exclusive states.
 
+Promise并不是用来取代callback。
 
 Promises are not about replacing callbacks.
 
-Promises provide a trustable intermediary -- that is, between your calling code and the async code that will perform the task -- to manage callbacks.
-
 语法糖 回调代码 异步代码
+
+**如何使用Promise?**
 
 Promise是一个抽象的概念，但在代码中它就是一个类，我们可以创建它的实例。
 
@@ -136,14 +151,35 @@ Promises have a `then(..)` method that accepts one or two callback functions.
 
 The first function (if present) is treated as the handler to call if the promise is fulfilled successfully.
 
-The second function (if present) is treated 
+The second function (if present) is treated as the handler to call if the promise is rejected explicitly, or if any error/exception is caught during resolution.
 
-The shorthand for calling `then(null,handleRejection)` is `catch(handleRejection)`.
+The shorthand for calling `then(null, handleRejection)` is `catch(handleRejection)`.
 
-Both `then(..)` and `catch(..)` automatically construct and return another promise instance, which is wired to receive the resolution 
+Both `then(..)` and `catch(..)` automatically construct and return another promise instance, which is wired to receive the resolution from whatever the **return value** is from the original promise's fulfillment or rejection handler.
+
+then和catch方法都会自动构造并返回一个新的Promise实例。
+
+那么，假如我们想在then方法中再发起一个AJAX请求，该怎么写代码？
 
 如果没有写return，那么会发生什么？
 
+下面这个例子对理解Promise十分有益：
+
+        ajax( "http://some.url.1" )
+        .then(
+            function fulfilled(contents){
+                return contents.toUpperCase();
+            },
+            function rejected(reason){
+                return "DEFAULT VALUE";
+            }
+        )
+        .then( function fulfilled(data){
+            // handle data from original promise's
+            // handlers
+        } );
+
+In this snippet, we are returning an immediate 
 
 #### Thenables
 
