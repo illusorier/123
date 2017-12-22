@@ -1,3 +1,7 @@
+The `$http` service is a function which takes a single argument - a configuration object - that is used to generate an HTTP request and returns a promise.
+
+也就是说调用$http，并传入configuration object，会返回一个promise。
+
 $httpProvider.interceptors
 
 拦截器

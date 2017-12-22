@@ -1,5 +1,7 @@
 ## Directives
 
+为什么需要Directive?
+
 最基本的问题就是：如何去写一个Directive?
 
 Directive在AngularJS是一个非常强大的特性，但也十分令人困惑。
@@ -130,6 +132,16 @@ The fact that Angular allows DOM manipulation
 
 ### Directive Definition Object
 
+`priority`
+
+When there are multiple directives defined on a single DOM element, sometimes it is necessary to specify the order in which the directive are applied.
+
+下面这段话非常重要！
+
+> The `priority` is used to sort the directives before their `compile` functions get called.
+
+> Pre-link functions are also run in priority order, but post-link functions are run in reverse order. 
+
 `bindToController`
 
 This property is used to bind scope properties directly to the controller.
@@ -186,6 +198,8 @@ The compile function takes the following arguments:
 - `tElement` - 
 
 A compile function can have a return value which can be either a function or an object.
+
+- returning a (post-link) function - is equivalent to registering the linking function via the `link` property of the config object when the compile function is empty.
 
 `controller`
 
