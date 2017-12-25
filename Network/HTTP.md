@@ -78,4 +78,12 @@ A connection typically goes through three phases:
 
 HTTP服务器本质上也是一种应用程序——它通常运行在服务器之上，绑定服务器的IP地址并监听某一个tcp端口来接收并处理HTTP请求。
 
+HTTP conditional requests 
+
+### Conditional headers
+
+Several HTTP headers, called conditional headers, 
+
+
+
 
