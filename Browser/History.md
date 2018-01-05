@@ -16,7 +16,11 @@ The HTML5 History API gives developers the ability to modify a website's URL wit
 
 ### pushState()
 
-pushState() takes three parameters: 
+pushState() takes three parameters: a state object, a title (which is currently ignored), and (optionally) a URL.
+
+### replaceState()
+
+
 
 
 A `popstate` event is dispatched to the window every time the active history entry 

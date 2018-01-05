@@ -27,3 +27,11 @@ A typical mobile-optimized site contains something like the following:
 DPI stands for Dots Per Inch 
 
 section元素是HTML5中新增的
+
+#### meta
+
+The **HTML** `<meta>` **element** represents metadata that cannot be represented by other HTML meta-related elements, like `<base>`, `<link>`
+
+#### iframe
+
+The **HTML `<iframe>` element** represents a nested browsing context, effectively embedding another HTML page into the current page.

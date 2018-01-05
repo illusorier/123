@@ -114,6 +114,10 @@ This methods returns the size of an element and its position relative to the vie
 
 Properties other than *width* and *height* are relative to the top-left of the viewport.
 
+#### Element.scrollTop
+
+The `Element.scrollTop` property gets or sets the number of pixels that an element's content is scrolled vertically.
+
 ### HTMLElement
 
 The `HTMLElement` interface represents any HTML element.

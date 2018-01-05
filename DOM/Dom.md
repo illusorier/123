@@ -1,10 +1,22 @@
+DOM操作应当是JS在浏览器端最原始和重要的应用了。
+
 如今的前端开发往往依赖于各种框架，为了提高开发效率，在DOM操作方面，它们往往做了些封装。
 
-因此造成对于原生的DOM操作感到陌生的现象。
+因此造成对于原生DOM操作感到陌生的现象。
 
-DOM应当是JS在浏览器端最原始和重要的应用了。
+> 前端开发围绕HTML展开。
 
-DOM是什么？
+**DOM是什么**？
+
+The DOM (Document Object Model) is an API that represents and interacts with any HTML or XML document.
+
+The DOM is one of the most-used APIs on the Web because it allows code running in a browser to access and interact with every node in the document.
+
+DOM was not originally specified - it came about when browsers began implementing JavaScript.
+
+This legacy DOM is sometimes called DOM 0.
+
+此外，DOM本身也不是ECMAScript语法的一部分。
 
 DOM可以将任何HTML或XML文档描绘成一个由多层节点构成的结构。
 
@@ -22,7 +34,7 @@ Any HTML document is a tree structure.
 
 When browser parses a document, it builds a content tree and then uses it to display the document.
 
-我们利用DOM可以做什么？
+**我们利用DOM可以做什么**？
 
 The DOM is an API that allows access to and modification of the current document.
 
@@ -31,15 +43,15 @@ It allows manipulation of document Node and Element.
 The W3C's DOM Level 1 Core is a powerful object model for changing the content tree of documents.
 
 
-    <html>
-    <head>
-      <title>My Document</title>
-    </head>
-    <body>
-      <h1>Header</h1>
-      <p>Paragraph</p>
-    </body>
-    </html>
+        <html>
+        <head>
+          <title>My Document</title>
+        </head>
+        <body>
+          <h1>Header</h1>
+          <p>Paragraph</p>
+        </body>
+        </html>
     
 ![](../assets/DOMTree.jpg)
 
@@ -48,6 +60,8 @@ Each box in the tree above is a node in the tree.
 The line above a node expresses a parent-child relationship: the node on top is the parent, and the node on the bottom is the child.
 
 Two children of the same parent are therefore siblings.
+
+DOM was 
 
 > 尽管DOM作为API已经非常完善了，但为了实现更多的功能，仍然会有一些标准或专有的扩展。
 

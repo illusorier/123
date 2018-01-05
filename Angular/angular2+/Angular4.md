@@ -61,6 +61,10 @@ You must declare the directive in `AppModule`
 
 ## Service
 
+Components should not fetch or save data directly.
+
+They should focus on presenting data and delegate data access to a service.
+
 > The naming convention for service files is the service name in lowercase followed by `.service`.
 
 You could get the data from anywhere - a web service, local storage, or a mock data source.
