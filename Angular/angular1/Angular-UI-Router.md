@@ -112,3 +112,13 @@ In the state definition, replace `template / controller` properties with a `comp
             }
           }
         });  
+
+The process of changing application states is called a **Transition**.
+
+Each Transition has a *from state* and a *to state*.
+      
+## Transition Hooks
+
+UI-Route Transition Hooks, which allow a developer to tap into the lifecycle events of a Transition.
+
+A transition has numerous lifecycle events.
