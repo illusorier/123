@@ -82,8 +82,24 @@ HTTP conditional requests
 
 ### Conditional headers
 
-Several HTTP headers, called conditional headers, 
+Several HTTP headers, called conditional headers,
 
+## HTTP range requests
 
+HTTP range requests allow to send only a portion of an HTTP message from a server to a client.
+
+Partial requests are useful for large media or downloading files with pause and resume functions.
+
+#### Range
+
+The `Range` HTTP request header indicates the part of a document that the server should return.
+
+Several parts can be requested with one `Range` header at once,
+
+#### Content-Range
+
+The `Content-Range`
+
+#### Accept-Ranges
 
 
