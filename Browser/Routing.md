@@ -1,0 +1,1 @@
+A client-side route happens when the route is handled internally by the JavaScript that is loaded on the page.

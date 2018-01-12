@@ -1,3 +1,11 @@
+The `Window.history` read-only property returns a reference to the `History` object, which provides an interface for manipulating the browser *session history*.
+
+Moving backward and forward 
+
+`onpopstate` is an event handler for the `popstate` event on the window.
+
+A `popstate` event is dispatched to the window 
+
 The sequence of Documents in a browsing context is its **session history**.
 
 历史记录
@@ -20,7 +28,17 @@ pushState() takes three parameters: a state object, a title (which is currently 
 
 ### replaceState()
 
-
-
-
 A `popstate` event is dispatched to the window every time the active history entry 
+
+The `Window.location` read-only property returns a Location object with information about the current location of the document.
+
+Though `Winodw.location` is a read-only `Location` object, you can also assign a `DOMString` to it.
+
+        location.href = 'https://www.baidu.com';
+        
+The `Location.replace()` 
+
+The `Location.reload()` method reloads the resource from the current URL.
+
+If it is `false` or not specified, the browser may reload the page from its cache.
+

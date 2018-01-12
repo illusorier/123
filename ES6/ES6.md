@@ -2,8 +2,17 @@
 
 The fundamental unit of variable scoping in JavaScript has always been the `function`.
 
-If you needed to create a block of scope, the most prevalent
+If you needed to create a block of scope, the most prevalent way to do so other than a regular function declaration was the IIFE.
 
+        var a = 1;
+        
+        (function(){
+            var a = 2;
+            console.log(a);
+        })();
+        
+        console.log(a);
+            
 在ES6之前，JavaScript没有块级作用域的概念
 
     var count = 3;
@@ -12,11 +21,11 @@ If you needed to create a block of scope, the most prevalent
     
     console.log(i);
     
-Now we can create declarations that are bound to any block,called *block scoping*.
+Now we can create declarations that are bound to any block, called *block scoping*.
 
 This means all we need is a pair of `{...}` to create a scope.
 
-Instead of using `var`,which always declares variable attached to the enclosing function(or global,if top level) scope,use `let`.
+Instead of using `var`,which always declares variable attached to the enclosing function (or global, if top level) scope,use `let`.
     
     var a = 2
     

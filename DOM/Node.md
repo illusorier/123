@@ -114,6 +114,14 @@ This methods returns the size of an element and its position relative to the vie
 
 Properties other than *width* and *height* are relative to the top-left of the viewport.
 
+#### Element.clientHeight
+
+#### Element.scrollHeight
+
+The `Element.scrollHeight` read-only property is a measurement of the height of an element's content, including content not visible on the screen due to overflow.
+
+
+
 #### Element.scrollTop
 
 The `Element.scrollTop` property gets or sets the number of pixels that an element's content is scrolled vertically.
