@@ -36,6 +36,8 @@ When browser parses a document, it builds a content tree and then uses it to dis
 
 **我们利用DOM可以做什么**？
 
+说到最常见的DOM应用，恐怕就要数取得特定的某个或某组元素的引用，然后再执行一些操作了。
+
 The DOM is an API that allows access to and modification of the current document.
 
 It allows manipulation of document Node and Element.
@@ -68,6 +70,8 @@ DOM was
 ## Document
 
 JavaScript通过Document类型表示文档。
+
+`HTMLDocument` 
 
 The `Document` interface represents any web page loaded in the browser and serves as an entry point into the 
 

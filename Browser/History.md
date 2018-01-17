@@ -20,7 +20,11 @@ HTML5 introduced the **history.pushState()** and **history.replaceState()** meth
 
 SPA的路由功能是如何实现的？
 
+In older versions of HTML, we had limited control over browser history.
+
 The HTML5 History API gives developers the ability to modify a website's URL without a full page refresh.
+
+Before
 
 ### pushState()
 
@@ -41,4 +45,9 @@ The `Location.replace()`
 The `Location.reload()` method reloads the resource from the current URL.
 
 If it is `false` or not specified, the browser may reload the page from its cache.
+
+### popstate
+
+A **popstate** event is dispatched to the window each time the active history entry changes between two history entries for the same document.
+
 
