@@ -122,3 +122,9 @@ Each Transition has a *from state* and a *to state*.
 UI-Route Transition Hooks, which allow a developer to tap into the lifecycle events of a Transition.
 
 A transition has numerous lifecycle events.
+
+## Transition Lifecycle
+
+Only one transition can run at a time.
+
+If a previous transition is still running, *when a new transition* starts, the router aborts the previous transition.

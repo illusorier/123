@@ -2,9 +2,19 @@
 
 为什么需要Directive?
 
-最基本的问题就是：如何去写一个Directive?
+Directive是AngularJS中一个非常强大的特性，但也十分令人困惑。
 
-Directive在AngularJS是一个非常强大的特性，但也十分令人困惑。
+如何正确得去书写一个Directive?
+
+Let's talk about the **API for registering directives**.
+
+Much like controllers, directives are registered on modules.
+
+To register a directive, you use the `module.directive` API.
+
+`module.directive` takes the normalized directive name followed by a **factory function**.
+
+This factory function should return 
 
         angular
             .module('moduleName')
@@ -14,19 +24,11 @@ Directive在AngularJS是一个非常强大的特性，但也十分令人困惑�
               }
             })
 
-ng-show/ng-hide和ng-if的差异？
-
-不管是directives还是components，它们的作用都是将项目代码中重复部分提取出来，抽象成一个新的概念。
-
 At a high level, directives are markers on a DOM element (such as an attribute, element name or CSS class)
 
 Similar to the terminology used when an element matches a selector, we say an element **matches** a directive。
 
 `$compile` can match 
-
-Let's talk about the **API for registering directives**.
-
-Much like controllers, directives are registered on modules.
 
 While creating directives, AngularJS allows you to create an `isolated scope` with some custom bindings to the parent scope.
 
@@ -147,6 +149,8 @@ When there are multiple directives defined on a single DOM element, sometimes it
 This property is used to bind scope properties directly to the controller.
 
 封装HTML和CSS并不是组件(component or directive)仅有的功能，它们也包含了逻辑，那么这些逻辑(function)处理的数据(params)又是来源于哪里呢？
+
+
 
 `scope`
 

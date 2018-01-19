@@ -28,25 +28,31 @@ The contents of an object consists of values (any type) stored at
     
 ### Property Descriptors
 
-这是ECMAScript中非常重要的一个特性。
+属性描述符
 
 Prior to ES5, the JavaScript language gave no direct way for your code to inspect or draw any distinction between the characteristics of properties, such as whether the property is read-only or not.
 
 But as of ES5, all properties are described in terms of a **property descriptor**.
 
-也就是说，每个ECMAScript中的对象的所有属性都有对应的属性描述符，我们可以访问甚至更改它们。
-
-Property descriptors present in objects come in two main flavors: data descriptors and access descriptors.
-
-A property descriptor is a record with some of the following attributes:
-
-如何访问：
+也就是说，每个ECMAScript中的对象的每一个属性都有对应的属性描述符，我们可以访问甚至修改它们。
 
 The `Object.getOwnPropertyDescriptor(obj, prop)` method returns a property descriptor for 
 
-如何更改：
+We can use `Object.defineProperty(..)` to add a new property, or modify an existing one (if it is `configurable`!).
 
 The `Object.defineProperty(obj, prop, descriptor)` method defines a new property directly on an object, or modifies an existing property on an object, and returns the object.
+
+        var myObject = {};
+        
+        Object.defineProperty(myObject, "a", {
+            value: 2,
+            writable: true,
+            configurable: true,
+            enumerable: true
+        });
+        
+        myObject.a; // 2
+            
 
 The `Object.defineProperties()`
 
@@ -56,7 +62,7 @@ The ability for you to change the value of a property is controlled by `writable
 
 ##### Configurable
 
-As long as a property is current configurable, we can modify
+As long as a property is current configurable, we can modify its descriptor definition, u
 
 Changing `configurable` to `false` is a one-way action, and cannot be undone.
 
@@ -74,15 +80,15 @@ The `Object.preventExtensions()`
 
 #### `[[Get]]`
 
-How property accesses are performed?
+当我们试图获取某个对象的属性的值时，发生了什么？
 
         var myObject = {
           a: 2
         }
         
-        myObject.2;
+        myObject.2;        
     
-The `myObject.a` is a property access, 
+The `myObject.a` is a property access, but it does not *just* look in the `myObject` for a property of the name `a`, as it might seem. 
 
 According to the spec, the code above actually performs a `[[Get]]` operation (kinda like a function call: `[[Get]]()`) on the `myObject`.
 
@@ -90,11 +96,43 @@ The default build-in  `[[Get]]` operation for an object *first* inspects the obj
 
 And if it finds it, it will return the value accordingly. 
 
-If not,it will traversal the `[[Prototype]]` chain, if any.
+遍历原型链
 
+If not, it will traversal the `[[Prototype]]` chain, if any.
 
+若查找不到相应值便发回`undefined`。
 
-When you define a property to have either a getter or a setter or both,its definition becomes an "accessor descriptor"(as opposed to a "data descriptor").For accessor descriptor,the `value` and `writable` characteristics of the descriptor are moot and ignored.
+One important result of this `[[Get]]` operation is that if it cannot through any means come up with a value for the requested property, it instead returns the value `undefined`.
+
+This behavior is different from when you reference variables by their identifier names.
+
+#### `[[Put]]`
+
+Since there's an internally defined `[[Get]]` operation for getting  a value from a property, it should be obvious there's also a 
+
+### Getters and Setters
+
+The default `[[Put]]` and `[[Get]]` operations for objects completely control 
+
+ES5 introduced a way to override part of these default operation, 
+
+When you define a property to have either a getter or a setter or both, its definition becomes an "accessor descriptor" (as opposed to a "data descriptor").
+
+For accessor descriptor, the `value` and `writable` characteristics of the descriptor are moot and ignored.
+
+And instead JS considers the `set` and `get` characteristics of the property (as well as `configurable` and `enumerable`).
+
+        var myObject = {
+            get a() {
+                return 2;
+            }
+        }
+        
+        Object.definePropert(myObject, "a", {
+            get: function() {
+                return 2;
+            }
+        });
 
 The `get` syntax binds an object property to a function that will be called when that property is looked up.
 
