@@ -30,9 +30,11 @@ The following interfaces all inherit from Node: Document, Element, CharacterData
 
 每个节点都有一个**childNodes**属性，其中保存着一个NodeList对象。
 
+NodeList是一种类数组对象，
+
 NodeList objects are collections of nodes such as those returned by properties such as Node.childNodes and document.querySelectorAll() method.
 
-In some cases,the NodeList is a live collection,which means that changes in the DOM are reflected in the collection.
+In some cases,the NodeList is a live collection, which means that changes in the DOM are reflected in the collection.
 
 可以使用*Array.prototype.slice()*方法将NodeList对象转换为数组。
 
@@ -50,7 +52,11 @@ In some cases,the NodeList is a live collection,which means that changes in the 
 
 最常用的方法是*appendChild()*，用于向childNodes列表的末尾添加一个节点。
 
-添加节点后，childNodes的新增
+更新完成后，appendChild()返回新增的节点。
+
+如果传入到appendChild()中的节点已经是文档的一部分了，那结果就是将该节点从原来的位置转移到新位置。
+
+如果需要把节点放在childNodes列表中某个特定的位置上，而不是放在末尾，那么可以使用insertBefore()方法。
 
 #### Node.nodeType
 

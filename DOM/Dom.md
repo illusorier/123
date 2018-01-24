@@ -26,7 +26,21 @@ DOM可以将任何HTML或XML文档描绘成一个由多层节点构成的结构�
 
 所有页面标记则表现为一个以特定节点为根节点的树形结构。
 
-文档节点是每个文档的根节点，
+文档节点是每个文档的根节点。
+
+    <html>
+      <head>
+        <title>My Document</title>
+      </head>
+      <body>
+        <h1>Header</h1>
+        <p>Paragraph</p>
+      </body>
+    </html>
+    
+在这个例子中，文档节点只有一个子节点，即<html>元素，我们称之为**文档元素**。
+
+在HTML页面中，文档元素始终都是<html>元素。
 
 IE，Firefox，Safari，Chrome和Opera都非常完善地实现了DOM。
 
@@ -38,6 +52,8 @@ When browser parses a document, it builds a content tree and then uses it to dis
 
 说到最常见的DOM应用，恐怕就要数取得特定的某个或某组元素的引用，然后再执行一些操作了。
 
+取得元素的操作可以使用document对象的几个方法来完成，如document.getElementById(), document.getElementByTagName()等等。
+
 The DOM is an API that allows access to and modification of the current document.
 
 It allows manipulation of document Node and Element.
@@ -45,15 +61,15 @@ It allows manipulation of document Node and Element.
 The W3C's DOM Level 1 Core is a powerful object model for changing the content tree of documents.
 
 
-        <html>
-        <head>
-          <title>My Document</title>
-        </head>
-        <body>
-          <h1>Header</h1>
-          <p>Paragraph</p>
-        </body>
-        </html>
+    <html>
+      <head>
+        <title>My Document</title>
+      </head>
+      <body>
+        <h1>Header</h1>
+        <p>Paragraph</p>
+      </body>
+    </html>
     
 ![](../assets/DOMTree.jpg)
 
@@ -67,16 +83,25 @@ DOM was
 
 > 尽管DOM作为API已经非常完善了，但为了实现更多的功能，仍然会有一些标准或专有的扩展。
 
+选择符API
+
 ## Document
 
 JavaScript通过Document类型表示文档。
 
-`HTMLDocument` 
+在浏览器中，document对象时HTMLDocument
+
+`HTMLDocument` is an abstract interface of the DOM which provides access to special properties and methods not present by the default
 
 The `Document` interface represents any web page loaded in the browser and serves as an entry point into the 
 
 The Document interface describes the common properties and methods for any kind of document.Depending on the document's type(e.g. HTML,XML,SVG,...),a larger API is available:
 
+作为HTMLDocument的一个实例，document对象还有一些标准的Document对象所没有的属性。
+
+这些属性提供了document对象所表现的网页的一些信息。
+
+其中第一个属性就是title，包含着<title>元素中的文本——显示在浏览器窗口的标题栏或标签页上。
 
 ##### Document.createElement()
 
@@ -110,7 +135,7 @@ data is a string containing the data to be put in the text node.
 
 DOM2级样式(DOM Level 2 Style):定义了如何以编程方式来访问和改变CSS样式信息。
 
-在HTML中定义样式的方式有3种：通过`<link/>`元素包含外部样式文件、使用`<style>`元素定义嵌入式样式，
+在HTML中定义样式的方式有3种：通过`<link/>`元素包含外部样式表文件、使用`<style/>`元素定义嵌入式样式，以及使用style特性定义针对特定元素的样式。
 
 任何支持style属性的HTML元素在JavaScript中都有一个对应的style属性。
 
