@@ -90,9 +90,23 @@ To get a collection of only elements, use ParentNode.children instead.
 
 除了Document类型之外，Element类型就要算是Web编程中最常用的类型了。
 
+所有HTML元素都由HTMLElement类型表示，不是直接通过这个类型，也是通过它的子类型来表示。
+
+HTMLElement类型直接继承自Element并添加了一些属性。
+
+添加的这些属性分别对应于每个HTML元素中都存在的标准特性, 如id和className。
+
+上述这些属性都可以用来取得或修改相应的特性值。
+
 **Element** is the most general base class from which all objects in a 
 
-The `Element` interface represents an object of a Document.This interface describe methods and properties common to all kinds of elements.For example,the HTMLElement interface is the base interface for HTML elements, while the SVGElement interface is the basis for all SVG elements.
+The `Element` interface represents an object of a Document.
+
+This interface describe methods and properties common to all kinds of elements.
+
+For example, the HTMLElement interface is the base interface for HTML elements, while the SVGElement interface is the basis for all SVG elements.
+
+操作特性的DOM方法主要有三个，分别是getAttribute(),
 
 #### Element.attributes
 

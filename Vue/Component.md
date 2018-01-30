@@ -6,13 +6,15 @@ At a high level, components are custom elements that Vue's compiler attaches beh
 
 #### Registration
 
+Vue中组件的注册方式类似于AngularJs，都是通过调用某个全局对象中相应的方法来完成。
+
 To register a global component, you can use `Vue.component(tagName, options)`.
 
     Vue.component('my-component', {
       // options
     })
     
-Once registered, 
+Once registered, a component can be used in an instance's template as a custom element, `<my-component></my-component>`.
 
 Make sure the component is registered **before** you instantiate the root Vue instance.
 
@@ -53,6 +55,8 @@ This means you cannot (and should not) directly reference parent data in a child
 数据可以用props传入子组件。
 
 Data can be passed down to child components using **props**.
+
+A prop is a custom attribute for passing information from parent components.
 
     Vue.component('child', {
       // declare the props

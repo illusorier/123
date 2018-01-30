@@ -85,6 +85,8 @@ DOM was
 
 选择符API
 
+直接插入HTML字符串
+
 ## Document
 
 JavaScript通过Document类型表示文档。

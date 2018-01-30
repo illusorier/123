@@ -1,3 +1,11 @@
+### Webpack vs Gulp
+
+Gulp is a task runner.
+
+Webpack is **NOT** a task runner.
+
+
+
 Webpack是什么？我们为什么需要webpack？
 
 Today's websites are evolving into web apps.
@@ -38,12 +46,14 @@ When compiling all these modules, a static analysis tries to find its dependenci
 
 #### Four Core Concepts
 
-- entry
-- output
-- loaders
-- plugins
+To get started you only need to understand four **Core Concept**:
 
+- Entry
+- Output
+- Loaders
+- Plugins
 
+*Loaders* enable webpack to process more than just JavaScript files (webpack itself only understands JavaScript).
 
 Webpack is fed via a configuration object.
 

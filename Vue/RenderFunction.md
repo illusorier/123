@@ -22,6 +22,8 @@ Instead they define a function called `render`
 
 render属性是一个函数
 
+Vue builds a **virtual DOM** to keep track of 
+
 ##### createElement Arguments
 
 How to use template features in the createElement function.
