@@ -1,10 +1,24 @@
+本节讨论对象。
+
+所有编程语言都提供抽象机制。
+
+可以认为，人们所能够解决的问题的复杂性直接取决于抽象的类型和质量。
+
+所谓"类型"指"所抽象的是什么?"。
+
+就我目前所接触到的高级语言来说，不管它是否OOP，
+
 ## Objects
 
-创建对象，初始化对象，访问对象，修改对象，删除对象。
-
-对象字面量是对象定义的一种简写形式，目的在于简化创建包含大量属性的对象的过程。
+在JavaScript中如何创建对象？
 
 Objects come in two forms: the declarative (literal) form, and the constructed form.
+
+Java中创建对象的方式只有后者。
+
+    MyClass a = new MyClass();
+
+对象字面量是对象定义的一种简写形式，目的在于简化创建包含大量属性的对象的过程。
 
 It's extremely uncommon to use the "constructed form" for creating objects.
 
