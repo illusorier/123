@@ -18,7 +18,7 @@ Once registered, a component can be used in an instance's template as a custom e
 
 Make sure the component is registered **before** you instantiate the root Vue instance.
 
-##### Local Registration
+### Local Registration
 
 You don't have to register every component globally. 
 
@@ -36,7 +36,9 @@ You can make a component available only in the scope of another instance/compone
       }
     })
     
-#### Composing Components
+### Composing Components
+
+组件之间是如何完成通信的？
 
 Components are meant to be used together, most commonly in parent-child relationships: component A may use component B in its own template.
 
@@ -44,7 +46,7 @@ In Vue.js, the parent-child component relationship can be summarized as **props 
 
 The parent passes data down to the child via **props**,
 
-#### Props
+### Props
 
 ##### Passing Data with Props
 
@@ -129,3 +131,7 @@ Despite the existence of props and events, sometimes you might still need to dir
 To achieve this you have to assign a reference ID to the child component using `ref`.
 
 > $refs are only populated after the component has been rendered, and it is not reactive.
+
+### Async Component
+ 
+ 
