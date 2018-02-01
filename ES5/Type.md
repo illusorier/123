@@ -40,8 +40,6 @@ JavaScript has typed values, not typed variables.The following built-in **types*
 
 Only values have types in JavaScript; variables are just simple containers for those values.
 
-JS定义了七种内置值的类型。
-
 JavaScript defines seven built-in types:
 
 - `string`
@@ -53,40 +51,51 @@ JavaScript defines seven built-in types:
 
 All of these types except `object` are called "primitive".
 
+原始类型
+
 ECMAScript变量可能包含两种不同数据类型的值。
 
 基本类型值指的是简单的数据段，而引用类型值指那些可能由多个值构成的对象。
 
 在将一个值赋给变量时，解析器必须确认这个值是基本类型值还是引用类型值。
 
+我们可以通过 `typeof` 运算符来获得某个变量的类型。
+
 JavaScript provides a `typeof` operator that can examine a value and tell you what type it is.
 
-The return value from the `typeof` operator is always one of six (seven as of ES6!) string value.
+奇妙的是，`typeof`的返回值和变量的类型并不是一一对应的关系。
 
-    typeof undefined  // "undefined"
-    typeof true  // "boolean"
-    type of 17  // "number"
-    typeof "17"  // "string"
-    typeof { id: 17 }  // "object"
-    typeof null  // "object"
+Surprisingly, there's not an exact 1-to-1 match with the seven built-in types we just listed.
+
+    typeof undefined    // "undefined"
+    typeof true     // "boolean"
+    type of 17      // "number"
+    typeof "17"     // "string"
+    typeof { id: 17 }   // "object"
      
-    typeof Symbol()  // "symbol"
+    typeof Symbol()     // "symbol"
     
 在原始类型中，null是一个比较特殊的例子。
-    
-Surprisingly, there's not an exact 1-to-1 match with the seven built-in types we just listed.
        
-`type of null` is an interesting case,because it returns `"object"`,when you'd expect `"null"`.
+`type of null` is an interesting case, because it returns `"object"`, when you'd expect `"null"`.
 
-Also,note `a = undefined`.We're explicitly setting a to the undefined value, but that is behaviorally no different from a variable that has no value set yet.
+        typeof null === "object";   // true
+        
+那么，为什么不去修复这个bug？
+
+Also, note `a = undefined`. We're explicitly setting a to the undefined value, but that is behaviorally no different from a variable that has no value set yet.
+
+        typeof function a(){ /* .. */ } === "function";     // true
+        
+
 
 ## Objects
 
 Objects are the general building block upon which much of JS is built.
 
-They are one of the 7 primary types (called "language types" in specification) in JS
+They are one of the 7 primary types (called "language types" in specification) in JS.
 
-**It's common mis-statement that "everything in JavaScript is an object". This is clearly not true.**
+**It's a common mis-statement that "everything in JavaScript is an object". This is clearly not true.**
 
 *Simple primitives* (`string`, `number`, `boolean`, `null`, and `undefined`) are not themselves `objects`.
 
