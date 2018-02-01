@@ -18,6 +18,8 @@ The `for...of`statement creates a loop iterating over iterable objects
 
 ## Iterators
 
+如果使用TypeScript的写法，遍历器
+
         interface Iterable {
           [Symbol.iterator]() : Iterator,
         }
@@ -51,6 +53,8 @@ There's also an `Iterable` interface,which describes objects that must be able t
 
         Iterable
           @@iterator() {method}: produces an Iterator
+          
+ES6规定，默认的Iterator接口部署在数据结构的`Symbol.iterator`属性，或者说
 
       
 ##### IteratorResult

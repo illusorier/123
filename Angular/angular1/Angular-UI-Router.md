@@ -128,3 +128,6 @@ A transition has numerous lifecycle events.
 Only one transition can run at a time.
 
 If a previous transition is still running, *when a new transition* starts, the router aborts the previous transition.
+
+The new transition *supersedes* the previous transition.
+

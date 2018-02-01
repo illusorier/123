@@ -6,9 +6,20 @@ JavaScript has had modules for a long time.
 
 However, they were implemented via libraries, not built into the language.
 
+        // CommonJS
+        let { stat, exists, readFile } = require('fs');
+        
+        //等同于
+        let _fs = require('fs');
+        let stat = _fs.stat;
+        let exists = _fs.exists;
+        let readfile = _fs.readfile;
+        
+上面代码的实质是整体加载`fs`模块(即加载`fs`的所有方法)，生成一个对象(`_fs`)，然后再从这个对象上面读取3个方法。
+
 ### Design goals for ES6 modules
 
-
+Current JavaScript module formats a dynamic structure.
 
 ES6 的模块自动采用严格模式，不管你有没有在模块头部加上` "use strict" `。
 
