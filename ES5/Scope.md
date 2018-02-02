@@ -40,7 +40,7 @@ JavaScript engines don't get the luxury(like other language compiler) of having
 
 ## Lexical Scope
 
-"Scope" is a set of rules that govern how the Engine can look up
+**Scope** is a set of rules that govern how the *Engine* can look up a variable by its identifier name and find it, either in the current *Scope*,
 
 Lexical scope is scope that is defined at lexing time.
 
