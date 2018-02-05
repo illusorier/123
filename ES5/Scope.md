@@ -1,6 +1,4 @@
-## 变量
-
-在日常的JS编程过程中，我们经常会在某些地方写一些变量和函数，然后在另一些地方读取、修改或者调用它们。
+## Scope
 
 ECMAScript的变量是松散类型的，所谓松散类型就是可以用来保存任何类型的数据。
 
@@ -20,29 +18,27 @@ ECMAScript的变量是松散类型的，所谓松散类型就是可以用来保�
       message = "hi"; // 全局变量
     }
     
+变量
 
+One of the most fundamental paradigms of nearly all programming languages is the ability to store values in variables, and later retrieve or modify those values.
 
-One of the most fundamental paradigms of nearly all programming languages is the ability to store values in variables,and later retrieve or 
+Without such a concept, a program could perform some tasks, but they would be extremely limited.
+
+为什么会有作用域这个概念？
+
+But the inclusion of variables into our program begets the most interesting questions we will now address:
 
 Where do those variables live?
 
-## Compiler Theory
+In other words, where are they stored?
 
-JavaScript is a compiled language.
+How does our program find them when it needs them?
 
-In traditional compiled-language process,a chunk of source code,your program,will undergo typically three steps before it is executed,roughly called "compilation".
+These questions speak to the need for a well-defined set of rules for storing variables in some location, and for finding those variables at a later time. 
 
-1. **Tokenizing/Lexing**:breaking up a string of characters into meaningful(to the language) chunks,called tokens.
-2. **Parsing**:taking a stream(array) of tokens and turning it into a tree of nested elements,which collectively represent the 
-3. **Code-Generation**
+**Scope** is a set of rules that govern how the *Engine* can look up a variable by its identifier name and find it, either in the current *Scope*, or in any of the *Nested Scopes* it's contained within.
 
-JavaScript engines don't get the luxury(like other language compiler) of having 
-
-## Lexical Scope
-
-**Scope** is a set of rules that govern how the *Engine* can look up a variable by its identifier name and find it, either in the current *Scope*,
-
-Lexical scope is scope that is defined at lexing time.
+函数的作用域是由定义的位置决定还是调用的位置？
 
 ## Function vs. Block Scope
 
