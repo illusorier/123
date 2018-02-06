@@ -1,8 +1,6 @@
-## Execution Contexts && Variable Object
+## Execution Contexts
 
-执行上下文是从JS引擎角度理解JS的一个出发点。
-
-背景：
+所谓执行上下文是不是就是一个独立的作用域？
 
 Always in programs we declare functions and variables which then successfully use building our systems.
 
@@ -12,13 +10,9 @@ What occurs, when we reference to needed objects?
 
 Variables are closely related with execution context.
 
-从数据结构的角度理解，执行上下文们本身是一个栈。
+从数据结构的角度理解，执行上下文们本身是一个栈（只能在表的一端进行插入和删除运算）。
 
-从JS引擎执行代码的过程来看，可执行的代码可以被分为两类:全局代码和函数代码，分别对应
-
-当执行JS中上述两类代码时，
-
-Every time when control is transferred to ECMAScript executable code, control is entered an execution context.
+从JS引擎执行代码的过程来看，可执行的代码可以被分为两类：全局代码和函数代码，分别对应两种不同的执行上下文。
 
 Set of active execution contexts forms a stack.
 
@@ -36,35 +30,27 @@ The stack is pushed every time on entering a function ( even if the function is 
 
 It is necessary to notice that the code of concrete function does not include codes of the inner functions.
 
-#### Types of executable code
-
-执行上下文 可执行代码的类型
-
-With abstract concept of an execution context, the concept of type of an executable code is related.
-
-可执行代码的类型也可以理解为执行上下文的类型。
-
-- Global code: This type of code is processed at level `program`.
-
-- Function code: On entering the function code (all kinds of functions),`ECStack` is pushed with new elements.
-
-It is necessary to notice that the code of concrete function dose not include codes of the inner functions.
-
 ## Variable Object
 
+在全局作用域中执行下面这段代码的结果是什么？
 
-
-
-
-If variables are related with the execution context,it should know where its data are stored and how to get them
-
-This mechanism is called a *variable object*.
+        function f(a) {
+            console.log(a);
+            
+            var a;
+            
+            function a() {}
+        }
+        
+        f(1);
 
 *A variable object(VO)* is a special object related with an execution context and which stores:
 
 - variables (`var`,VariableDeclaration)
 - function declarations
 - function formal parameters
+
+> In ES5, the concept of *variable object* is replaced with *lexical environments* model. 
 
 It is possible to present variable object as a normal ECMAScript object:
 
@@ -73,12 +59,10 @@ It is possible to present variable object as a normal ECMAScript object:
 VO is a property of an execution context:
 
     activeExecutionContext = {
-      VO: {
-        // context data (var, FD, function arguments)
-      }
+        VO: {
+            // context data (var, FD, function arguments)
+        }
     };
-
-**VO is a property of an execution context.**
 
 Indirect referencing VO is possible in global context.
 
@@ -120,25 +104,16 @@ Modifications of the variable are closely related with these two phases.
 Notice, that processing of these two stage are the general behavior and independent from the type of the context.
 
 #### Entering the execution context
+
 On entering the execution context(but before the code execution), VO is filled with the following properties:
 
-- for each *formal parameter* of a function (if we are in function execution context), - a property of the variable object with a name and a value of formal parameter is created; for not passed parameters - property of VO with a name of formal parameter and value undefined is created;
+- for each *formal parameter* of a function (if we are in function execution context), a property of the variable object with a name and a value of formal parameter is created; for not passed parameters - property of VO with a name of formal parameter and value undefined is created;
 
-- for each *function declaration* (FunctionDeclaration,FD) - a property of the variable object with a name and a value of a function-object is created; if the variable object already contains a property with the same name, replace its value and attributes.
+- for each *function declaration* (FunctionDeclaration,FD), a property of the variable object with a name and a value of a function-object is created; if the variable object already contains a property with the same name, replace its value and attributes.
 
-- for each *variable declaration* - a property of the variable object with a name and a value undefined is created; if the variable name is the same as name of already declared formal parameter or a function, the variable declaration does not disturb the existing property.
+- for each *variable declaration*, a property of the variable object with a name and a value undefined is created; if the variable name is the same as name of already declared formal parameter or a function, the variable declaration does not disturb the existing property.
 
-
-    console.log(x);
-        
-    var x = 10;
-    console.log(x);
-    
-    x = 20;
-    
-    function x() {}
-    
-    console.log(x);
+在代码执行之前，函数声明的优先级是最高的，其次是参数（若在函数上下文中），最后是变量。
       
 ## This value
 
