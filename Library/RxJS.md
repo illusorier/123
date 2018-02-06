@@ -1,3 +1,17 @@
+什么是观察者模式？
+
+The **observer pattern** is a software design pattern in which an object, called the subject, maintains a list of its dependents, called **observers**, and notifies them automatically of any state changes, usually by calling one of their methods.
+
+什么是RxJS？
+
+RxJS is a library for composing asynchronous and event-based programs by using observable sequences.
+
+It extends the observable pattern 
+
+ReactiveX combines the Observer pattern with the iterator pattern and functional programming with collections 
+
+> Think of RxJS as Lodash for events
+
 There are many libraries that make up the Reactive Extensions for JavaScript.
 
 You are able to create data streams of anything, not just from click and hover events.
