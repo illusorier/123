@@ -1,22 +1,8 @@
-CSS是什么？
+The CSS box model describes the rectangular boxes that are generated for elements in the document tree and laid 
 
-CSS are a stylesheet language used to describe the presentation of a document written in HTML or XML.
+盒模型 矩形盒子
 
-盒模型应当是理解CSS的第一个切入点。
-
-**CSS Box Model** is a *CSS module* that defines the rectangular boxes, including their padding and margin, that are generated for elements and laid out according to the *visual formatting model*.
-
-在DOM中，document对象表示整个文档，而在CSS中，这个document中的每一个element都以矩形盒子的方式呈现在屏幕上。
-
-盒模型说的是，在document中，每个element都用一个矩形盒子表示。
-
-In a document, each element is represented as a rectangular box.
-
-The CSS visual formatting model is an algorithm that processes a document and display it on visual media.
-
-
-
-渲染引擎的目标就是决定这个盒子的尺寸、位置和一些其他的属性。
+Each box has a **content area** and optional surrounding **
 
 Determining the size, properties - like its color, background, borders aspect - and the position of these boxes is the goal of the rendering engine.
 
