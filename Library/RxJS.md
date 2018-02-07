@@ -6,7 +6,7 @@ The **observer pattern** is a software design pattern in which an object, called
 
 RxJS is a library for composing asynchronous and event-based programs by using observable sequences.
 
-It extends the observable pattern 
+It extends the observable pattern to support 
 
 ReactiveX combines the Observer pattern with the iterator pattern and functional programming with collections 
 
@@ -20,7 +20,11 @@ Reactive Extensions for JavaScript (RxJS) is a reactive streams library that all
 
 RxJS can be used both in browser or in the server-side using Node.js.
 
+- **Asynchronous**, in JavaScript means we can call a function and register a *callback* to be notified when results are available,  
+
 **Asynchronous data streams** are not new.
+
+异步数据流
 
 They have been around since Unix systems, and come in different flavours and names: streams (Node.js), pipes (Unix) or async pipes (Angular2).
 
@@ -32,7 +36,22 @@ In RxJS, you represent **asynchronous data streams** using observable sequences 
 
 有哪些方法可以创造一个可观察序列？
 
+Converting to observables
+
+        // From one or multiple values
+        Rx.Observable.of('foo', 'bar');
+        
+        // From array of values
+        Rx.Observable.from([1,2,3]);
+        
+        // From an event
+        Rx.Observable.fromEvent(document.querySelector('button'), 'click');
+        
+Creating observables        
+        
 - When using the **push pattern**, 
+
+> Observables programming has two separate stages: setup and execution.
 
 ### Observables and Operators
 
@@ -70,3 +89,6 @@ Creates an observer from the specified
 
 `rx.angular.js` serves as a bridge between RxJS and AngularJS.
 
+**Subscription**: represents the execution of an Observable, 
+
+**Operators**: are pure functions that enable a functional programming style 
