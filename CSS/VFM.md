@@ -13,6 +13,8 @@ display属性决定了元素的盒子类型
 
 In CSS 2.2, 
 
+### Block-level elements
+
 **Block-level elements** are elements which generate a block-level box.
 
 块级元素会产生块级盒子
@@ -27,19 +29,45 @@ If a block container box has a block-level box inside it, then we force it to ha
             Some text
             <p>More text</p>
         </div>
+        
+### Inline-level elements
 
-**Inline-level elements**
+行内元素
 
-Inline-level el
+The following values of the `display` property make an element inline-level: `inline`, `inline-table`, and `inline-block`.
 
-行内元素会产生行内级盒子
+Inline-level elements generate *inline-level boxes*, which are boxes that participate in an IFC.
 
-In CSS, a **replaced element** is an element whose 
+In CSS, a **replaced element** is an element whose representation is outside the scope of CSS.
+
+In other words, these are external objects whose representation is independent of the CSS formatting model.
 
 In a BFC, boxes are laid  out one after the other, vertically, beginning at the top of a containing block.
 
+## Positioning schemes
+
+In CSS 2.2, a box may be laid out according to three *positioning schemes*:
+
+定位体系
+
+An element is called *out of flow* if it is floated, absolutely positioned, or is the root element.
+
+## Inline formatting contexts
+
+IFC的形成条件
+
 An inline formatting context is established by a block container box that contains no block-level boxes.
+
+在IFC中，盒子依次水平排列
+
+In an inline formatting context, boxes are laid out horizontally, one after the other, beginning at the top of a containing block.
+
+The boxes may be aligned vertically in different ways.
+
+The rectangular area that contains the boxes that form a line is called a **line box**.
 
 Any text that is directly contained inside 
 
         <p>Some <em>emphasized</em> text</p>
+        
+普通文档流
