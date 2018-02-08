@@ -1,24 +1,8 @@
 ## Scope
 
-ECMAScript的变量是松散类型的，所谓松散类型就是可以用来保存任何类型的数据。
-
-换句话说，每个变量仅仅是一个用于保存值的占位符而已。
-
-定义变量时要使用var操作符
-
-    function test () {
-        var message = "hi"; // 局部变量
-    }
-    
-用var操作符定义的变量将成为定义该变量的作用域中的局部变量。
-
-当函数被调用时，就会创建该变量并为其赋值。而在此之后，这个变量又会被销毁。
-
-    function test () {
-        message = "hi"; // 全局变量
-    }
-
 One of the most fundamental paradigms of nearly all programming languages is the ability to store values in variables, and later retrieve or modify those values.
+
+变量是编程语言中最基本的概念之一
 
 Without such a concept, a program could perform some tasks, but they would be extremely limited.
 
@@ -30,13 +14,13 @@ Where do those variables live?
 
 In other words, where are they stored?
 
+当程序执行时，变量的值是如何resolved？
+
 How does our program find them when it needs them?
 
 These questions speak to the need for a well-defined set of rules for storing variables in some location, and for finding those variables at a later time. 
 
 **Scope** is a set of rules that govern how the *Engine* can look up a variable by its identifier name and find it, either in the current *Scope*, or in any of the *Nested Scopes* it's contained within.
-
-函数的作用域是由该函数定义的位置决定还是调用的位置？
 
 ## Functions As Scopes
 
@@ -69,3 +53,24 @@ Why pollute the entire scope of a function with the `i` variable that is only go
 那么这个问题目前有哪些解决方案？
 
 The `let` keyword attaches the variable declaration
+
+### Dynamic Scope 
+
+There are two predominant models for how scope works.
+
+The first of these is by far the most common, used by the vast majority of programming languages which is **Lexical Scope**.
+
+静态作用域
+
+The other model, which is still used by some languages is called **Dynamic Scope**.
+
+动态作用域
+
+Dynamic scope actually is a near cousin to another mechanism (`this`) in JavaScript.
+
+在动态作用域的机制下，一个函数执行时变量值的解析是由调用该函数的上下文环境决定的。
+
+Dynamic scope do not concern itself with how and where functions and scopes are declared, but rather **where they are called from**.
+
+
+

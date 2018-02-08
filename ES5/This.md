@@ -75,15 +75,17 @@ Calls a function with a given this value and arguments provided individually.
 
 #### Call-site
 
-We must inspect the call-site (the location in code where a function is called) to answer the question: what's this `this` a reference to?
+We must inspect the call-site (the location in code where a function is called, not where it is declared) to answer the question: what's this `this` a reference to?
 
 `this` is a binding made for each function invocation, based entirely on its call-site (how the function is called).
 
 #### Default Binding
 
+每个函数被调用时，其内部都有一个特殊的值，this，它指向一个对象。
+
 The first rule we will examine comes from the most common case of function calls: standalone function invocation.
 
-默认情况下，`this`指向全局对象
+这种情况下，`this`指向全局对象
 
 `this` points to the global object.
 
@@ -94,6 +96,19 @@ If `strict mode` is in effect,`this` set to `undefined`.
 #### Implicit Binding
 
 Another rule to consider is: does the call-site have a context object, also referred to as an owning or containing object.
+
+        function foo() {
+        	console.log( this.a );
+        }
+        
+        var obj = {
+        	a: 2,
+        	foo: foo
+        };
+        
+        obj.foo(); // 2
+
+Regardless of whether `foo()` is 
 
 If so, the implicit binding rule says that it's that object which should be used for the function call's this binding.
 
