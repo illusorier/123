@@ -34,7 +34,11 @@ If a block container box has a block-level box inside it, then we force it to ha
 
 行内元素
 
+**Inline-level elements** are those elements of the source document that do not form new blocks of content; 
+
 The following values of the `display` property make an element inline-level: `inline`, `inline-table`, and `inline-block`.
+
+行内元素产生行内级盒子
 
 Inline-level elements generate *inline-level boxes*, which are boxes that participate in an IFC.
 
@@ -64,7 +68,19 @@ In an inline formatting context, boxes are laid out horizontally, one after the 
 
 The boxes may be aligned vertically in different ways.
 
+什么是Line Box?
+
 The rectangular area that contains the boxes that form a line is called a **line box**.
+
+A line box is always tall enough for all of the boxes it contains.
+
+When the 
+
+When several inline-level boxes cannot fit horizontally within a single line box, they are distributed among two or more vertically-stacked line boxes.
+
+In general, the left edge of a line box touches the left edge of its containing block and the right edge touches the right edge of its containing block.
+
+When the total width of the inline-level boxes on a line is less 
 
 Any text that is directly contained inside 
 

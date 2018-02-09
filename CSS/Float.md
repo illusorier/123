@@ -4,4 +4,5 @@ If there is a line
 
 当一个元素的float属性被设置为非none时，其临近的元素根据其类型（行内还是块级），会有不同的反应。
 
-Since a float is not in the flow, non-positioned block boxes 
+Since a float is not in the flow, non-positioned block boxes created before and after the float box flow vertically as if the float did not exist.
+
