@@ -8,9 +8,13 @@ TypeScript是JavaScript的一个超集，主要提供对类型系统和ES6的支
         
 As in JavaScript, all numbers in TypeScript are floating point values.
 
+浮点数
+
 These floating point numbers get the type `number`.
         
         let decimal: number = 6;
+        
+Another fundamental part of creating programs in JavaScript for webpages and servers alike is working with textual data.
 
 在TS中，any是一种新添加的类型，即在JS中原本并不存在。
 
@@ -37,11 +41,18 @@ These floating point numbers get the type `number`.
         
 ## Array
 
+Array types can be written in one of two ways.
+
+In the first, you use the type of the elements followed by [] to denote an array of that element type:
+
         let fibonacci: number[] = [1, 1, 2, 3, 5];
         
+The second way uses a generic array type  
         
 
 ## Tuple
+
+Tuple types allow you to express an array where the type of a fixed is known, but need 
         
 数组合并了相同类型的对象，而元组(Tuple)合并了不同类型的对象。
 
@@ -84,3 +95,9 @@ In TypeScript, each member is `public` by default.
 ## Decorator
 
 装饰器的本质是函数。
+
+## Function 
+
+We can add types to each of the parameters and then to the function itself to add a return type.
+
+So if the function does not return a value, you would use `void` instead of leaving it off.

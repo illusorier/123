@@ -52,7 +52,9 @@ Why pollute the entire scope of a function with the `i` variable that is only go
 
 那么这个问题目前有哪些解决方案？
 
-The `let` keyword attaches the variable declaration
+`let`
+
+The `let` keyword attaches the variable declaration to the scope of whatever 
 
 ### Dynamic Scope 
 
