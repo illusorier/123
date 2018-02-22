@@ -1,11 +1,18 @@
 In the visual formatting model, each element in the document tree generates zero or more boxes according to the box model.
 
+盒子的布局规则
+
 The layout of these boxes is governed by:
 
+- box dimensions and type.
+
+- positioning scheme (normal flow, float, and absolute positioning)
+
 -
+
 -
--
--
+
+The following sections describe the types of boxes that may be generated in CSS 2.2.
 
 The `display` property, specifies a box's type.
 
@@ -15,15 +22,21 @@ In CSS 2.2,
 
 ### Block-level elements
 
-**Block-level elements** are elements which generate a block-level box.
+*Block-level elements* - those elements of the source document that are formatted visually as blocks (e.g., paragraph) - are elements which generate a block-level box.
+
+块级元素就像段落一样，占据一整行
 
 块级元素会产生块级盒子
 
 Values of the `display` property that make an element block-level element: `block`, `list-item`, and `table`.
 
-**Block-level boxes** are boxes that participate in a BFC.
+*Block-level boxes* are boxes that participate in a BFC.
 
-If a block container box has a block-level box inside it, then we force it to have only block-level boxes inside it.
+Anonymous block boxes
+
+匿名块级盒子
+
+If a block container box has a block-level box inside it, then we force it to have *only* block-level boxes inside it.
 
         <div>
             Some text
@@ -34,7 +47,7 @@ If a block container box has a block-level box inside it, then we force it to ha
 
 行内元素
 
-**Inline-level elements** are those elements of the source document that do not form new blocks of content; 
+*Inline-level elements* are those elements of the source document that do not form new blocks of content; the content is distributed in lines.
 
 The following values of the `display` property make an element inline-level: `inline`, `inline-table`, and `inline-block`.
 
@@ -56,6 +69,12 @@ In CSS 2.2, a box may be laid out according to three *positioning schemes*:
 
 An element is called *out of flow* if it is floated, absolutely positioned, or is the root element.
 
+## Normal flow
+
+Boxes in the normal flow belong to a formatting context, which in CSS 2.2 may be table, block or inline.
+
+In future levels of CSS, other types of formatting context will be introduced.
+
 ## Inline formatting contexts
 
 IFC的形成条件
@@ -65,6 +84,8 @@ An inline formatting context is established by a block container box that contai
 在IFC中，盒子依次水平排列
 
 In an inline formatting context, boxes are laid out horizontally, one after the other, beginning at the top of a containing block.
+
+Horizontal margins, borders, and padding are respected between these boxes.
 
 The boxes may be aligned vertically in different ways.
 

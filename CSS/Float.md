@@ -1,3 +1,5 @@
+浮动
+
 A float is a box that is shifted to the left or right on the current line.
 
 If there is a line 

@@ -1,8 +1,8 @@
-The CSS box model describes the rectangular boxes that are generated for elements in the document tree and laid 
+盒模型应当是理解CSS的第一个入口。
 
-盒模型 矩形盒子
+HTML中的每个元素在页面中都是一个矩形盒子。
 
-Each box has a **content area** and optional surrounding **
+Each box has a *content area* and optional surrounding *padding*, *border*, and *margin* areas.
 
 Determining the size, properties - like its color, background, borders aspect - and the position of these boxes is the goal of the rendering engine.
 
