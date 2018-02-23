@@ -1,6 +1,21 @@
-# ECMAScript中的函数
+什么是函数
 
+A function in JavaScript is also an object.
+
+函数内部特殊的对象
+
+The `arguments` object is an `Array-like` object corresponding to the arguments passed to a function.
+
+        function f (a, b, c) {
+            console.log(arguments[0]);
+            console.log(arguments[1]);
+            console.log(arguments[2]);
+        }
+        
+        
 函数的基本概念：A **function** is a code snippet that can be called by other code or by itself.
+
+函数的调用
 
 When a function is called, arguments are passed to the function as input, and the function can optionally return an output.
 

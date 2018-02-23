@@ -1,6 +1,6 @@
 ## This value
 
-`this`是JavaScript中十分令人困惑的概念，因为在不同的环境下，它指向的值是不一样的。
+`this` 是JavaScript中十分令人困惑的概念，因为在不同的环境下，它指向的值是不一样的。
 
 One of the most confused mechanisms in JavaScript is the `this` keyword.
 

@@ -1,3 +1,7 @@
+Under the hood, `add.js` is wrapped by Node.js this way:
+
+        
+
 在ES6之前，社区制定了一些模块加载方案，最主要的有 CommonJS 和 AMD 两种。
 
 前者用于服务器，后者用于浏览器。
@@ -27,9 +31,15 @@ ES6 的模块自动采用严格模式，不管你有没有在模块头部加上`
 
 ES6 modules are stored in files.
 
-You have two ways of exporting things from a module.
+那么，我们如何实际使用ES6带来的模块功能呢？
+
+The two main new keywords that enable ES6 module are `import` and `export`.
+
+有两个新的关键字：`import`和`export`。
 
 #### Multiple named exports
+
+The `export` keyword is either put in front of a declaration, or used as an operator 
 
 可以export Variable, Class and Function，就是在声明前加上`export`关键字。
 
@@ -48,6 +58,8 @@ You have two ways of exporting things from a module.
 You can also import the complete module:    
 
         import * as lib from 'lib';
+        
+Anything you do not label with `export` stays private inside the scope of the module.
 
 #### Single default export   
 

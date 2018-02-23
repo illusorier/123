@@ -1,3 +1,34 @@
+在ECMAScript中，有两种方式创建一个函数：函数声明语句或者函数表达式。
+
+        function foo() {}
+        
+        var foo = function () {};
+        
+无论你选择哪种方式
+
+What you end up with is an identifier for a function, that you can invoke by putting () after it, like `foo()`.
+
+
+所谓的IIFE其实就是用函数表达式的方式创建一个匿名函数，并立即调用它。
+
+下面这段代码的执行结果是什么？
+
+        var a = 1;
+        
+        (function(a){
+            console.log(a);
+        })();
+
+如何修改能使得输出结果为1？
+
+        var a = 1;
+                
+        (function(a){
+            console.log(a);
+        })(a);
+        
+是不是可以这么理解：第一个a是形参，第二个a是实参？
+
 An immediately-invoked function expression is a JavaScript programming language idiom which produces a lexical scope using JavaScript's function scoping.
 
 The heart of the matter 

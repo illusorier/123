@@ -146,11 +146,13 @@ Generators also have a concise method form:
 
 箭头函数
 
-    function foo(x,y) {
-      return x + y;
-    }
+An *arrow function expression* has a shorter syntax than a *function expression* and does not have its own *this*, *arguments*, *super*, or *new.target*.
+
+        function foo(x,y) {
+            return x + y;
+        }
     
-    var foo = (x,y) => x + y;
+        var foo = (x,y) => x + y;
     
 The arrow function definition consists of a parameter list(of zero or more parameters,and surrounding `(...)`), followed by the `=>` market,followed by a function body.
 

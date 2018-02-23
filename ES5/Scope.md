@@ -68,6 +68,10 @@ The other model, which is still used by some languages is called **Dynamic Scope
 
 动态作用域
 
+Lexical scope is the set of rules about how 
+
+The key characteristic of lexical scope is that it is defined at author-time,
+
 Dynamic scope actually is a near cousin to another mechanism (`this`) in JavaScript.
 
 在动态作用域的机制下，一个函数执行时变量值的解析是由调用该函数的上下文环境决定的。

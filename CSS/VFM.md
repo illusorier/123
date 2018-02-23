@@ -26,7 +26,7 @@ In CSS 2.2,
 
 块级元素就像段落一样，占据一整行
 
-块级元素会产生块级盒子
+块级元素和块级盒子是两个不同的概念
 
 Values of the `display` property that make an element block-level element: `block`, `list-item`, and `table`.
 
@@ -63,9 +63,13 @@ In a BFC, boxes are laid  out one after the other, vertically, beginning at the 
 
 ## Positioning schemes
 
+定位体系
+
 In CSS 2.2, a box may be laid out according to three *positioning schemes*:
 
-定位体系
+1. Normal flow
+2. Floats
+3. Absolute positioning
 
 An element is called *out of flow* if it is floated, absolutely positioned, or is the root element.
 
@@ -74,6 +78,10 @@ An element is called *out of flow* if it is floated, absolutely positioned, or i
 Boxes in the normal flow belong to a formatting context, which in CSS 2.2 may be table, block or inline.
 
 In future levels of CSS, other types of formatting context will be introduced.
+
+## Block formatting contexts
+
+In a BFC, each box's left outer edge touches the left edge of the containing block.
 
 ## Inline formatting contexts
 
@@ -92,6 +100,8 @@ The boxes may be aligned vertically in different ways.
 什么是Line Box?
 
 The rectangular area that contains the boxes that form a line is called a **line box**.
+
+也就是说line box必然存在于IFC中？
 
 A line box is always tall enough for all of the boxes it contains.
 
