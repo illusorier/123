@@ -39,15 +39,6 @@ Another fundamental part of creating programs in JavaScript for webpages and ser
         let myFavoriteNumber =  'seven';
         myFavoriteNumber = 7;
         
-## Array
-
-Array types can be written in one of two ways.
-
-In the first, you use the type of the elements followed by [] to denote an array of that element type:
-
-        let fibonacci: number[] = [1, 1, 2, 3, 5];
-        
-The second way uses a generic array type  
         
 
 ## Tuple
