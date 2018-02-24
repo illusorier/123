@@ -8,7 +8,7 @@ A float is a box that is shifted to the left or right on the current line.
 
 In the float model, a box is first laid out according to the normal flow, then taken out of the flow and shifted to the left or right as far as possible.
 
-If there is a line 
+If there is not enough horizontal room for the float, it is shifted downward until either it fits or there are 
 
 当一个元素的float属性被设置为非none时，其临近的元素根据其类型（行内还是块级），会有不同的反应。
 

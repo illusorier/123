@@ -89,19 +89,29 @@ IFC的形成条件
 
 An inline formatting context is established by a block container box that contains no block-level boxes.
 
-在IFC中，盒子依次水平排列
+IFC中盒子的布局方式
 
 In an inline formatting context, boxes are laid out horizontally, one after the other, beginning at the top of a containing block.
 
 Horizontal margins, borders, and padding are respected between these boxes.
 
-The boxes may be aligned vertically in different ways.
+盒子垂直方向上的对齐方式
+
+The boxes may be aligned vertically in different ways: their bottoms or tops may be aligned, or the baselines of text within them may be aligned.
 
 什么是Line Box?
 
 The rectangular area that contains the boxes that form a line is called a **line box**.
 
 也就是说line box必然存在于IFC中？
+
+User agents flow inline-level boxes into a vertical stack of line boxes.
+
+line box的宽度
+
+The width of a line box is determined by a containing block and the presence of floats.
+
+The height of a line box is determined 
 
 A line box is always tall enough for all of the boxes it contains.
 
