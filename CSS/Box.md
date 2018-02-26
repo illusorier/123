@@ -2,15 +2,25 @@
 
 HTML中的每个元素在页面中都是一个矩形盒子。
 
+每个盒子由四个区域组成。
+
 Each box has a *content area* and optional surrounding *padding*, *border*, and *margin* areas.
+
+The *width* CSS property specifies the width of an element.
+
+By default, the property defines the width of the content area.
+
+If *box-sizing* is set to *border-box*, however, it instead determines the width of the border area.
+
+The percentage is calculated with respect to the *width* of the generated box's containing block.
+
+Note that this is true for 'margin-top' and 'margin-bottom' as well.
 
 Determining the size, properties - like its color, background, borders aspect - and the position of these boxes is the goal of the rendering engine.
 
 每个盒子有4个edge: the **margin edge**, **border edge**, **padding edge**, and **content edge**.
 
 The **content area** is the area containing the real content.
-
-It
 
 If the CSS **box-sizing** property is set to default, the CSS properties **width**, **min-width**, **max-width**, **height**, **min-height** and **max-height** control the content size.
 

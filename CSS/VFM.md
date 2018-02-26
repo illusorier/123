@@ -26,11 +26,21 @@ In CSS 2.2,
 
 块级元素就像段落一样，占据一整行
 
-块级元素和块级盒子是两个不同的概念
-
 Values of the `display` property that make an element block-level element: `block`, `list-item`, and `table`.
 
+块级盒子
+
 *Block-level boxes* are boxes that participate in a BFC.
+
+block container
+
+块级容器和块级元素(盒子)并不是等价的概念。
+
+In CSS 2.2, a block-level box is also a *block container* box unless it is a table box or the principal box of a replaced element.
+
+Values of the 'display' property which make a non-replaced element generate a block container include 'block', 'list-item' and 'inline-block'.
+
+Not all block container boxes are block-level boxes.
 
 Anonymous block boxes
 
@@ -80,6 +90,10 @@ Boxes in the normal flow belong to a formatting context, which in CSS 2.2 may be
 In future levels of CSS, other types of formatting context will be introduced.
 
 ## Block formatting contexts
+
+BFC的形成条件
+
+Floats, absolutely positioned elements, block containers (such as inline-blocks, table-cells, and table-captions) that are not block boxes,
 
 In a BFC, each box's left outer edge touches the left edge of the containing block.
 

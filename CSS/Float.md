@@ -10,7 +10,15 @@ In the float model, a box is first laid out according to the normal flow, then t
 
 If there is not enough horizontal room for the float, it is shifted downward until either it fits or there are 
 
+当水平方向上空间不足时，
+
 当一个元素的float属性被设置为非none时，其临近的元素根据其类型（行内还是块级），会有不同的反应。
 
 Since a float is not in the flow, non-positioned block boxes created before and after the float box flow vertically as if the float did not exist.
+
+However, the current and subsequent line boxes created next to the float 
+
+clear
+
+The `clear` CSS property specifies  
 
