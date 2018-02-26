@@ -78,5 +78,29 @@ Dynamic scope actually is a near cousin to another mechanism (`this`) in JavaScr
 
 Dynamic scope do not concern itself with how and where functions and scopes are declared, but rather **where they are called from**.
 
+### Scope Chain
+
+作用域链这个概念产生的本质在于：能形成作用域的独立模块(如函数)的相互嵌套。
+
+If to describe briefly and showing the main point, a scope chain is mostly related with inner functions.
+
+As we know, ECMAScript allows creation of inner functions and we can even return these functions from parent functions.
+
+The scope chain is exactly this list of all (parent) variable objects for the inner contexts.
+
+This chain is used for variables lookup.
+
+The scope chain of a function context is created at function call and consists of the AO and the internal [[Scope]] property of this function.
+
+    activeExecutionContext = {
+      VO: {...},
+      this: thisValue,
+      Scope: []
+    };
+    
+where Scope by definition is:
+
+    Scope = AO + [[Scope]]
+
 
 

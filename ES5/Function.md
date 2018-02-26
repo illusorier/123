@@ -1,5 +1,7 @@
 什么是函数
 
+A function is a code snippet.
+
 A function in JavaScript is also an object.
 
 函数内部特殊的对象
@@ -11,9 +13,7 @@ The `arguments` object is an `Array-like` object corresponding to the arguments 
             console.log(arguments[1]);
             console.log(arguments[2]);
         }
-        
-        
-函数的基本概念：A **function** is a code snippet that can be called by other code or by itself.
+       
 
 函数的调用
 
@@ -26,6 +26,12 @@ When a function is called, arguments are passed to the function as input, and th
 看完下面的内容，你应该能回答这个问题：这时候在控制台打印出来的是什么？
 
 ### Different types of functions
+
+An *anonymous function* is a function without a function name:
+
+        function () {};
+        
+        () => {};
 
 首先我们从函数的类型来理解。
 

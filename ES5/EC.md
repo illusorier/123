@@ -1,18 +1,14 @@
+在进入ES5、ES6之后，这些概念发生了哪些变化？
+
 ## Execution Contexts
 
-所谓执行上下文是不是就是一个独立的作用域？
+我认为执行上下文和作用域是两个相似的概念，都是为了描述变量或者说标识符的解析而存在的。
 
-Always in programs we declare functions and variables which then successfully use building our systems.
+> Execution context (EC) is the abstract concept used by ECMA-262 specification for an executable code.
 
-But how and where the interpreter finds our data (functions, variable)?
-
-What occurs, when we reference to needed objects?
-
-Variables are closely related with execution context.
+可执行的代码可以被分为两类：全局代码和函数代码，分别对应两种不同的执行上下文。
 
 从数据结构的角度理解，执行上下文们本身是一个栈（只能在表的一端进行插入和删除运算）。
-
-从JS引擎执行代码的过程来看，可执行的代码可以被分为两类：全局代码和函数代码，分别对应两种不同的执行上下文。
 
 Set of active execution contexts forms a stack.
 
