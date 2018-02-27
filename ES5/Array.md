@@ -21,7 +21,7 @@ There are some other common patterns of looping over arrays.
             .map(function() {})
             .reduce(function() {})
             
-This style of programming
+This style of programming is commonly referred to as functional programming.
 
 每个Array实例都继承的方法。
 
@@ -36,3 +36,7 @@ An array containing the deleted elements.
 If only one element is removed, 
 
 The `slice()` method returns a shallow copy of a portion of an array into a new array object 
+
+Array.prototype.map()
+
+Array类的实例对象所继承的方法，是对该实例的操作。
