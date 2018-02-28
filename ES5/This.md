@@ -1,8 +1,14 @@
-## This value
+## This 
+
+A function's `this` keyword behaves a little differently in JavaScript compared to other languages.
 
 `this` 是JavaScript中十分令人困惑的概念，因为在不同的环境下，它指向的值是不一样的。
 
 One of the most confused mechanisms in JavaScript is the `this` keyword.
+
+this会出现在哪里？
+
+全局作用域或函数中
 
 It's a special identifier keyword that's automatically defined in the scope of every function.
 
@@ -10,52 +16,66 @@ If the `this` mechanism is so confusing,even to seasoned JavaScript developers, 
 
 既然this这个概念这么令人困惑，那么我们为什么依旧需要它：
 
+我们首先看下面这个场景：
+
 The motivation and utility of `this`:
 
         function identify() {
-          return this.name.toUpperCase();
+            return this.name.toUpperCase();
         }
           
         function speak() {
-          var greeting = "Hello, I'm " + identify.call( this );
-          console.log( greeting );
+            var greeting = "Hello, I'm " + identify.call(this);
+            console.log(greeting);
         }
         
         var me = {
-          name: "Kyle"
+            name: "Kyle"
         };
         
         var you = {
-          name: "Reader"
+            name: "Reader"
         };
         
-        identify.call( me );
-        identify.call( you );
+        identify.call(me);
+        identify.call(you);
         
-        speak.call( me );
-        speak.call( you );
-        
-我们知道，代码（函数）有其相应的执行上下文。
+        speak.call(me);
+        speak.call(you);
 
-如果某个函数的执行，依赖于某个对象中包含的数据；那么，除了显式得将该对象作为参数传入函数，是否还有其他解决方法？
-
-利用作用域链：可以将这些数据作为局部变量声明在函数调用的上下文中，但这显然会造成很多问题。
+如果某个函数的调用，依赖于某个外部对象；那么，除了显式得将该对象作为参数传入函数，是否还有其他解决方法？
     
 This code snippet allows the `identify()` and `speak()` functions to be re-used against multiple context (`me` and `you`) objects.
 
 Instead of relying on `this`, you could have explicitly passed in a context object to both `identify()` and `speak()`.
 
         function identify(context) {
-        	return context.name.toUpperCase();
+            return context.name.toUpperCase();
         }
         
         function speak(context) {
-        	var greeting = "Hello, I'm " + identify( context );
-        	console.log( greeting );
+            var greeting = "Hello, I'm " + identify(context);
+            console.log(greeting);
         }
         
-        identify( you ); 
-        speak( me ); 
+        identify(you); 
+        speak(me); 
+        
+接下来再看一个新的场景，假如没有`this`这个机制，是否能实现一样的效果？
+        
+        function factoryFn() {
+        	return {
+                str: "object",
+                func: function(){
+                    console.log(this.str);
+                }
+          }
+        }
+        
+        var o = factoryFn();
+        
+        o.func();
+                
 
 `this` mechanism provides a more elegant way of implicitly "passing along" an object reference, leading to cleaner API design and easier re-use.
 
@@ -182,4 +202,4 @@ The value is determined on entering the context and is immutable while the code 
 
 #### Binding Exceptions
 
-##### Ignored `this`
+ES5 introduced the `bind` method to set the value of a function's this regardless of how it's called, and ES2015 introduced arrow functions which don't provide their own `this` binding (it retains the `this` value of the enclosing lexical context).

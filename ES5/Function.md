@@ -14,7 +14,6 @@ The `arguments` object is an `Array-like` object corresponding to the arguments 
             console.log(arguments[2]);
         }
        
-       
 The `length` property specifies the number of arguments expected by the function.
 
 函数的调用
