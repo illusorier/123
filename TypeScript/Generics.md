@@ -21,5 +21,7 @@ We actually are losing the information about what that type was
         function identity<T> (arg: T): T {
             return arg;
         }
+        
+泛型函数
 
 Once we have written the generic identity function, we can call it in one of two ways.
