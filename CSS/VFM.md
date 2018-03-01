@@ -91,15 +91,15 @@ In future levels of CSS, other types of formatting context will be introduced.
 
 ## Block formatting contexts
 
-BFC的形成条件
+BFC是如何形成的？
 
-Floats, absolutely positioned elements, block containers (such as inline-blocks, table-cells, and table-captions) that are not block boxes,
+Floats, absolutely positioned elements, block containers (such as inline-blocks, table-cells, and table-captions) that are not block boxes, and block boxes with 'overflow' other than 'visible' establish new BFC for their contents.
 
-In a BFC, each box's left outer edge touches the left edge of the containing block.
+In a block formatting context, boxes are laid out one after the other, vertically, beginning at the top of a containing block.
 
 ## Inline formatting contexts
 
-IFC的形成条件
+IFC是如何形成的？
 
 An inline formatting context is established by a block container box that contains no block-level boxes.
 
@@ -117,7 +117,7 @@ The boxes may be aligned vertically in different ways: their bottoms or tops may
 
 The rectangular area that contains the boxes that form a line is called a **line box**.
 
-也就是说line box必然存在于IFC中？
+也就是说line box必然存在于IFC中？我认为不是
 
 User agents flow inline-level boxes into a vertical stack of line boxes.
 
