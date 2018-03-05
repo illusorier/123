@@ -1,14 +1,48 @@
-Under the hood, `add.js` is wrapped by Node.js this way:
+The JavaScript language did not have a native way of organizing code before the ES2015 standard.
 
-        
+Node.js filled this gap with the CommonJS module format.
+
+我们为什么需要模块化系统？
+
+Modules are the fundamental building blocks of the code structure.
+
+The module system allows you to organize your code, hide information and only expose the public interface of a component using `module.exports`.
 
 在ES6之前，社区制定了一些模块加载方案，最主要的有 CommonJS 和 AMD 两种。
 
 前者用于服务器，后者用于浏览器。
 
-JavaScript has had modules for a long time.
+两者的区别在于模块的加载是同步还是异步，并相应决定了其应用环境。
 
-However, they were implemented via libraries, not built into the language.
+CommonJS:
+
+        var math = require('math');
+        
+AMD也采用 `require()` 语句加载模块，但不同于CommonJS，它要求两个参数：
+
+        require([module], callback);
+        
+深入CommonJS
+        
+        function add (a, b) {
+            return a + b
+        }
+                
+        module.exports = add
+
+Under the hood, `add.js` is wrapped by Node.js this way:
+
+        function (exports, require, module, __filename, __dirname) {
+            function add (a, b) {
+                        return a + b
+                      }
+        
+            module.exports = add
+        })
+        
+This is why you can access the global-like variables like **require** and **module**.
+
+ES6中所加入的模块化系统除了客户端和服务器端语法的统一，还有什么特性？
 
         // CommonJS
         let { stat, exists, readFile } = require('fs');
@@ -21,9 +55,17 @@ However, they were implemented via libraries, not built into the language.
         
 上面代码的实质是整体加载`fs`模块(即加载`fs`的所有方法)，生成一个对象(`_fs`)，然后再从这个对象上面读取3个方法。
 
+除了静态加载带来的各种好处，ES6模块还有以下好处：
+
+- 将来浏览器的新API就能用模块格式提供
+
+- 不再需要对象作为命名空间(比如 `Math` 对象)。
+
 ### Design goals for ES6 modules
 
-Current JavaScript module formats a dynamic structure.
+Current JavaScript module formats have a dynamic structure: What 
+
+One reason why ES6 
 
 ES6 的模块自动采用严格模式，不管你有没有在模块头部加上` "use strict" `。
 
@@ -33,11 +75,9 @@ ES6 modules are stored in files.
 
 那么，我们如何实际使用ES6带来的模块功能呢？
 
-The two main new keywords that enable ES6 module are `import` and `export`.
+There are two kinds of exports: named exports (several per module) and default exports (one per module).
 
-有两个新的关键字：`import`和`export`。
-
-#### Multiple named exports
+#### Named exports (several per module)
 
 The `export` keyword is either put in front of a declaration, or used as an operator 
 
@@ -61,11 +101,38 @@ You can also import the complete module:
         
 Anything you do not label with `export` stays private inside the scope of the module.
 
-#### Single default export   
+#### Default exports (one per module)
 
-在声明前加上`export default`关键字。
+Modules that only export single values are very popular in the Node.js community.
 
-ES6模块不是对象，而是通过`export`命令显式
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### 传统方法
 在HTML网页中，浏览器通过`<script>`标签加载JavaScript脚本。
