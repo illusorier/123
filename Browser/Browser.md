@@ -32,9 +32,11 @@ After that this is the basic flow of the rendering engine:
  
 ### Reflows and Repaints
  
- 用脚本进行DOM操作的代价很昂贵。
+用脚本进行DOM操作的代价很昂贵。
   
 有个贴切的比喻，把DOM和ECMAScript各自想象为一个岛屿，它们之间用收费桥粱连接，ECMAScript每次访问DOM，都要途径这座桥，并交纳“过桥费”。
+
+浏览器下载完页面中的所有组件—HTML，JavaScript、CSS和图片等资源后会解析生成两个内部数据结构-DOM树和渲染树。
 
 ## Browser Script Loading
 

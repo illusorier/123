@@ -38,11 +38,15 @@ The `Cache-Control` general-header field
 
 Cache-Control: No-Cache
 
-The no-cache directive means that 
+The no-cache directive means that a browser may cache a response, but must first submit a validation request to an origin server.
 
 Cache-Control: No-Store
 
 The no-store directive means browsers are not allowed to cache a response and must pull it from the server each time it's requested.
+
+Caching static assets:
+
+    Cache-Control: public, max-age=31533600
 
 The private response 
 

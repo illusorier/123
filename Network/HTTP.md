@@ -1,3 +1,5 @@
+版本0.9是HTTP协议的早期版本，是当今HTTP所拥有的请求及响应报文的鼻祖，但其协议要简单得多。
+
 ### HTTP access control (CORS)
 
 A resource makes a **cross-origin HTTP request** when it requests a resource from a different domain, protocol, or port to its own.
