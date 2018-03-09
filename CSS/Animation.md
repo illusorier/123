@@ -59,8 +59,6 @@ The `transition` property is a shorthand property used to represent up to four t
       
 The `transition-timing-function` property,normally used as part of `transition` shorthand,is used to define 
 
-CSS can't animate between `display: none` and `display: block`, `height: 0` and `height: auto`.
-
 CSS transition one-way and both-ways.
 
 All major browsers disable CSS transitions if you try to change the display property, but CSS animations still work fine so we can use them as a work-around.
