@@ -1,6 +1,80 @@
-# ECMAScript中的面向对象
+## OOP
 
-ECMAScript也是一个面向对象的语言，但它的实现方式与C、Java这样的语言十分不同。
+JavaScript is a bit confusing for developers experienced in class-based languages (like Java or C++), as it is dynamic and does not provide a `class` implementation per se (the `class` keyword is introduced in ES2015, but is syntactical sugar, JavaScript remains prototype-based).
+
+JavaScript中面向对象的实现方式与Java不同。
+
+在Java中，每一个对象都是某一个类的实例；而在JavaScript中，每一个对象都有一个原型对象。
+
+> The prototypal inheritance model is more powerful than the classic model.
+
+原型对象
+
+Each object has a private property which holds a link to another object called its **prototype**.
+
+That prototype object has a prototype of its own, and so on until an object is reached with `null` as its prototype.
+
+By definition, `null` has no prototype, and acts as the final link in this **prototype chain**.
+
+        Object.getPrototypeOf(Object.prototype) === null
+
+JavaScript中的每个对象都有一个内部属性，它是另一个对象的引用。
+
+Following the ECMAScript standard, the n2otation `someObject.[[Prototype]]`
+
+Since ECMAScript 2015, the `[[Prototype]]` is accessed using the accessors `Object.getPrototypeOf` and `Object.setPrototypeOf`
+
+This is equivalent to the JavaScript property `__proto__` which is non-standard but implemented by many browsers.
+
+要注意的是：对象并没有prototype这个属性。
+
+It should not be confused with the `func.prototype` property of functions, which instead specifies the `[[Prototype]]` to be assigned to all instances of 
+
+### Different ways to create objects and the resulting prototype chain
+
+        var o = {a:1};
+        
+        // Object.getPrototypeOf(o) === Object.prototype
+        // o.__proto__ === Object.prototype
+        
+        // o ---> Object.prototype ---> null
+        
+        function f() {}
+        
+        // Object.getPrototypeOf(f) === Function.prototype
+        
+        o ---> Function.prototype ---> Object.prototype ---> null
+        
+通过对象字面量创建的对象的原型对象是 `Object.prototype`。
+
+
+All objects will have a `constructor` property.
+
+每一个对象都有一个constructor属性，但在打印这个对象时，这个属性并不会显示出来。
+
+Objects created without the explicit use of a constructor function
+
+
+
+
+
+Objects in JavaScript have an internal property, denoted in the specifications as `[[Prototype]]`, which is simply a reference to another object.
+
+What is the `[[Prototype]]` reference used for?
+
+原型链
+
+Where exactly does the `[[Prototype]]` chain "end"?
+
+The top-end of every normal `[[Prototype]]` chain is the built-in `Object.prototype`.
+
+When trying to access a property of an object, 
+
+Why does one object need to link to another object?
+
+Following the ECMAScript standard, 
+
+有趣的是，在
 
 ## Prototype
 
@@ -17,6 +91,10 @@ A prototype can be either an object, or the `null` value.
 Via the inherited `constructor` property instances can indirectly get the reference to the prototype object.
  
 If we add new or modify existing property 
+
+All objects will have a `constructor` property.
+
+Object created without the explicit use of a constructor function
  
 #### Non-standard `_proto_` property
 

@@ -6,11 +6,11 @@
 
         let fibonacci: number[] = [1, 1, 2, 3, 5];
         
-假如要实现和JavaScript中一样的数组声明方式：
+假如要实现和JavaScript中一样的数组声明方式，即不对数组成员的类型做任何限制：
 
         let myArray: any[] = [1, "1", {}];
         
-数组泛型：
+数组泛型,：
 
         ley fibonacci: Array<number> = [1, 1, 2, 3, 5];
 

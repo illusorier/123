@@ -92,6 +92,16 @@ Calls a function with a given this value and arguments provided individually.
         fun.call(thisArg, arg1, arg2, ...)
         
         fun.apply(thisArg, [argsArray])
+        
+### Function context
+
+Inside a function, the value of `this` depends on how the function is called.
+
+`Simple call`
+
+So, in strict mode, if `this` was not defined by the execution context, it remains undefined.
+
+When a function is called as a method of an object, its `this` is set to the object the method is called on.
 
 #### Call-site
 

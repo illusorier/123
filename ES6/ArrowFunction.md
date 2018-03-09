@@ -37,7 +37,7 @@ Until arrow functions, every new function defined its own `this` value
         
 In ECMAScript 3/5, the `this` issue was fixable by assigning the value in `this` to a variable that could be closed over.
 
-下面这个例子是在Vue中使用clipboard.js
+下面这个例子是在Vue中使用clipboard.js，也是我第一次在项目中遇到此类问题，当时百思不得其解。
 
         new Vue({
             data: {
@@ -52,3 +52,64 @@ In ECMAScript 3/5, the `this` issue was fixable by assigning the value in `this`
                 }
             }
         })
+        
+        
+下面再看几个例子
+
+例1：
+
+        var person={
+            name:"anna",
+            showName:function(){
+                alert(this.name);
+            },
+            waitShowName:function(){
+                setTimeout(this.showName.bind(this),1000); 
+            }
+        };
+        
+        person.waitShowName();
+        
+例2：
+        
+        var str = "global";
+    
+        var myObject = {
+            str: "object",
+            f: function() {
+                var str = "outter";
+    
+                console.log(this.str);
+    
+                return function() {
+                    var str = "inner";
+    
+                    console.log(this.str)
+                };
+            }
+        }
+    
+        var f = myObject.f();
+        f();
+        
+例3：
+
+        var str = "global";
+            
+        var myObject = {
+            str: "object",
+            f: function() {
+                var str = "outter";
+    
+                console.log(this.str);
+    
+                return () => {
+                    var str = "inner";
+    
+                    console.log(this.str)
+                };
+            }
+        }
+    
+        var f = myObject.f();
+        f();

@@ -1,5 +1,7 @@
 In languages like C# and Java, one of the main tools in the toolbox for creating reusable components is *generic*.
 
+Being able to create a component that can work over a variety of types rather than a single one.
+
 在JavaScript当中，声明变量或函数时并不需要指明类型，因此也就没有必要引入泛型这个概念，但TypeScript却有所不同。
 
 Without generics, we would either have to give the identity function a specific type:

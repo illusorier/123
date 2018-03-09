@@ -1,3 +1,5 @@
+我们为什么需要版本控制？
+
 repository 仓库、版本库
 
 Working Directory 工作区
@@ -26,9 +28,7 @@ Show the working tree status.
 
 #### git commit
 
-
-git pull - Fetch from and integrate with another repository or a local branch
-
+git pull - Fetch from and integrate with another repository or a local branch.
 
 #### git remote 
 

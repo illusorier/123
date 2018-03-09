@@ -142,34 +142,6 @@ Generators also have a concise method form:
 
 ##### ES5 Getter/Setter
 
-### Arrow Functions
-
-箭头函数
-
-An *arrow function expression* has a shorter syntax than a *function expression* and does not have its own *this*, *arguments*, *super*, or *new.target*.
-
-        function foo(x,y) {
-            return x + y;
-        }
-    
-        var foo = (x,y) => x + y;
-    
-The arrow function definition consists of a parameter list(of zero or more parameters,and surrounding `(...)`), followed by the `=>` market,followed by a function body.
-
-The body only needs to be enclosed by `{...}` if there's more than one expression,or if the body consists of a non-expression statement.
-
-Arrow functions are *always* function expressions;there is no arrow function declaration.
-
-It also should be clear that they are anonymous function expressions.
-
-Arrow functions have a nice, shorter syntax.
-
-#### Not Just Shorter Syntax, But `this`
-
-    var 
-    
-Herein we finally can see the primary design char
-
 ### `for..of` Loops
 
 Joining the `for` and `for..in` loops from the JavaScript we're familiar with,ES6 adds a `for..of` loop,which loops over the set of values produced by an iterator.
