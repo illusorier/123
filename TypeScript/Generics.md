@@ -10,6 +10,10 @@ Without generics, we would either have to give the identity function a specific 
             return arg;
         }
         
+        function identitu(arg: string): string {
+            return arg;
+        }
+        
 Or, we could describe the identity function using the `any` type:
 
         function identity(arg: any): any {
@@ -27,3 +31,5 @@ We actually are losing the information about what that type was
 泛型函数
 
 Once we have written the generic identity function, we can call it in one of two ways.
+
+        function createArray(
