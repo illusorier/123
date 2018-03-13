@@ -4,11 +4,41 @@ JavaScript is a bit confusing for developers experienced in class-based language
 
 JavaScript中面向对象的实现方式与Java不同。
 
-在Java中，每一个对象都是某一个类的实例；而在JavaScript中，每一个对象都有一个原型对象。
+在Java中，每一个对象都是某一个类的实例；而在JavaScript中，每一个对象都有一个原型对象(或null)。
 
-> The prototypal inheritance model is more powerful than the classic model.
+那么如果我们拿到一个对象，该如何获得它的原型对象呢？
 
-原型对象
+Following the ECMAScript standard, the notation `someObject.[[Prototype]]` is used to designate the prototype of `someObject`.
+
+Since ECMAScript 2015, the `[[Prototype]]` is accessed using the accessors `Object.getPrototypeOf` and `Object.setPrototypeOf`.
+
+This is equivalent to the JavaScript property `__proto__` which is non-standard but implemented by many browsers.
+
+JavaScript中的每个对象都有一个内部属性，它是另一个对象的引用
+
+很多浏览器使用了`__proto__`带代表这个内部属性
+
+ES5提供了两个新的方法用于操作某个对象的原型
+
+也就是说：任意一个对象并没有prototype这个属性
+
+It should not be confused with the `func.prototype` property of functions, which instead specifies the `[[Prototype]]` to be assigned to all instances of objects created by the given function when used as a constructor.
+
+`Object.prototype` property represents the `Object` prototype object.
+
+那么，执行以下的代码时发生了什么？
+
+        function Car() {
+            this.wheel = 4;
+        }
+        
+        Car.prototype.type = "vehicle";
+        
+        var myCar = new Car();
+        
+        console.log(myCar.type);
+        
+原型链       
 
 Each object has a private property which holds a link to another object called its **prototype**.
 
@@ -17,20 +47,14 @@ That prototype object has a prototype of its own, and so on until an object is r
 By definition, `null` has no prototype, and acts as the final link in this **prototype chain**.
 
         Object.getPrototypeOf(Object.prototype) === null
-
-JavaScript中的每个对象都有一个内部属性，它是另一个对象的引用。
-
-Following the ECMAScript standard, the n2otation `someObject.[[Prototype]]`
-
-Since ECMAScript 2015, the `[[Prototype]]` is accessed using the accessors `Object.getPrototypeOf` and `Object.setPrototypeOf`
-
-This is equivalent to the JavaScript property `__proto__` which is non-standard but implemented by many browsers.
-
-要注意的是：对象并没有prototype这个属性。
-
-It should not be confused with the `func.prototype` property of functions, which instead specifies the `[[Prototype]]` to be assigned to all instances of 
+        
+`Object.prototype.isPrototypeOf()`
+        
+> The prototypal inheritance model is more powerful than the classic model.
 
 ### Different ways to create objects and the resulting prototype chain
+
+Objects created with syntax constructs:
 
         var o = {a:1};
         
@@ -39,14 +63,17 @@ It should not be confused with the `func.prototype` property of functions, which
         
         // o ---> Object.prototype ---> null
         
+With a constructor:
+        
         function f() {}
         
         // Object.getPrototypeOf(f) === Function.prototype
         
         o ---> Function.prototype ---> Object.prototype ---> null
         
+With Object.create:
+        
 通过对象字面量创建的对象的原型对象是 `Object.prototype`。
-
 
 All objects will have a `constructor` property.
 
@@ -54,7 +81,21 @@ All objects will have a `constructor` property.
 
 Objects created without the explicit use of a constructor function
 
+### new
 
+The `new` operator creates an instance of a user-defined object type or one of the built-in object types that has a constructor function.
+
+When the code `new Foo(...)` is executed, the following things happen:
+
+1. A new object is created, inheriting from `Foo.prototype`.
+
+2. The constructor function `Foo` is called with the specified arguments, and with `this` bound to the newly created object.
+
+3. The object returned by the constructor function becomes the result of the whole `new` expression. If the constructor function does not explicitly return an object, the object created in step 1 is used instead.
+
+### super 
+
+The **super** keyword is used to access and call functions on an object's parent.
 
 
 
