@@ -16,7 +16,7 @@ This is equivalent to the JavaScript property `__proto__` which is non-standard 
 
 JavaScript中的每个对象都有一个内部属性，它是另一个对象的引用
 
-很多浏览器使用了`__proto__`带代表这个内部属性
+很多浏览器使用了`__proto__`来代表这个内部属性
 
 ES5提供了两个新的方法用于操作某个对象的原型
 
@@ -49,6 +49,10 @@ By definition, `null` has no prototype, and acts as the final link in this **pro
         Object.getPrototypeOf(Object.prototype) === null
         
 `Object.prototype.isPrototypeOf()`
+
+JavaScript does not have "methods" in the form that class-based languages define them.
+
+In JavaScript, any function can be added to an object in the form of a property.
         
 > The prototypal inheritance model is more powerful than the classic model.
 
