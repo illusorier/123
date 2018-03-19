@@ -1,4 +1,6 @@
-> It's one thing to write JS code, but it's another to properly organize it. Utilizing common patterns for organization and reuse goes a long way to improving 
+在ES6之前，JS对于对象和数组的遍历通常有哪些方案？
+
+> It's one thing to write JS code, but it's another to properly organize it. Utilizing common patterns for organization and reuse goes a long way to improving the readability and understandability of your code.
 
 WTF! This is some real thinking about programming! 
 
@@ -18,7 +20,9 @@ The `for...of`statement creates a loop iterating over iterable objects
 
 ## Iterators
 
-如果使用TypeScript的写法，遍历器
+如果使用TypeScript的写法
+
+`Iterable` interface, which describes objects that must be able to produce iterators:  
 
         interface Iterable {
           [Symbol.iterator]() : Iterator,
@@ -26,36 +30,15 @@ The `for...of`statement creates a loop iterating over iterable objects
         
         interface Iterator {
           next(value?: any) : IterationResult,
+          // retrieve next IteratorResult
         }
         
-        interface IterationResult {
+        interface IteratorResult {
           value: any,
+          // current iteration value or final return value (optional if `undefined`)
           done: boolean,
+          // boolean, indicates completion status
         }
-
-An iterator is a structured pattern for pulling information from a source in one-at-a-time fashion.
-
-        Iterator [required]
-          next() {method}: retrieves next IteratorResult
-      
-There are two optional members that some iterators are extended with:
-
-        Iterator [optional]
-          return() {method}: stops iterator and returns IteratorResult
-          throw() {method}: signals error and returns IteratorResult
-      
-The `IteratorResult` interface is specified as:
-
-        IteratorResult
-          value {property} current
-    
-There's also an `Iterable` interface,which describes objects that must be able to produce iterators.
-
-        Iterable
-          @@iterator() {method}: produces an Iterator
-          
-ES6规定，默认的Iterator接口部署在数据结构的`Symbol.iterator`属性，或者说
-
       
 ##### IteratorResult
 
@@ -90,12 +73,14 @@ If an iterator is also an iterable,it can be used directly with the `for..of` lo
 
 也就是说 Iterator 接口会供 `for...of`` 消费。一种数据结构只要部署了Iterator接口，我们就称这种数据结构是“可遍历的”(iterable)。
 
-ES6规定，默认的 Iterator 接口部署在数据结构的 `Symbol.iterator` 属性。
+ES6规定，默认的Iterator接口部署在数据结构的 `Symbol.iterator` 属性。
 
-一种数据结构只要部署了Iterator接口，我们就称这种数据结构是“可遍历的”(iterable)。
+或者说，一种数据结构只要具有`Symbol.iterator`属性，就可以认为是“可遍历的”(iterable)。
 
 `Symbol.iterator` 属性本身是一个函数，就是当前数据结构默认的遍历器生成函数。
 
 执行这个函数，会返回一个遍历器对象。
 
 至于属性名 `Symbol.iterator`
+
+原生具备Iterator

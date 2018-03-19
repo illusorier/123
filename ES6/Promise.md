@@ -97,25 +97,35 @@ A promise can be: fulfilled rejected pending settled.
 A Promise is an object that is used as a 
 Any Promise object is in one of three mutually exclusive states.
 
+Asynchronous programming
+
+异步编程
+
+The primary mechanism for managing asynchrony has been the function callback.
+
 Promise并不是用来取代callback。
 
 Promises are not about replacing callbacks.
 
 语法糖 回调代码 异步代码
 
-**如何使用Promise?**
+#### Making and Using Promises
 
-Promise是一个抽象的概念，但在代码中它就是一个类，我们可以创建它的实例。
+如何在代码中使用Promise?
+
+Promise是一个抽象的概念，但在代码中它就是一个类，我们可以创建它的实例，也就是说：
+
+    var p = new Promise();
 
 在创建过程中，我们需要传入一个函数。
+
+    new Promise( /* executor */ function(resolve, reject) { ... });
 
 这个函数有两个参数：resolve和reject(这两个参数也是函数)。
 
 具体的代码是写在这个函数中的，我们通过调用resolve和reject函数来resolve Promise。
 
 A Promise can only have one of two possible resolution outcomes: fulfilled or rejected.
-
-#### Making and Using Promises
 
 To construct a promise instance,use the `Promise(..)` constructor:
 
@@ -184,3 +194,9 @@ In this snippet, we are returning an immediate
 #### Thenables
 
 Any object(or function)  with a `then(..)` function on it is assumed to be a thenable.
+
+
+
+    new Promise
+    
+A function that is passed with the arguments `resolve` and `reject`
