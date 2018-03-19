@@ -44,6 +44,8 @@ Common uses for a reverse proxy server include:
 
 ### TCP 'Packet' Field
 
+TCP utilizes a number of flags, or 1-bit boolean fields, in its header to control the state of a connection.
+
 Sequence Number (32Bits): Used for segmentation of application data into TCP segments and reassembling them on the other side.
 
 Initial Sequence Number (什么是ISN?)
