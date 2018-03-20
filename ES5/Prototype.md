@@ -4,7 +4,7 @@ JavaScript is a bit confusing for developers experienced in class-based language
 
 JavaScript中面向对象的实现方式与Java不同。
 
-在Java中，每一个对象都是某一个类的实例；而在JavaScript中，每一个对象都有一个原型对象(或null)。
+在Java中，每一个对象都是某一个类的实例；而在JavaScript中，每一个对象都有一个原型对象。
 
 那么如果我们拿到一个对象，该如何获得它的原型对象呢？
 
@@ -20,7 +20,7 @@ JavaScript中的每个对象都有一个内部属性，它是另一个对象的�
 
 ES5提供了两个新的方法用于操作某个对象的原型
 
-也就是说：任意一个对象并没有prototype这个属性
+也就是说：任意一个对象并没有prototype这个属性，但作为构造函数的函数拥有prototype属性。
 
 It should not be confused with the `func.prototype` property of functions, which instead specifies the `[[Prototype]]` to be assigned to all instances of objects created by the given function when used as a constructor.
 
@@ -58,6 +58,8 @@ In JavaScript, any function can be added to an object in the form of a property.
 
 ### Different ways to create objects and the resulting prototype chain
 
+使用不同方式创建的对象拥有不同的原型链
+
 Objects created with syntax constructs:
 
         var o = {a:1};
@@ -76,14 +78,28 @@ With a constructor:
         o ---> Function.prototype ---> Object.prototype ---> null
         
 With Object.create:
+
+ECMAScript 5 introduced a new method: `Object.create()`.
+
+Calling this method creates a new object.
+
+The prototype of this object is the first argument of the function:
+
+        var a = {a:1};
+        // a ---> Object.prototype ---> null
+        
+        var b = Object.create(a);
+        // b ---> a ---> Object.prototype ---> null
+
+With the `class` keyword:
         
 通过对象字面量创建的对象的原型对象是 `Object.prototype`。
 
 All objects will have a `constructor` property.
 
-每一个对象都有一个constructor属性，但在打印这个对象时，这个属性并不会显示出来。
+每一个对象都有一个constructor属性，但在打印这个对象时，这个属性并不会在控制台中显示出来。
 
-Objects created without the explicit use of a constructor function
+Objects created without the explicit use of a constructor function (i.e. the object and array literals) will have a `constructor` property that points to the Fundamental Object 
 
 ### new
 
@@ -101,8 +117,6 @@ When the code `new Foo(...)` is executed, the following things happen:
 
 The **super** keyword is used to access and call functions on an object's parent.
 
-
-
 Objects in JavaScript have an internal property, denoted in the specifications as `[[Prototype]]`, which is simply a reference to another object.
 
 What is the `[[Prototype]]` reference used for?
@@ -116,8 +130,6 @@ The top-end of every normal `[[Prototype]]` chain is the built-in `Object.protot
 When trying to access a property of an object, 
 
 Why does one object need to link to another object?
-
-Following the ECMAScript standard, 
 
 有趣的是，在
 

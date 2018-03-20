@@ -34,8 +34,8 @@ Under the hood, `add.js` is wrapped by Node.js this way:
 
         function (exports, require, module, __filename, __dirname) {
             function add (a, b) {
-                        return a + b
-                      }
+                return a + b;
+            }
         
             module.exports = add
         })

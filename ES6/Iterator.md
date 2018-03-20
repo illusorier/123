@@ -22,12 +22,14 @@ The `for...of`statement creates a loop iterating over iterable objects
 
 如果使用TypeScript的写法
 
-`Iterable` interface, which describes objects that must be able to produce iterators:  
+`Iterable` interface, which describes objects that must be able to produce iterators(可遍历的):  
 
         interface Iterable {
           [Symbol.iterator]() : Iterator,
         }
         
+遍历器：
+
         interface Iterator {
           next(value?: any) : IterationResult,
           // retrieve next IteratorResult

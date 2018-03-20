@@ -120,6 +120,8 @@ Promise是一个抽象的概念，但在代码中它就是一个类，我们可�
 在创建过程中，我们需要传入一个函数。
 
     new Promise( /* executor */ function(resolve, reject) { ... });
+    
+The `executor` function is executed immediately by the Promise implementation, passing `resolve` and `reject` functions
 
 这个函数有两个参数：resolve和reject(这两个参数也是函数)。
 
@@ -200,3 +202,19 @@ Any object(or function)  with a `then(..)` function on it is assumed to be a the
     new Promise
     
 A function that is passed with the arguments `resolve` and `reject`
+
+手写一个Promise，MyPromise：
+
+         var cb = function(resolve, reject){
+              window.setTimeout(function(){
+                resolve('hello');
+              }, 3000);
+         };
+        
+        var MyPromise = function(cb) {
+        	function resolve(res){
+          	return 
+        }
+          
+          cb();
+        };

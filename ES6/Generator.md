@@ -4,9 +4,13 @@
 
 An expectation that JS developers almost universally rely on in their code: once a function starts executing, it runs until it completes, and no other code can interrupt and run in between.
 
-All functions run to completion.In other words, once a function starts running, it finishes before anything else can interrupt.
+All functions run to completion.
+
+In other words, once a function starts running, it finishes before anything else can interrupt.
 
 As of ES6, a new form of function is being introduced, called a generator.
+
+Generator是一种新的函数类型
 
 A generator can pause itself in mid-execution, and can be resumed either right away or at a later time.
 
@@ -19,6 +23,13 @@ The generator function is declared with this new syntax:
         function *foo() {}
     
 The position of the `*` is not functionally relevant.
+
+The same declaration could be written as any of the following:
+
+        function *foo() {}
+        function* foo() {}
+        function * foo() {}
+        function*foo() {}
     
 There's a concise generator form in object literals:
 
@@ -44,9 +55,13 @@ The major difference is that executing a generator, like `foo(5,10)` does not ac
 
 Instead, it produces an iterator that will control the generator to execute its code.
 
+会产生一个遍历器
+
 ##### `yield`
 
 Generators also have a new keyword you can use inside them,to signal the pause point: `yield`.
+
+新关键字：yield
 
     function *foo() {
       var x = 10;
@@ -57,9 +72,13 @@ Generators also have a new keyword you can use inside them,to signal the pause p
       var z = x + y;
     }
     
+In this `*foo()` generator, the operations on the first two lines would run at the beginning.
+    
 `yield` can appear any number of times(or not at all,technically!) in a generator.
 
-`yield` is not just a pause point.It's an expression that sends out a value when pausing the generator.
+`yield` is not just a pause point.
+
+It's an expression that sends out a value when pausing the generator.
 
     function *foo() {
       while (true) {
@@ -139,6 +158,16 @@ The JS interface for iterators, as it is in most languages, is to call `next()` 
 
 
 #### Iterator Control
+
+        function *foo() {
+        	yield 1;
+        	yield 2;
+        	yield 3;
+        }
+
+The `for...of` loop requires an iterable.
+
+A generator function reference (like `foo`) by itself is not an iterable; you must execute it with `foo()` to get the iterator.
 
 #### Early Completion
 
