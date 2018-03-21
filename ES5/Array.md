@@ -37,6 +37,13 @@ If only one element is removed,
 
 The `slice()` method returns a shallow copy of a portion of an array into a new array object 
 
+Array.prototype.forEach()
+
+The `forEach()` method executes a provided function once for each array element.
+
+> There is no way to stop a forEach() loop other than by throwing an exception. If you need such behavior, the `forEach()` method is the wrong tool. Use a plain loop or `for...of` instead.
+
 Array.prototype.map()
 
 Array类的实例对象所继承的方法，是对该实例的操作。
+
