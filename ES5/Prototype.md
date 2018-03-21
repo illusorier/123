@@ -90,6 +90,9 @@ The prototype of this object is the first argument of the function:
         
         var b = Object.create(a);
         // b ---> a ---> Object.prototype ---> null
+        
+        var d = Object.create(null);
+        // d ---> null
 
 With the `class` keyword:
         
@@ -99,7 +102,21 @@ All objects will have a `constructor` property.
 
 每一个对象都有一个constructor属性，但在打印这个对象时，这个属性并不会在控制台中显示出来。
 
-Objects created without the explicit use of a constructor function (i.e. the object and array literals) will have a `constructor` property that points to the Fundamental Object 
+这个属性指向该对象的构造函数
+
+`Object.prototype.constructor`
+
+Returns a reference to the `Object` constructor function that created the instance object.
+
+Objects created without the explicit use of a constructor function (i.e. the object and array literals) will have a `constructor` property that points to the Fundamental Object constructor type for that object.
+
+        var o = {};
+        
+        o.constructor === Object;
+        
+        var a = [];
+        
+        a.constructor === Array;
 
 ### new
 
@@ -152,12 +169,26 @@ If we add new or modify existing property
 All objects will have a `constructor` property.
 
 Object created without the explicit use of a constructor function
- 
-#### Non-standard `_proto_` property
 
+## OOJS
+
+How to create "child" object classes (constructor) that inherit features from their "parent" classes.
+
+Classical inheritance
  
-#### Object is independent from its constructor
- 
+如何用ES5的语法来模仿类似Java中的OOP体系？
+
+类的声明，属性的初始化：
+
+        function Person(name, age, gender) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+        
+The methods are *all* defined on the constructor's prototype.
+
+        Person.prototype.greeting = function() {};
  
 
 虽然Object构造函数或对象字面量都可以用来创建单个对象，但这些方式有个明显得缺点:使用同一个接口创建很多对象，会产生大量的重复代码.
