@@ -1,5 +1,11 @@
 可以看到的是，AngularJS文档对于template这部分是轻描淡写得，而Angular花了很大的篇幅去讨论这部分内容。
 
+Displaying Data
+
+展示数据
+
+The easiest way to display a component property 
+
 HTML is the language of the Angular template.
 
 Almost all HTML syntax is valid template syntax.

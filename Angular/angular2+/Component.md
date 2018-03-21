@@ -15,9 +15,17 @@
 
 Component initialization: Constructor or variable initialization?
 
-ES6和TS声明class的语法是否有差异？
+在Angular中组件是如何声明的？
+
+        import { Component } from '@angular/core';
+        
+The `@Component` decorator identifies the 
 
 ### Creating a class for the data
 
 我认为这是一个非常好的实践。
+
+A component has a lifecycle managed by Angular.
+
+
 
