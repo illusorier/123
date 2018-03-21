@@ -4,7 +4,7 @@ Displaying Data
 
 展示数据
 
-The easiest way to display a component property 
+The easiest way to display a component property is to bind the property name through interpolation.
 
 HTML is the language of the Angular template.
 
