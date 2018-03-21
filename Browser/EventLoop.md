@@ -87,6 +87,10 @@ Objects are allocated in a heap which is just a name to denote a large mostly un
 
 ### Queue
 
+队列是一种特殊的线性表，是一种先进先出(FIFO)的数据结构。
+
+它只允许在表的前端进行删除操作，而在表的后端进行插入操作。
+
 任务队列 消息队列
 
 A JavaScript runtime contains a message queue, which is a list of messages to be processed.

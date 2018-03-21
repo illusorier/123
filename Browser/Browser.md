@@ -53,3 +53,7 @@ This is why the great and the good of the performance world recommend putting sc
 console.time()
 
 console.timeEnd()
+
+Render-tree Construction
+
+The CSSOM and DOM trees are combined into a render tree, which is then used to compute the layout of each visible element
