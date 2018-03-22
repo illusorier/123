@@ -42,6 +42,15 @@ To delete an element from a map, do not use the `delete` operator, but instead u
         m.delete(y)
         
 You can clear the entire map's contents with `clear()`. 
+
+To get the length of a map (i.e., the number of keys), use the `size` property (not `length`):
+
+        m.clear();
+        m.size;
+        
+To get the list of values from a map, use `values()`, which returns an iterator.
+
+To  process an iterator sequentially (like an array), such as the `...` spread operator and the `for...of` loop, also `Array.from()`.        
         
 ## Set
 

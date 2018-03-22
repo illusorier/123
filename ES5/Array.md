@@ -13,6 +13,10 @@ Common tasks such as finding a node in the DOM, iterating over
 
 Using forEach makes this code a little shorter, but there are other more important reasons why it is often a better choice.
 
+Declarative 
+
+声明式
+
 There are some other common patterns of looping over arrays.
 
         myString

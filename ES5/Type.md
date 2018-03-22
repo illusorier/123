@@ -209,5 +209,11 @@ Using toString() to detect object class: toString() can be used with every objec
 
 To use the Object.prototype.toString() with every object, you need to call *Function.prototype.call()* or *Function.prototype.apply()* on it, passing the object you want to inspect as the first parameter called thisArg.
 
+构成某字符串的字符都是数字，如何将该字符串转换成相应的数？
+
+"123" => 123
+
+The `parseInt()` function parses a string argument and returns an integer of the specified radix.
+
 
 

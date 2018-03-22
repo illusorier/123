@@ -77,6 +77,18 @@ But `...` can be used to spread out/expand a value in other contexts as well,
 
 The other common usage of `...` can be seen as essentially the opposite;
 
+扩展运算符
+
+**Spread syntax** allows an iterable such as an array expression or string 
+
+比如我们有一个函数，它有三个参数：
+
+        function sum (x, y, z) {
+            return x + y + z;
+        }
+        
+        
+
 ## Destructuring
 
 解构赋值

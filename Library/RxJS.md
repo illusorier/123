@@ -2,6 +2,21 @@
 
 The **observer pattern** is a software design pattern in which an object, called the subject, maintains a list of its dependents, called **observers**, and notifies them automatically of any state changes, usually by calling one of their methods.
 
+Observable 可被观察的
+
+Observer 观察者
+
+当Observable发生变化，Observer就会做出相应的反应
+
+比如看下面这个简单的例子，可被观察的是window上的click事件：
+
+        Rx.Observable.fromEvent(window, 'click')
+            .subscribe(e => {
+                console.log('click');
+            })
+            
+上面这段代码代码和直接addEventListener的最终效果是一样的。
+
 什么是RxJS？
 
 RxJS is a library for composing asynchronous and event-based programs by using observable sequences.
