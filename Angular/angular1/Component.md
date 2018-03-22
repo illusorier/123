@@ -47,3 +47,5 @@ Prior to Angular 1.5 a component could only transclude a single entry: whatever 
 那么如果实现这样的一一对应关系呢？
 
 相比之下，Vue的实现方式简洁很多，AngularJS中还需要在JS中进行声明。
+
+Components can be registered using the `.component()` method
