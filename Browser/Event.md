@@ -32,6 +32,10 @@ Common events using this interface include *click*, *dbclick*, *mouseup*, *mouse
 
 MouseEvent derives from UIEvent, which in turn derives from Event. 
 
+The `mousedown` event is fired when a pointing device button is pressed on an element.
+
+The `mouseover` event is fired when a pointing device (usually a mouse) is moved while over an element.
+
 #### CSS Transition Events
 
 ##### transitionstart

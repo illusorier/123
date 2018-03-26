@@ -73,13 +73,21 @@ Modern JavaScript engines implement and optimize heavily the described semantics
 
 ### Stack
 
-执行栈
+栈
+
+In computer science, a *stack* is an abstract data type that serves as a collection of elements, with two principal operations: push and pop.
+
+运算受限的线性表，仅允许在表的一端进行插入和删除运算。
+
+当我们调用一个函数，它的地址、参数、局部变量都会被压入到一个stack中。
 
 Function calls form a stack of *frames*.
 
 Each entry in the Call Stack is called a **Stack Frame**.
 
 > This is exactly how stack traces are being constructed when an exception is being thrown.
+
+浏览器中的主线程
 
 ### Heap
 
