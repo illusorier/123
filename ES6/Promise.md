@@ -115,11 +115,11 @@ Promises are not about replacing callbacks.
 
 Promise是一个抽象的概念，但在代码中它就是一个类，我们可以创建它的实例，也就是说：
 
-    var p = new Promise();
+        var p = new Promise();
 
 在创建过程中，我们需要传入一个函数。
 
-    new Promise( /* executor */ function(resolve, reject) { ... });
+        new Promise( /* executor */ function(resolve, reject) { ... });
     
 The `executor` function is executed immediately by the Promise implementation, passing `resolve` and `reject` functions
 
@@ -132,14 +132,16 @@ A Promise can only have one of two possible resolution outcomes: fulfilled or re
 To construct a promise instance,use the `Promise(..)` constructor:
 
         var p = new Promise(function pr(resolve,reject){
-          // ..
+            // ..
         });
     
 The `Promise(..)` constructor takes a single function `(pr(..))`, which is called immediately and receives two control functions as arguments, usually named `resolve(..)` and `reject(..)`.
 
 - If you call `reject(..)`, the promise is rejected, and if any value is passed to `reject(..)`, it is set as the reason for rejection.
     
-- If you call 
+- If you call `resolve(..)` with no value, or any non-promise value, the promise is fulfilled.
+
+- 
 
 Here's how you'd typically use a promise to refactor
 
@@ -158,7 +160,6 @@ Here's how you'd typically use a promise to refactor
     
 上面这段代码是不用Promise的典型API写法，该API有两个参数，一个url和一个callback。
   
-
 Promises have a `then(..)` method that accepts one or two callback functions.
 
 The first function (if present) is treated as the handler to call if the promise is fulfilled successfully.
@@ -207,14 +208,14 @@ A function that is passed with the arguments `resolve` and `reject`
 
          var cb = function(resolve, reject){
               window.setTimeout(function(){
-                resolve('hello');
+                    resolve('hello');
               }, 3000);
          };
         
         var MyPromise = function(cb) {
         	function resolve(res){
-          	return 
-        }
+                return 
+            }
           
-          cb();
+            cb();
         };

@@ -44,6 +44,8 @@ Common uses for a reverse proxy server include:
 
 ### TCP 'Packet' Field
 
+Connection-oriented means that, before any data can be transmitted, a reliable connection must be obtained and acknowledged.
+
 TCP utilizes a number of flags, or 1-bit boolean fields, in its header to control the state of a connection.
 
 Sequence Number (32Bits): Used for segmentation of application data into TCP segments and reassembling them on the other side.
@@ -57,6 +59,10 @@ An ISN is designed to randomly select a sequence number for the first byte of da
 An ISN is a random Sequence Number, allocated for the first packet in a new TCP connection.
 
 SYN和ACK都是1bit的二进制数(即0或1)。
+
+SYNchronize and ACKnowledge messages are indicated by a either 
+
+When the communication between two computers ends, another 3-way communication is performed to tear down the TCP socket connection.
 
 ISN是32bits的二进制数，是该范围内的一个随机数，用来表示这个TCP connection序列号的初始值。
 
