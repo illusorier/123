@@ -1,3 +1,5 @@
+Web浏览器和Web服务器都是Web应用程序，它们通过相互发送报文来实现基本事务处理的。
+
 版本0.9是HTTP协议的早期版本，是当今HTTP所拥有的请求及响应报文的鼻祖，但其协议要简单得多。
 
 ### HTTP access control (CORS)
@@ -10,7 +12,19 @@ For example, `XMLHttpRequest` and `Fetch` follow the same-origin policy.
 
 ### 什么是HTTP报文？
 
+HTTP messages are how data is exchanged between a server and a client.
+
+There are two types of messages: *request* sent by the client to trigger an action on the server, and *responses*, the answer from the server.
+
+HTTP messages are composed of textual information encoded in ASCII, and span over multiple lines.
+
+In HTTP/1.1, and 
+
 HTTP报文是在HTTP应用程序之间发送的数据块，这些数据块以一些文本形式的元信息（meta-information）开头，后面跟着可选的数据部分。
+
+请求报文(request message)
+
+响应报文(response message)
 
 HTTP报文是简单的格式化数据块。
 
