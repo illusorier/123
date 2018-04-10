@@ -36,7 +36,9 @@ The first command is the "Move To" or M.
 
 There are three commands that draw lines.
 
-The most generic is the "Line To" command
+The most generic is the "Line To" command, called with L.
+
+L takes two parameters - x and y coordinates - and draws a line from the current position to a new position.
 
 The `<g>` SVG elements is a container used to group other SVG elements.
 

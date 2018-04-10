@@ -63,17 +63,3 @@ Lays out the specified root hierarchy, assigning the following properties on *ro
 - node.x - 
 
 You must call `root.sum` before passing the hierarchy to the pack layout.
-
-## Pies
-
-饼状图
-
-![](../assets/d3-pies.png)
-
-假如我们有数据`[ 30 , 10 , 43 , 55 , 13 ]`，如何能实现上面的效果。
-
-The units of angle are arbitrary, but if you plan to use the pie generator 
-
-## Arcs
-
-The arc 
