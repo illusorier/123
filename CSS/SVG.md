@@ -26,8 +26,23 @@ There are really only 3 attributes that are applicable here.
 
 The `<path>` element is the most powerful element in the SVG library of basic shapes.
 
+Using a path element you can draw rectangles 
+
 The shape of a path element is defined by one attribute: `d`.
 
+d: A list of points and other information about how to draw the path.
+
+The first command is the "Move To" or M.
+
+There are three commands that draw lines.
+
+The most generic is the "Line To" command
+
 The `<g>` SVG elements is a container used to group other SVG elements.
+
+Transformations applied to the `<g>` element are performed on all of its child elements, and any of its attributes are inherited by its child elements.
+
+## Transformations
+
 
 
