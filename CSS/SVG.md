@@ -12,6 +12,15 @@ Positions are then measured in pixels from the top left corner, with the positiv
 
 There are several basic shapes used for most SVG drawing.
 
+SVG有六种基本图形：
+
+- rect 矩形
+- circle 圆形
+- ellipse 椭圆
+- line 线段
+- polyline 折线
+- polygon 多边形
+
 To insert a shape, you create an element in the document.
 
 Different elements correspond to different shapes and take different attributes to describe the size and position of those shapes.
@@ -23,6 +32,8 @@ The circle element draws a circle on the screen.
 There are really only 3 attributes that are applicable here.
 
 ## Paths
+
+路径
 
 The `<path>` element is the most powerful element in the SVG library of basic shapes.
 
@@ -43,6 +54,10 @@ L takes two parameters - x and y coordinates - and draws a line from the current
 The `<g>` SVG elements is a container used to group other SVG elements.
 
 Transformations applied to the `<g>` element are performed on all of its child elements, and any of its attributes are inherited by its child elements.
+
+## Fills and Strokes
+
+Basic coloring can be done by setting two attributes on the node: `fill` and `stroke`.
 
 ## Transformations
 
