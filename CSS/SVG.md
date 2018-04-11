@@ -43,6 +43,14 @@ The shape of a path element is defined by one attribute: `d`.
 
 d: A list of points and other information about how to draw the path.
 
+### Line commands
+
+All of the commands comes in two variants.
+
+There are five line commands for `<path>` node.
+
+Each one just draws a straight line between two points.
+
 The first command is the "Move To" or M.
 
 There are three commands that draw lines.
@@ -51,15 +59,17 @@ The most generic is the "Line To" command, called with L.
 
 L takes two parameters - x and y coordinates - and draws a line from the current position to a new position.
 
-The `<g>` SVG elements is a container used to group other SVG elements.
-
-Transformations applied to the `<g>` element are performed on all of its child elements, and any of its attributes are inherited by its child elements.
+Z draws a straight line from the current position back to the first point of the path.
 
 ## Fills and Strokes
 
 Basic coloring can be done by setting two attributes on the node: `fill` and `stroke`.
 
 ## Transformations
+
+The `<g>` SVG elements is a container used to group other SVG elements.
+
+Transformations applied to the `<g>` element are performed on all of its child elements, and any of its attributes are inherited by its child elements.
 
 
 
