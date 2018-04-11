@@ -1,0 +1,1 @@
+This kind of functionality was previously achieved using `XMLHttpRequest`.
