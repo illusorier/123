@@ -61,6 +61,12 @@ L takes two parameters - x and y coordinates - and draws a line from the current
 
 Z draws a straight line from the current position back to the first point of the path.
 
+### Polygon
+
+多边形
+
+For polygons though, the path automatically returns to the first point for you at the end, creating a closed shape.
+
 ## Fills and Strokes
 
 Basic coloring can be done by setting two attributes on the node: `fill` and `stroke`.
@@ -71,5 +77,10 @@ The `<g>` SVG elements is a container used to group other SVG elements.
 
 Transformations applied to the `<g>` element are performed on all of its child elements, and any of its attributes are inherited by its child elements.
 
+## Patterns
+
+Like gradients, the `<pattern>` element should be put in the `<defs>` section of your SVG file.
+
+SVG allows graphical objects to be defined for later reuse.
 
 
