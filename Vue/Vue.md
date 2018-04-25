@@ -1,15 +1,3 @@
-## The Vue Instance
-
-Every Vue application starts by creating a new **Vue instance** with the `Vue` function:
-
-        var vm = new Vue({
-            // options
-        })
-
-When you create a Vue instance, you pass in an **options object**.
-
-How you can use these options to create your desired behavior.
-
 ### Data and Methods
 
 When a Vue instance is created, it adds all the properties found 

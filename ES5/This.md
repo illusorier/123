@@ -123,6 +123,19 @@ Applied when function called with a plain,un-decorated function reference.
 
 If `strict mode` is in effect,`this` set to `undefined`.
 
+        var o = {
+        	m: function() {
+          	var 
+          	return function() {
+            	console.log(this);
+            }
+          }
+        }
+        
+        var f = o.m();
+        
+        f();
+
 #### Implicit Binding
 
 Another rule to consider is: does the call-site have a context object, also referred to as an owning or containing object.

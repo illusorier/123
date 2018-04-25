@@ -22,7 +22,7 @@ Instead they define a function called `render`
 
 render属性是一个函数
 
-Vue builds a **virtual DOM** to keep track of 
+Vue builds a **virtual DOM** to keep track of the changes it needs to make to the real DOM.
 
 ##### createElement Arguments
 

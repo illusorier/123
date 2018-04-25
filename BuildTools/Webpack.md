@@ -202,5 +202,15 @@ The webpack-dev-server is a little Node.js Express server, which uses
 ### Target
 
 webpack can compile for multiple environments or *targets*.
+
+## Handling Images
  
+Usually there are two ways the images are used in web application - using 
+
+With Webpack, the image loading can be optimized using the url-loader that converts your image to *base64 strings* and inlines those within the code.
+
+也就是说，利用webpack，我们可以把小体积的图片转换成base64字符串保存在项目代码中，从而避免异步向服务器请求这些资源。
+
+ Converting 
  
+ For images with sizes larger than the specified limit, the 

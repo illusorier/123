@@ -10,7 +10,21 @@ The core library focuses on the view layer only.
 
 那么，Vue和传统的前端开发(HTML, CSS, JS)的连接点在哪？
 
+根据HTML和CSS生成页面，执行JS。
 
+## The Vue Instance
+
+Vue的启动方式
+
+Every Vue application starts by creating a new **Vue instance** with the `Vue` function:
+
+        var vm = new Vue({
+            // options 
+        })
+
+When you create a Vue instance, you pass in an **options object**.
+
+Vue启动后发生了什么？
 
 ## Class and Style Bindings
 
@@ -28,6 +42,12 @@ Putting too much logic into your templates can make them bloated and hard to mai
       {{ message.split('').reverse().join('') }}
     </div>
     
-You can data-bind to computed properties in
+For any complex logic, you should use a **computed property**.
 
-It is often a better idea to use a computed property rather than an imperative `watch` callback.
+## List Rendering
+
+We can use the `v-for` directive to render a list of items based on an array.
+
+## Event Handling
+
+We can use the `v-on` directive to listen to DOM events and run some JavaScript when they are triggered.

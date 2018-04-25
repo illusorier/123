@@ -87,7 +87,20 @@ The other common usage of `...` can be seen as essentially the opposite;
             return x + y + z;
         }
         
+ES6引入*rest*参数，用于获取函数的多余参数。
+
+## Default Parameter Values
+
+如何给函数的参数设置默认值？
+
+在ES6之前，我们采取这样的策略：
+
+        function (x, y) {
+            var x = x || 1;
+            var y = y || 2;
+        }
         
+这样的策略存在这么一个问题：我们无法把x设置为如0或空字符串等当转换为布尔值时为false的值。
 
 ## Destructuring
 

@@ -54,7 +54,7 @@ The `Object.getOwnPropertyDescriptor(obj, prop)` method returns a property descr
 
 We can use `Object.defineProperty(..)` to add a new property, or modify an existing one (if it is `configurable`!).
 
-The `Object.defineProperty(obj, prop, descriptor)` method defines a new property directly on an object, or modifies an existing property on an object, and returns the object.
+The static method `Object.defineProperty(obj, prop, descriptor)` method defines a new property directly on an object, or modifies an existing property on an object, and returns the object.
 
         var myObject = {};
         
@@ -67,8 +67,7 @@ The `Object.defineProperty(obj, prop, descriptor)` method defines a new property
         
         myObject.a; // 2
             
-
-The `Object.defineProperties()`
+Property descriptors present in objects come in two main flavors:
 
 ##### Writable
 
@@ -391,12 +390,3 @@ ECMAScript5增加了一个新方法，叫Object.getPrototypeOf(),这个方法返
 ECMAScript中描述了原型链的概念，并将原型链作为实现继承的主要方法，只在给定属性存在于
 
 组建自定义类型的最常见方式，就是组合使用构造函数模式与原型模式。构造函数模式用于定义实例属性，而原型模式用于定义方法和共享的属性。
-
-#### 相关概念
-
-Object.prototype.isPrototypeOf()
-
-
-Object.seal()
-
-The **Object.seal()** seal() method seals an object, preventing new properties from being added to it and marking all existing properties as non-configurable.

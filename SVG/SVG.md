@@ -77,10 +77,10 @@ The `<g>` SVG elements is a container used to group other SVG elements.
 
 Transformations applied to the `<g>` element are performed on all of its child elements, and any of its attributes are inherited by its child elements.
 
-## Patterns
-
-Like gradients, the `<pattern>` element should be put in the `<defs>` section of your SVG file.
-
 SVG allows graphical objects to be defined for later reuse.
 
+The `SVGGeometryElement.getTotalLength()` method returns the user agent's 
 
+The `SVGGeometryElement.getPointAtLength()` method returns the point at a given distance along the path.
+
+A `SVGPoint` represents a 2D or 3D point in the SVG coordinate system.
