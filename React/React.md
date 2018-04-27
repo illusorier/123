@@ -8,6 +8,12 @@ JSX和JQuery中的`.before()`,`.after()`对比, cheap。
 
 ## Installation
 
+使用React需要安装两个依赖包：react, react-dom.
+
+    import React from 'react';
+    import ReactDOM from 'react-dom';
+    
+
 While React can be used without a build pipeline, we recommend setting it up so you can be more productive.
 
 #### JSX Represents Objects

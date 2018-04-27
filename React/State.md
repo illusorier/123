@@ -14,6 +14,14 @@ React may batch multiple `setState()` calls into a single update for performance
 
 In applications with many components, it's very important to free up resources taken by the components when they are destroyed.
 
+    compoenntDidMount() {
+      // ...
+    }
+    
+    componentWillUnmount() {
+      // ...
+    }
+
 ### Lifting State Up
 
 > Often, several components need to reflect the same changing data. We recommend lifting the shared state up to their closest common ancestor.
