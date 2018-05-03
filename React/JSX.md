@@ -1,14 +1,30 @@
 在例如Angular和Vue这样的框架当中，我们依然需要书写HTML，在React当中，我们用JSX在JS中书写HTML。
 
-是否可以理解为一种特殊的数据结构？ 
+JSX并不是类似于ES6或TypeScript的存在，它无法通过一个通用的编译器转换成"原生"的JS。
+
+比如下面这段JSX：
+
+    const element = <h1>Hello, world!</h1>;
+    
+经过Babel编译后的结果是这样的：
+
+    "use strict"
+    
+    var element = React.createElement(
+      "h1"
+      null,
+      "hello, world!"
+    );
+    
+是不是可以这么理解：JSX是FaceBook为了配合React而推出的？
+    
+在Vue中，
 
 ### What is JSX？
 
 JSX is a XML-like syntax extension to ECMAScript without any defined semantics.
 
 It's NOT intended to be implemented by engines or browsers.
-   
-      const element = <h1>Hello, world!</h1>;
 
 It is called JSX, which is a syntax extension to JavaScript.
 
@@ -28,7 +44,13 @@ Angular和Vue是否也有类似的特性？
 
 > You may also use curly braces to embed a JavaScript expression in an attribute:
 
-        const element = <img src={user.avatarUrl}></img>;
+    const element = <img src={user.avatarUrl}></img>;
+      
+We 
+
+推荐用括号包裹JSX
+
+After compilation, JSX expressions become regular JavaScript function calls and evaluate to JavaScript objects.
         
 ### JSX In Depth
         

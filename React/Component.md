@@ -30,7 +30,7 @@ You can also use an `ES6 class` to define a component:
 
 The above two components are equivalent from React’s point of view.
 
-Classes have some additional features.
+> Classes have some additional features.
 
 ## Rendering a Component
 
