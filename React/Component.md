@@ -34,7 +34,7 @@ The above two components are equivalent from React’s point of view.
 
 ## Rendering a Component
 
-Previously, we only encountered React elements that 
+Previously, we only encountered React elements that represents DOM tags:
 
 ### Composing Components 
 
@@ -69,6 +69,12 @@ Typically, new React apps have a single `App` component at the very top.
 ### Props are Read-Only
 
 Whether you declare as a function or a class, it must never modify its own props.
+
+    function sum(a, b) {
+      return a + b;
+    }
+    
+Such functions are called "pure" 
 
 > All React components must act like pure functions with respect to their props.
     

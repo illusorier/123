@@ -32,7 +32,7 @@ JSX may remind you of a template language, but it comes with the full power of J
 
 We recommend using it with React to describe what the UI should look like.
 
-JSX  => produce => React "element" => rendered into => DOM
+JSX produces React "elements".
 
 ### Expressions And JSX
 

@@ -1,18 +1,34 @@
-问题：如何update UI？
+问题1：如何update UI？
 
 React使用单向数据流，这意味着父组件把自身的状态作为属性传递给子组件。
 
 也就是说当父组件的状态更新时，子组件相应得重新渲染。
 
-React的[官方文档](https://reactjs.org/docs/state-and-lifecycle.html)中有这样一个例子：在引入state这个概念前，
+So far we have only learned one way to update UI.
+
+React的[官方文档](https://reactjs.org/docs/state-and-lifecycle.html)中有这样一个例子：在引入state这个概念前，我们把需要在UI中展示的数据全部放在`props`中，而在引入state之后，我们可以把需要更新的部分放在`state`中。
 
 Local state is a feature available only to classes.
 
 ### Using State Correctly
 
+Do not modify state directly.
+
+For example, this will not re-render a component:
+
+    // Wrong
+    this.state.comment = 'Hello';
+    
+Instead, use `setState()`:
+
+    // Correct
+    this.setState({comment: 'Hello'});
+
 The only place where you can assign `this.state` is the constructor.
 
 React may batch multiple `setState()` calls into a single update for performance.
+
+### The Data Flows Down
 
 ### Adding Lifecycle Methods to a Class
 
@@ -68,3 +84,6 @@ The first argument is an `updater` function with the signature:
 You may optionally pass an object as the first argument to `setState()` instead of a function:
 
         setState(stateChange[, callback])
+        
+问题2：组件间如何通信？
+
