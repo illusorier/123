@@ -1,8 +1,10 @@
-如何update UI？
+问题：如何update UI？
 
 React使用单向数据流，这意味着父组件把自身的状态作为属性传递给子组件。
 
 也就是说当父组件的状态更新时，子组件相应得重新渲染。
+
+React的[官方文档](https://reactjs.org/docs/state-and-lifecycle.html)中有这样一个例子：在引入state这个概念前，
 
 Local state is a feature available only to classes.
 
