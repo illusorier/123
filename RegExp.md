@@ -14,7 +14,7 @@ In JavaScript, regular expressions are also objects.
 
 在JS中，正则也是对象。
 
-These patterns are used with the `exec` and `test` methods of `RegExp`, 
+These patterns are used with the `exec` and `test` methods of `RegExp`, and with the `match`, `replace`, `search`, 
 
 ### Creating a regular expression
 
@@ -32,19 +32,37 @@ Or calling the constructor function of the `RegExp` object, as follows:
 
 ### Writing a regular expression pattern
 
-模式
+正则表达式模式
 
 A regular expression pattern is composed of simple characters, such as `/abc/`, or a combination of simple and special characters, such as `/ab*c/`
 
 #### Using simple patterns
 
-Simple patterns are constructed of 
+最简单的正则表达式是特定字符组合的匹配，比如我们想知道某字符串中是否存在hello：
+
+    let myRe = /hello/;
+    
+    function hashello(str) {
+      if(str.search(myRe) !== -1) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+Simple patterns are constructed of characters for which you want to find a direct match.
+ 
+For example, the pattern `/abc/` matches the character combinations in strings only when exactly the characters 'abc' occur together and in that order.
+
+这种模式十分严格，很多时候我们
 
 #### Using special characters
 
 When the search for a match requires something more than a direct match, 
 
-- `\ `: A backslash that precedes a 
+- `\ `: A backslash(反斜线) that precedes a special character indicates that the next character is not special and should be interpreted literally.
+
+- `^`: Matches beginning of input. For example, `/^A/` does not match the 'A' in 'an A', but does match the 'A' in 'An E'
 
 - `+`: 
 
@@ -55,4 +73,12 @@ When the search for a match requires something more than a direct match,
 You may notice that this actually overrides the matching of the period character, so 
 
 ##### Using parentheses
+
+如何使用正则表达式
+
+Regular expressions are used with 
+
+RegExp
+
+
 

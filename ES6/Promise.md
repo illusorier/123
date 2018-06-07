@@ -2,10 +2,10 @@ One of the most important and yet often misunderstood parts of programming in a 
 
 JS异步问题来源于JS的单线程特性和Event Loop机制。
     
-        // ajax(..) is some arbitrary Ajax function given by a library.
-        
-        var data = ajax(url);
-        console.log(data);
+      // ajax(..) is some arbitrary Ajax function given by a library.
+      
+      var data = ajax(url);
+      console.log(data);
         
 在ES6之前，对于异步问题，ECMAScript原生提供的解决方案就是callback。
     
@@ -74,8 +74,6 @@ An event loop, by contrast, breaks its work into tasks and executes
 
 **Callback functions** are derived from a programming  paradigm known as **functional programming**.
 
-
-
 JavaScript is single threaded,meaning that two bits of script cannot run at the same time;they have to run one after another.
 
 You've probably used events and callbacks to get around this.
@@ -111,52 +109,42 @@ Promises are not about replacing callbacks.
 
 #### Making and Using Promises
 
-如何在代码中使用Promise?
-
 Promise是一个抽象的概念，但在代码中它就是一个类，我们可以创建它的实例，也就是说：
 
-        var p = new Promise();
+    var p = new Promise();
 
-在创建过程中，我们需要传入一个函数。
+在创建过程中，我们需要传入一个函数，这个函数会被立刻执行。
 
-        new Promise( /* executor */ function(resolve, reject) { ... });
+    new Promise( /* executor */ function(resolve, reject) { ... });
     
-The `executor` function is executed immediately by the Promise implementation, passing `resolve` and `reject` functions
+The `executor` function is executed immediately by the Promise implementation, passing `resolve` and `reject` functions.
 
-这个函数有两个参数：resolve和reject(这两个参数也是函数)。
+要注意的是，传入executor的两个参数的标识符可任意指定，不过习惯于将它们命名为`resolve`和`reject`。
 
-具体的代码是写在这个函数中的，我们通过调用resolve和reject函数来resolve Promise。
+Promise有三种状态
 
 A Promise can only have one of two possible resolution outcomes: fulfilled or rejected.
-
-To construct a promise instance,use the `Promise(..)` constructor:
-
-        var p = new Promise(function pr(resolve,reject){
-            // ..
-        });
-    
-The `Promise(..)` constructor takes a single function `(pr(..))`, which is called immediately and receives two control functions as arguments, usually named `resolve(..)` and `reject(..)`.
 
 - If you call `reject(..)`, the promise is rejected, and if any value is passed to `reject(..)`, it is set as the reason for rejection.
     
 - If you call `resolve(..)` with no value, or any non-promise value, the promise is fulfilled.
 
-- 
+- If you call `resolve(..)` and pass another promise,
 
-Here's how you'd typically use a promise to refactor
+Here's how you'd typically use a promise to refactor a callback-reliant
 
-        funcrion ajax(url,cb) {
-          // make request,eventually call `cb(..)`
+      funcrion ajax(url,cb) {
+        // make request,eventually call `cb(..)`
+      }
+      
+      ajax( "http://some.url.1",function handeler(err,contents){
+        if (err) {
+          // handle ajax error
         }
-        
-        ajax( "http://some.url.1",function handeler(err,contents){
-          if (err) {
-            // handle ajax error
-          }
-          else {
-            //  handle `contents` success
-          }
-        } );
+        else {
+          //  handle `contents` success
+        }
+      } );
     
 上面这段代码是不用Promise的典型API写法，该API有两个参数，一个url和一个callback。
   
@@ -172,9 +160,7 @@ Both `then(..)` and `catch(..)` automatically construct and return another promi
 
 then和catch方法都会自动构造并返回一个新的Promise实例。
 
-那么，假如我们想在then方法中再发起一个AJAX请求，该怎么写代码？
-
-如果没有写return，那么会发生什么？
+`then`方法可以被同一个`promise`调用多次，当`promise`成功执行时，所有`onFulfilled`需按照其注册顺序依次回调；当`promise`被拒绝执行时，所有的`onRejected`需按照其注册顺序依次回调。
 
 下面这个例子对理解Promise十分有益：
 
@@ -194,28 +180,59 @@ then和catch方法都会自动构造并返回一个新的Promise实例。
 
 In this snippet, we are returning an immediate 
 
-#### Thenables
-
-Any object(or function)  with a `then(..)` function on it is assumed to be a thenable.
-
-
-
-    new Promise
-    
-A function that is passed with the arguments `resolve` and `reject`
-
 手写一个Promise，MyPromise：
 
-         var cb = function(resolve, reject){
-              window.setTimeout(function(){
-                    resolve('hello');
-              }, 3000);
-         };
-        
-        var MyPromise = function(cb) {
-        	function resolve(res){
-                return 
-            }
-          
-            cb();
-        };
+    var myPromise = function(executor) {
+      this.executor = executor;
+      this.status = 'padding';
+      this.value = null;
+      this.rejectReason = null;
+      this.thenCache = [];
+      
+      executor(this.resolve, this.reject);
+    }
+    
+    myPromise.prototype = {
+      constructor: myPromise,
+      resolve: function(value) {
+        this.value = value;
+        this.status = 'fulfilled';
+        this.triggerThen();
+      },
+      reject: function(reason) {
+        this.rejectReason = reason;
+        this.status = 'rejected';
+        this.triggerThen();
+      },
+      then: function(onFulfilled, onRejected) {
+        this.thenCache.push({onFulfilled: onFulfilled, onRejected:onRejected});
+        return this;
+      },
+      triggerThen: function() {
+      	
+      }
+    }
+
+A `Promise` is an object representing the eventual completion or failure of an asynchronous operation.
+
+Most people are *consumers* of already-created promises.
+
+比如下面的代码，我们在平常的前端开发中会经常遇到：
+
+    axios.get(url).then(function(res){
+      // ...
+    });
+    
+那么，假如我们有这么一个需求，希望在第一个get请求返回成功后，再发起第二个get请求，并在请求成功后执行一些操作：
+
+    
+A common need is to execute two or more asynchronous operations back to back, where each subsequent operation starts when the previous operation succeeds, with the result from the previous step.
+
+We accomplish this by creating a *promise chain*.
+
+**Promise.prototype.then()**
+
+The `then()` method returns a `Promise`.
+
+- return a value, the promise returned by `then` gets resolved with the returned value as its value.
+

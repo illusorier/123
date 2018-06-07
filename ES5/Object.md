@@ -1,5 +1,7 @@
 本节讨论对象。
 
+什么是对象？
+
 所有编程语言都提供抽象机制。
 
 可以认为，人们所能够解决的问题的复杂性直接取决于抽象的类型和质量。
@@ -13,6 +15,8 @@
 在JavaScript中如何创建对象？
 
 Objects come in two forms: the declarative (literal) form, and the constructed form.
+
+The only difference really is that 
 
 Java中创建对象的方式只有后者。
 

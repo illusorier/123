@@ -1,3 +1,5 @@
+Since version 4, webpack does not require a configuration file to bundle your project.
+
 ### Webpack vs Gulp
 
 Gulp is a task runner.
@@ -46,6 +48,8 @@ When compiling all these modules, a static analysis tries to find its dependenci
 
 #### Four Core Concepts
 
+Webpack有四个核心概念
+
 To get started you only need to understand four **Core Concept**:
 
 - Entry
@@ -77,15 +81,19 @@ Any time one file depends on another, webpack treats this as *dependency*.
 
 ### Entry
 
-webpack creates a graph of all of your application's dependencies.
+定义对项目进行打包的入口，它有一个默认值，当然也可以自定义。
 
-The starting point of this graph is known as an *entry point*.
+An **entry point** indicates which module webpack should use to begin
 
-In webpack we define entry points using the `entry` property in our webpack configuration object.
+By default its value is `./src/index.js`, but you can specify a different (or multiple entry points) by configuring the **entry** property in the webpack configuration.
 
 有多种方法配置`entry`。
 
 There are multiple ways to declare your `entry` property that are specific to your application's needs.
+
+### Output
+
+The output property tells webpack where to emit the bundles it 
 
 ### Code Splitting
 
@@ -100,6 +108,12 @@ Webpack `1.x.x` does not natively support or understand ES6 modules.
 However, you can get around that by using a transpiler, like Babel, to turn the ES6 `import` syntax into CommonJS or AMD modules.
 
 ### Loaders
+
+Out of the box, webpack only understands JavaScript files.
+
+**Loaders** allow webpack to process other types of files and converting them into 
+
+一个很常见的需求就是：我们希望webpack支持用ES6编写的JS代码。
 
 The goal is to have all of the assets in your project to be webpack's concern and not the browser's.
 
@@ -117,6 +131,10 @@ If the loader is available on npm you can install the loader via:
 
 ### Plugins
 
+While loaders are used to transform certain types 
+
+A webpack plugin is a JavaScript object that has an `apply` property.
+
 The `plugins` option is used to customize the webpack build process in a variety of ways
 
 ### Resolving
@@ -132,6 +150,10 @@ The dependency module can be from the application code or a third party library.
     import "C:
 
 以下是webpack配置的文档。
+
+### Modules
+
+In contrast to Node.js modules, webpack modules can 
 
 ### Configuration Object Content
 

@@ -1,16 +1,18 @@
+JavaScript language is single-threaded and the asynchronous behavior is not part of the JavaScript language itself, rather
+
 JavaScript是单线程的，也就是说，同一时间只能做一件事。
 
 问题来了，为什么JavaScript不设计成多线程的呢？
 
-这与它的用途有关，作为浏览器的脚本语言，JS的主要用途是与用户交互，更新DOM，发起请求等等。
+这与它的用途有关，作为浏览器的脚本语言，JS的主要用途是与用户交互，以及操作DOM。
+
+如果JS是门多线程语言的话，我们在多个线程中操作DOM就可能会发生问题（一个线程中新加了一个节点，另一个线程删除了这个节点）。
 
 但要注意的一点是，浏览器并不是单线程的！
 
 所有任务可以分成两种，一种是同步任务(synchronous)，另一种是异步任务(asynchronous)。
 
 同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；异步任务指的是，不进入主线程、而进入“任务队列”(task queue)的任务，只有“任务队列”通知主线程，某个异步任务可以执行了，
-
-主线程运行的时候，产生堆(heap)和栈(stack)，栈中的代码调用各种外部API
 
 执行栈(Call Stack)中的代码（同步任务），总是在读取“任务队列”（异步任务）之前执行。
 
@@ -58,10 +60,11 @@ V8 was first designed to increase the performance of JavaScript execution inside
 
 ![](../assets/event-loop.png)
 
+主线程运行的时候，产生堆(heap)和栈(stack)，
+
 事件驱动编程
 
 In computer programming, **event-driven programming** is a programming paradigm in which the **flow of the program** is determined by events such as user actions ....
-
 
 下面是一些和JavaScript运行机制有关的概念：
 
@@ -79,7 +82,11 @@ In computer science, a *stack* is an abstract data type that serves as a collect
 
 运算受限的线性表，仅允许在表的一端进行插入和删除运算。
 
+这一端被称为栈顶，相对地，把另一端称为栈底。
+
 当我们调用一个函数，它的地址、参数、局部变量都会被压入到一个stack中。
+
+This represents the single thread provided for JavaScript code execution.
 
 Function calls form a stack of *frames*.
 
@@ -87,9 +94,9 @@ Each entry in the Call Stack is called a **Stack Frame**.
 
 > This is exactly how stack traces are being constructed when an exception is being thrown.
 
-浏览器中的主线程
-
 ### Heap
+
+堆
 
 Objects are allocated in a heap which is just a name to denote a large mostly unstructured region of memory.
 
@@ -101,9 +108,11 @@ Objects are allocated in a heap which is just a name to denote a large mostly un
 
 任务队列 消息队列
 
-A JavaScript runtime contains a message queue, which is a list of messages to be processed.
+A JavaScript runtime uses a message queue, which is a list of messages to be processed.
 
-A function is associated with each message.
+Each message has an associated function which gets called in order to handle the message.
+
+也就是说，当我们利用XHRHttpRequest在浏览器中发起一个HTTP请求，它的callback并不会立刻被插入到队列中，只有当HTTP请求完成后，它才会被插入。
 
 You browser is one big infinite loop.
 
@@ -155,7 +164,7 @@ This means that when an asynchronous event occurs (like )
 
 The blue boxes represent portions of JavaScript being executed.
 
-#### Microtasks and Macrotasks
+## Microtasks(微任务) and Macrotasks(宏任务)
 
 It turns out that not all tasks are created the same.
 

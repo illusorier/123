@@ -1,16 +1,12 @@
 Web浏览器和Web服务器都是Web应用程序，它们通过相互发送报文来实现基本事务处理的。
 
+现在使用的HTTP协议有几个版本。
+
 版本0.9是HTTP协议的早期版本，是当今HTTP所拥有的请求及响应报文的鼻祖，但其协议要简单得多。
 
-### HTTP access control (CORS)
-
-A resource makes a **cross-origin HTTP request** when it requests a resource from a different domain, protocol, or port to its own.
-
-For security reasons, browsers restrict cross-origin HTTP requests initiated from within scripts.
-
-For example, `XMLHttpRequest` and `Fetch` follow the same-origin policy.
-
 ### 什么是HTTP报文？
+
+HTTP报文是HTTP协议的一部分，它和TCP/IP其他层一样，会对所发送的数据附加一个首部。
 
 HTTP messages are how data is exchanged between a server and a client.
 
@@ -36,7 +32,7 @@ HTTP连接是HTTP报文传输的关键通道。
 
 一般情况下，HTTP时延是由TCP网络时延构成的。
 
-
+首部和方法配合工作，共同决定了客户端和服务器能做什么事情。
 
 术语"Web服务器"可以用来表示Web服务器的软件，也可以用来表示提供Web页面的特定设备或计算机。
 

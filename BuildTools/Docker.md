@@ -1,0 +1,1 @@
+A VM is essentially an emulation of a real computer that 

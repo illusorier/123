@@ -1,8 +1,12 @@
-> JavaScript与HTML之间的交互是通过事件实现的。事件可以使用侦听器(或处理程序)来预订事件，以便事件发生时执行相应的代码。这种在传统软件工程中被称为观察员模式的模型，
+> JavaScript与HTML之间的交互是通过事件实现的。事件可以使用侦听器(或处理程序)来预订事件，以便事件发生时执行相应的代码。这种在传统软件工程中被称为观察者模式的模型，
+
+我们知道在页面上的某一个区域，可能存在重叠的多个元素，那么当我们点击这一区域时，这多个元素click事件的callback是如何执行的，是只有一个callback被执行还是按一定顺序依次执行？
 
 事件流描述的是从页面中接收事件的顺序。
 
-IE的事件流叫事件冒泡(event bubbling)，即事件开始时由最具体的元素
+IE的事件流叫事件冒泡(event bubbling)，即事件开始时由最具体的元素接收，然后逐级向上传播到较为不具体的节点上。
+
+Netscape Communicator团队提出的另一种事件流叫做事件捕获(event capturing)
 
 "DOM2级事件"规定的事件流包括三个阶段:
 
@@ -44,19 +48,17 @@ A CSS transition has actually started.
 
 ## Event Order
 
-在页面上的某一个区域，可能存在重叠的多个元素，那么当我们点击这一区域时，这多个元素click事件的callback是如何执行的？
-
-        <button></button>
-        
-        var btn = document.querySelector('button');
-        
-        btn.addEventListener('click', function(){
-        	    console.log('btn');
-        });
-        
-        document.addEventListener('click', function(){
-        	    console.log('document');
-        })
+      <button></button>
+      
+      var btn = document.querySelector('button');
+      
+      btn.addEventListener('click', function(){
+            console.log('btn');
+      });
+      
+      document.addEventListener('click', function(){
+            console.log('document');
+      })
 
 If an element and one of its ancestors have an event handler for the same event, which one should fire first?
 

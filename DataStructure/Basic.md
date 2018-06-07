@@ -29,15 +29,3 @@ A real-world stack allows operations at one end only.
 This feature makes it LIFO data structure.
 
 Last in First Out 后进先出
-
-空间复杂度
-
-Space complexity of an algorithm represents the amount of memory space required by the algorithm in its life cycle.
-
-时间复杂度
-
-In both cases, the time complexity is generally expressed as a function of the size of the input.
-
-An algorithm is said to **constant time** (also written as **O(1)** time) if the value of *T(n)* is bounded by a value that does not depend on the size of the input.
-
-

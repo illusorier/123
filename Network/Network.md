@@ -1,4 +1,18 @@
-在大多数
+什么是互联网？
+
+互联网和TCP/IP之间又有什么关系？
+
+局域网
+
+LAN Local Area Network
+
+局域网是一种私有网络，一般
+
+当局域网被用于公司时，它们就称为企业网络(enterprise network)。
+
+广域网
+
+WAN Wide Area Network
 
 双绞线最常见的应用是电话系统。
 
@@ -55,3 +69,7 @@ GET是最常用的方法，通常用于请求服务器发送某个资源。
 HEAD
 
 POST方法起初是用来向服务器输入数据的。实际上，通常会用它来支持HTML的表单。
+
+Host names in terms of numbers are difficult to remember
+
+Most 

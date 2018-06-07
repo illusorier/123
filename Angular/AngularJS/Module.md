@@ -1,5 +1,7 @@
 Most applications have a main method that instantiates and wires together the different parts of the application.
 
+比如在Vue的官方文档中就有这样的描述：Every Vue application starts by creating a new **Vue instance** with the `Vue` function.
+
 AngularJS apps do not have a main method.
 
 Instead modules declaratively specify how an application should be bootstrapped.

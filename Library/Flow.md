@@ -1,16 +1,32 @@
+Flow is a static checker for your JavaScript code.
+
+Flow checks your code for errors through **static type annotations**.
+
+Flow has a powerful ability to infer the types of your programs.
+
 # Primitive Types
 
-The primitive types appear in the language as either literal values or as constructed wrapper objects.
+原始类型
 
-    function method(x: number, y: string, z: boolean){
-      // ...
-    }
+The primitive types appear in the language as either literal values or as constructed wrapper objects.
     
 Types for the wrapper
 
 Symbols(new)
 
-#### Optional object properties
+### Booleans
+
+Booleans 
+
+# Function Types
+
+Functions have two places where 
+
+You can also have optional parameters by adding a question mark `?` after the name of the parameter
+
+# Object Types
+
+### Optional object properties
 
 Object types can have optional pro
 
@@ -22,4 +38,10 @@ There are a number of different places where generic types appear in syntax.
 
 ##### Functions with generics
 
-Functions can create generics by adding 
+Functions can create generics by adding
+
+# Class Types
+
+You write 
+
+Whenever you want to 

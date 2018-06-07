@@ -1,3 +1,5 @@
+组件化开发
+
 Angular1(AngularJS)当中的directive主要由两种用法：一种作为HTML element的attribute，另一种是作为自定义的element(即component)。
 
 首先我们先来看一些angular自带的directive，它们实现了哪些功能，又是如何实现的。
