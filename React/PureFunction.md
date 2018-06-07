@@ -2,12 +2,11 @@
 
 #### What is a Function?
 
-A **function** is a process which takes some input, called **arguments**, and produces some output called a **return value**.
 
 Functions may serve the following purposes:
 
 1. Mapping: Produce some output based on given inputs. A function maps input values to output values.
-2. Procedures: 
+2. eProcedures: 
 3. I/O
 
 #### Mapping
