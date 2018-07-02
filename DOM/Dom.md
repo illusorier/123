@@ -8,7 +8,11 @@ DOM操作应当是JS在浏览器端最原始和重要的应用了。
 
 **DOM是什么**？
 
-The DOM (Document Object Model) is an API that represents and interacts with any HTML or XML document.
+The DOM (Document Object Model) is a cross-platform and language-independent application programming interface that treats an HTML, XHTML, or XML document as a tree structure wherein each node in an object representing a part of the document. 
+
+DOM本身不是ECMAScript语法的一部分
+
+跨平台，独立于语言
 
 The DOM is one of the most-used APIs on the Web because it allows code running in a browser to access and interact with every node in the document.
 
@@ -16,7 +20,13 @@ DOM was not originally specified - it came about when browsers began implementin
 
 This legacy DOM is sometimes called DOM 0.
 
-此外，DOM本身也不是ECMAScript语法的一部分。
+A Web page is a document.
+
+This document can be either displayed in the browser window or as the HTML source.
+
+But it is the same document in both cases.
+
+The DOM is an object-oriented representation of the web page.
 
 DOM可以将任何HTML或XML文档描绘成一个由多层节点构成的结构。
 
@@ -44,11 +54,9 @@ DOM可以将任何HTML或XML文档描绘成一个由多层节点构成的结构�
 
 IE，Firefox，Safari，Chrome和Opera都非常完善地实现了DOM。
 
-Any HTML document is a tree structure.
-
-When browser parses a document, it builds a content tree and then uses it to display the document.
-
 **我们利用DOM可以做什么**？
+
+You do not have to do anything special to begin using the DOM.
 
 说到最常见的DOM应用，恐怕就要数取得特定的某个或某组元素的引用，然后再执行一些操作了。
 
