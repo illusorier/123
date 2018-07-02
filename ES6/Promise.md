@@ -8,6 +8,8 @@ JS异步问题来源于JS的单线程特性和Event Loop机制。
       console.log(data);
         
 在ES6之前，对于异步问题，ECMAScript原生提供的解决方案就是callback。
+
+那么，在传统程序设计语言中，异步问题一般是如何处理的？
     
 The simplest (but definitely not only, or necessarily event best!) way of "waiting" from now until later is to use a function, commonly called a callback function:
     

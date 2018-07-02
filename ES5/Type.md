@@ -1,14 +1,8 @@
-一个大的议题就是如何学习和理解一个编程语言。
-
-一些常见的building block，比如变量、常量、值、类型、函数、运算符、语句、数据结构等等。
-
-比如面向对象语言都会共有的一些概念，类，继承等等。
-
 ## JavaScript的类型
 
 本文的绝大多数英文内容摘选自《You Don't know JS》 一书的电子版(https://github.com/getify/You-Dont-Know-JS)
 
-由于关于类型的内容分布在本书的若干册中，如 "up & going", "types & grammar" 和 "this & object prototypes",本文对其稍微整理方便自己理解
+由于关于类型的内容分布在本书的若干册中，如 "up & going", "types & grammar" 和 "this & object prototypes",本文对其稍微整理方便自己理解。
 
 Most developers would say that a dynamic language (like JS) does not have types.
 
@@ -18,7 +12,9 @@ Let's see what the ES5.1 specification has to say on the topic:
 
 We're going to use this rough definition: a type is an intrinsic, built-in set of characteristics that uniquely identifies the behavior of a particular value and distinguishes it from other
 
-抛开学术性定义不谈，我们为什么需要类型这个概念 => 类型转换！
+我们为什么需要类型这个概念？
+
+比如在C++中，一个变量的类型决定了它在内存中所分配的空间大小。
 
 Beyond academic definition disagreements, why does it matter if JavaScript has types or not?
 
@@ -32,13 +28,19 @@ JavaScript is also dynamically typed.
 
 It is most certainly "untyped", but its weakly typed nature allows for a lot of flexibility in terms of implicit conversions.
 
-在比如Java和一些其他语言当中，声明变量除了要给定变量名，还要确定该变量的类型。
+在比如C、Java和一些其他语言当中，声明变量时除了要给定变量名，还要确定该变量的类型。
 
-相比而言，JS没有这样的限制，JS中的变量是不具有有类型的，而JS中的值是具有类型的，我们可以用`typeof`运算符获得相应值得类型。
+相比而言，JS没有这样的限制，JS中的变量是不具有有类型的，而JS中的值是具有类型的，我们可以用`typeof`运算符获得相应值的类型。
+
+也就是说，变量中所保存的值的类型是可以变化的。
 
 JavaScript has typed values, not typed variables.The following built-in **types** are available.
 
 Only values have types in JavaScript; variables are just simple containers for those values.
+
+JS does not have "type enforcement", in that the engine does not insist that a variable always holds values of the same initial type that it starts out with.
+
+JavaScript一共有七种内置类型
 
 JavaScript defines seven built-in types:
 
@@ -59,7 +61,7 @@ ECMAScript变量可能包含两种不同数据类型的值。
 
 在将一个值赋给变量时，解析器必须确认这个值是基本类型值还是引用类型值。
 
-我们可以通过 `typeof` 运算符来获得某个变量的类型。
+我们可以通过 `typeof` 运算符来获得某个值的类型。
 
 JavaScript provides a `typeof` operator that can examine a value and tell you what type it is.
 
@@ -85,15 +87,21 @@ Surprisingly, there's not an exact 1-to-1 match with the seven built-in types we
 
 Also, note `a = undefined`. We're explicitly setting a to the undefined value, but that is behaviorally no different from a variable that has no value set yet.
 
-        typeof function a(){ /* .. */ } === "function";     // true
+此外，`"function"`也是typeof可能会返回的值：
+
+    typeof function a(){ /* .. */ } === "function";     // true
         
-
-
+    typeof [1, 2, 3] === "object";
+    
+要注意的是array并不是typeof可能的返回值。
+        
 ## Objects
 
 Objects are the general building block upon which much of JS is built.
 
 They are one of the 7 primary types (called "language types" in specification) in JS.
+
+Note that the simple primitives(`string`, `number`, `boolean`, `null` and `undefined`) are not themselves objects.
 
 **It's a common mis-statement that "everything in JavaScript is an object". This is clearly not true.**
 
@@ -105,7 +113,9 @@ There are a few special object sub-types, which we can refer to as *complex prim
 
 `typeof` returns `"function"`,which implies that a `function` is a main type -- and can thus have properties,but you typically will only use function object properties in limited cases.
 
-`array` are also a form of objects, with extra behavior. The organization of contents in arrays is slightly more structured than for general objects.
+`array` are also a form of objects, with extra behavior.
+ 
+ The organization of contents in arrays is slightly more structured than for general objects.
 
 #### Built-in Objects
 
@@ -121,9 +131,25 @@ There are several other object sub-types, usually referred to as built-in object
 - `RegExp()`
 - `Error()`
 
-These built-ins have the appearance of being actual types, even classes.
+It is true that each of these natives can be used as a native constructor.
+
+But what is being constructed may be different than you think.
+
+      let s = new String("abc");
+      
+The result of the constructor form of value creation is an object wrapper around the primitive("abc") value.
+
+These built-ins have the appearance of being actual types, even classes, if you rely on the similarity to other languages such as Java's `String` class.
 
 But in JS, these are actually just built-in functions.
+
+在ES6后，下面这段代码是合法的：
+
+    class Car {
+      constructor() {}
+    }
+
+但实际上Car依旧是一个函数，而在C++或Java中，类似的写法则代表Car是一个Class。
 
 Each of these built-in functions can be used as a constructor, with the result being a newly *constructed* object of the sub-type.
 
