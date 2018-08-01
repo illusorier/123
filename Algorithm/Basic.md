@@ -14,15 +14,17 @@ What is an algorithm and why should we care?
 
 那么，我们如何对这两个不同的算法进行比较？
 
-The running time of an algorithm depends on how long it takes a computer to run the lines of code of the algorithm - and 
+The running time of an algorithm depends on how long it takes a computer to run the lines of code of the algorithm - and that depends on the speed of the computer, the programming language, and the compiler that translates the program from the programming language into code that runs directly on the computer, among other factors.
 
-也就是说，实际决定一个算法运行时间的因素有很多，因此我们不能仅仅根据该算法
+也就是说，实际决定一个算法运行时间的因素有很多，因此我们不能仅仅根据某算法在某台计算机上的运行时间就决定其性能。
 
-Big O notation is used in Computer Science 
+Big O notation is used in Computer Science to describe the performance or complexity of an algorithm.
+
+我们可以
 
 大O算法中的n到底代表什么？
  
-O(1) describes 
+O(1) describes an algorithm 
 
 空间复杂度
 

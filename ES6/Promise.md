@@ -182,39 +182,6 @@ then和catch方法都会自动构造并返回一个新的Promise实例。
 
 In this snippet, we are returning an immediate 
 
-手写一个Promise，MyPromise：
-
-    var myPromise = function(executor) {
-      this.executor = executor;
-      this.status = 'padding';
-      this.value = null;
-      this.rejectReason = null;
-      this.thenCache = [];
-      
-      executor(this.resolve, this.reject);
-    }
-    
-    myPromise.prototype = {
-      constructor: myPromise,
-      resolve: function(value) {
-        this.value = value;
-        this.status = 'fulfilled';
-        this.triggerThen();
-      },
-      reject: function(reason) {
-        this.rejectReason = reason;
-        this.status = 'rejected';
-        this.triggerThen();
-      },
-      then: function(onFulfilled, onRejected) {
-        this.thenCache.push({onFulfilled: onFulfilled, onRejected:onRejected});
-        return this;
-      },
-      triggerThen: function() {
-      	
-      }
-    }
-
 A `Promise` is an object representing the eventual completion or failure of an asynchronous operation.
 
 Most people are *consumers* of already-created promises.
@@ -238,3 +205,18 @@ The `then()` method returns a `Promise`.
 
 - return a value, the promise returned by `then` gets resolved with the returned value as its value.
 
+Promise/A+规范原文[1]
+
+[1]:https://promisesaplus.com
+
+A promise must be in one of three states: pending, fulfilled, or rejected.
+
+A promise must provide a `then` method 
+
+2.2.4 `onFufilled` or `onRejected` must not be called until the execution context stack contains only platform code.
+
+2.2.6 `then` may be called multiple times on the same promise.
+
+- If/when `promise` is fulfilled, all respective `onFulfilled` callbacks must execute in the order of
+
+2.2.7 `then` must return a promise.

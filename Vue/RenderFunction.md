@@ -51,7 +51,7 @@ The `render` function has priority over the render function compiled from `templ
 
 虚拟DOM
 
-Before we dive into render functions, it is important to know a 
+Before we dive into render functions, it is important to know a little about how browsers work.
 
 Vue builds a **virtual DOM** to keep track of the changes it needs to make to the real DOM.
 

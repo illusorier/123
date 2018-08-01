@@ -57,3 +57,28 @@ console.timeEnd()
 Render-tree Construction
 
 The CSSOM and DOM trees are combined into a render tree, which is then used to compute the layout of each visible element
+
+Reflow is the name of the web browser process for re-calculating the positions and geometries of elements in the document,
+
+Because reflow is a user-blocking operation in the browser, it is useful for developers to understand how to improve reflow time 
+
+Sometimes reflowing a single element in the document 
+
+当DOM的变化影响了元素的
+
+完成重排后，浏览器会重新绘制受影响的
+
+每次重排必然会导致重绘，那么，重排会在哪些情况下发送？
+
+- 添加或者删除可见的DOM元素
+- 元素位置改变
+- 元素尺寸改变
+- 元素内容改变
+- 页面渲染初始化
+
+`DocumentFragments` are DOM Nodes.
+
+They are never part of the main DOM tree.
+
+The usual use case is to create the document fragment, append elements to the document fragment and then append the document fragment to the DOM tree.
+
