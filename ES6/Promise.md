@@ -1,3 +1,5 @@
+要了解什么是promise，我们首先需了解一些相关的背景知识
+
 One of the most important and yet often misunderstood parts of programming in a language like JavaScript is how to express and manipulate program behavior spread out over a period of time.
 
 JS异步问题来源于JS的单线程特性和Event Loop机制。
@@ -13,11 +15,11 @@ JS异步问题来源于JS的单线程特性和Event Loop机制。
     
 The simplest (but definitely not only, or necessarily event best!) way of "waiting" from now until later is to use a function, commonly called a callback function:
     
-        // ajax(..) is some arbitrary Ajax function given by a library.
-        
-        ajax(url, function myCallbackFunction(data){
-            console.log(data);
-        });
+      // ajax(..) is some arbitrary Ajax function given by a library.
+      
+      ajax(url, function myCallbackFunction(data){
+          console.log(data);
+      });
         
 #### Async Console
         
@@ -111,7 +113,11 @@ Promises are not about replacing callbacks.
 
 #### Making and Using Promises
 
-Promise是一个抽象的概念，但在代码中它就是一个类，我们可以创建它的实例，也就是说：
+Promise是如何使用的？
+
+Essentially, a promise is a returned object to which you attach callbacks, instead of passing callbacks into a function.
+
+Promise是一个类，要使用它我们必须先创建它的实例：
 
     var p = new Promise();
 
@@ -209,14 +215,31 @@ Promise/A+规范原文[1]
 
 [1]:https://promisesaplus.com
 
+"value" is any legal JavaScript value (including `undefined`, a thenable, or a promise).
+ 
+"reason" is 
+
+2.1
+
 A promise must be in one of three states: pending, fulfilled, or rejected.
 
-A promise must provide a `then` method 
+2.2
+
+A promise must provide a `then` method access its current or 
 
 2.2.4 `onFufilled` or `onRejected` must not be called until the execution context stack contains only platform code.
 
-2.2.6 `then` may be called multiple times on the same promise.
+2.2.1.7 `then` may be called multiple times on the same promise.
 
-- If/when `promise` is fulfilled, all respective `onFulfilled` callbacks must execute in the order of
+- If/when `promise` is fulfilled, all respective `onFulfilled` callbacks must execute in the order of their originating calls to `then`.
 
-2.2.7 `then` must return a promise.
+2.2.1.8 `then` must return a promise.
+
+    promise2 = promise1.then(
+
+    
+To run `[[Resolve(promise, x)]]`, perform the following steps:
+
+2.3.2  If `x` is a promise, adopt its state:
+
+    
