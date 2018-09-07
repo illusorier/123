@@ -28,7 +28,7 @@ Vue启动后发生了什么？
 
 ## Class and Style Bindings
 
-A comm
+A common need for data binding is manipulating an element's class list and its inline styles.
 
 ## Computed Properties and Watchers
 

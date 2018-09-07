@@ -6,7 +6,7 @@ React components are built with them, usually through `JSX`.
 
 > Templates just provide a convenient and familiar syntax on top of render function. While more powerful, render functions often suffer in the readability department.
 
-大多数情况下，我们使用template元素来构建HTML文档。
+大多数情况下，我们使用template(即指template属性，也可指vue-loader当中的template标签)来构建HTML文档。
 
 Vue recommends using templates to build your HTML in the vast majority of cases. 
 
@@ -26,7 +26,13 @@ Vue builds a **virtual DOM** to keep track of the changes it needs to make to th
 
 ##### createElement Arguments
 
+`createElement` returns a "virtual node", usually abbreviated to **VNode**.
+
+"Virtual DOM" is what we call the entire tree of VNodes, built by a tree of Vue components.
+
 How to use template features in the createElement function.
+
+createElement中包括三个值，其中后两个是可选的。
 
     render: function (createElement) {
       // @returns {VNode}
@@ -34,11 +40,14 @@ How to use template features in the createElement function.
         // {String | Object | Function}
         'div'
         // An HTML tag name, 
+        
         // {Object}
         // A data object corresponding to the attributes you would use in a template.Optional.
-        {}
+        
+        
         // {String | Array}
         // Children VNodes, built using createElement()
+        // or using strings to get 'text VNodes'
         // Optional
       )
     }
