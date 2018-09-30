@@ -1,6 +1,26 @@
-什么是函数
+什么是函数？
+
+函数对任何语言来说都是一个核心的概念。
+
+通过函数可以封装任意多条语句，而且可以在任何地方、任何时候调用执行。
 
 A function is a code snippet.
+
+每个函数都是Function类型的实例，而且都与其他引用类型一样具有属性和方法。
+
+### 函数的定义
+
+ECMAScript中的函数使用function关键字来声明，后跟一组参数以及函数体：
+
+      function example(input) {
+        console.log(input);
+      }
+
+ECMAScript中的函数在定义时不必指定是否返回值。
+
+实际上
+
+位于return语句之后的任何代码都永远不会执行。
 
 A function in JavaScript is also an object.
 
@@ -8,15 +28,17 @@ A function in JavaScript is also an object.
 
 The `arguments` object is an `Array-like` object corresponding to the arguments passed to a function.
 
-        function f (a, b, c) {
-            console.log(arguments[0]);
-            console.log(arguments[1]);
-            console.log(arguments[2]);
-        }
+      function f (a, b, c) {
+          console.log(arguments[0]);
+          console.log(arguments[1]);
+          console.log(arguments[2]);
+      }
        
 The `length` property specifies the number of arguments expected by the function.
 
-函数的调用
+#### 函数的调用
+
+函数可以通过其函数名来调用，后面还要加上一对圆括号和参数(圆括号中的参数如果有多个)
 
 When a function is called, arguments are passed to the function as input, and the function can optionally return an output.
 
@@ -64,6 +86,7 @@ A Function Expression (FE) is a function which:
 - it's definition has no effect on variable object;
 - and is created at the code execution stage;
 
+
         var foo = function _foo() {
             ...
         };
@@ -100,11 +123,19 @@ ECMAScript中的参数在内部是用一个数组来表示的
 
 在函数内部，有两个特殊的对象：`arguments`和`this`。
 
+arguments是一个类数组对象，包含着传入函数中的所有参数
+
+对ECMAScript中的引用类型而言，prototype是保存它们所有实例方法的真正所在
+
 ECMAScript 5也规范化了另一个函数对象的属性：caller。
 
 这个属性中保存着调用当前函数的函数的引用，如果是在全局作用域中调用当前函数，它的值为null。
 
 每个函数都包含两个非继承的方法：`apply`和`call`。
+
+这两个方法的用途都是在特定的作用域中调用函数，实际上等于设置函数体内this对象的值。
+
+首先，apply()方法接收两个参数：一个是在其中运行函数的作用域
 
 ### Algorithm of function creation
 

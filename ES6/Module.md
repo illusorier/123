@@ -18,9 +18,17 @@ CommonJS:
 
         var math = require('math');
         
+        math.add(2, 3);
+        
+node.js的模块系统，就是参照CommonJS规范实现的。
+
+CommonJS中的模块是同步加载的，但这在浏览器中是不可行的，会根据网络
+        
 AMD也采用 `require()` 语句加载模块，但不同于CommonJS，它要求两个参数：
 
         require([module], callback);
+        
+第一个参数[module]，是一个数组
         
 深入CommonJS
         

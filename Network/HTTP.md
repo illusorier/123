@@ -1,3 +1,5 @@
+The **World Wide Web(WWW)**, also called **the Web** is an information space where documents and other web resources are identified by Uniform Resource Locators(URLs),
+
 Web浏览器和Web服务器都是Web应用程序，它们通过相互发送报文来实现基本事务处理的。
 
 现在使用的HTTP协议有几个版本。
@@ -30,7 +32,11 @@ HTTP连接是HTTP报文传输的关键通道。
 
 在任意时刻计算机都可以有几条TCP连接处于打开状态。
 
+与建立TCP连接、以及传输请求和响应报文的时间相比，事务处理时间可能是很短的。
+
 一般情况下，HTTP时延是由TCP网络时延构成的。
+
+HTTP/1.1(以及HTTP/1.0的各种增强版本)允许HTTP设备
 
 首部和方法配合工作，共同决定了客户端和服务器能做什么事情。
 
@@ -127,5 +133,3 @@ Several parts can be requested with one `Range` header at once,
 The `Content-Range`
 
 #### Accept-Ranges
-
-

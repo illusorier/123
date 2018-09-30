@@ -29,4 +29,7 @@ We may need to describe the type of variables that we do not know when
 Tuple types allow you to express an array where the type
 
         let myArray: [number, string] = ["hello", 1];
-       
+      
+## Enum
+
+An enum is a way to organize a collection of related values.

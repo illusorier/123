@@ -4,11 +4,17 @@ Asynchronous JavaScript + XML
 
 这一技术能够向服务器请求额外的数据而无须刷新页面，能够带来更好的用户体验。
 
+也就是说假如不利用AJAX这一技术，我们只能在浏览器第一次通过特定URL加载该网站页面时与服务器进行通讯。
+
 Although X in Ajax stands for XML, JSON is used more than XML nowadays because of its many advantages such as being lighter and a part of JavaScript.
 
 Both JSON and XML are used for packaging information in Ajax model.
 
 The `XMLHttpRequest` API is the core of Ajax.
+
+Use `XMLHTTPRequest` objects to interact with servers.
+
+You can retrieve data from a URL 
 
 To send an HTTP request, create an `XMLHttpRequest` object, open an URL, and send the request.
 

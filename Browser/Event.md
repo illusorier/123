@@ -1,3 +1,5 @@
+DOM Events are sent to notify code of interesting 
+
 > JavaScript与HTML之间的交互是通过事件实现的。事件可以使用侦听器(或处理程序)来预订事件，以便事件发生时执行相应的代码。这种在传统软件工程中被称为观察者模式的模型，
 
 我们知道在页面上的某一个区域，可能存在重叠的多个元素，那么当我们点击这一区域时，这多个元素click事件的callback是如何执行的，是只有一个callback被执行还是按一定顺序依次执行？
@@ -120,15 +122,40 @@ It is the object that is passed to `MutationObserver`'s callback.
 
 `MutationObserver` provides developers with a way to react to change in a DOM.
 
+我们甚至可以在JS中自定义事件：
+
 The `Event()` constructor creates a new `Event`.
 
-        var evt = new Event("myEvt");
+Such events are commonly called **synthetic events**, as opposed to 
+
+        var evt = new Event("eventName");
         
         document.dispatchEvent(evt);
+        
+        // event can be dispatched from any element, not only the document
+        myDiv.dispatchEvent(evt);
 
 
 The `EventTarget.addEventListener()` method adds the specified `EventListener` 
 
 
 Dispatches an `Event` at the specified ` 
+
+DOM规范没有涵盖所有浏览器支持的所有事件，很多浏览器出于不同的目的，还实现了一些自定义的事件。
+
+响应某个事件的函数就叫做**事件处理程序**
+
+事件处理程序的名字以"on"开头，因此click事件
+
+在HTML中定义的事件处理程序可以包含要执行的具体动作，也可以调用在页面其他地方定义的脚本。
+
+通过event变量
+
+通过HTML
+
+通过JavaScript指定事件处理程序的传统方式，就是将一个函数赋值给一个事件处理程序属性。
+
+要使用JavaScript指定事件处理程序，首先必须取得一个
+
+在触发DOM上的某个事件时，会产生一个事件对象event，这个对象中包含着所有与事件有关的信息
 

@@ -1,12 +1,16 @@
 ## Scope
 
+What is scope?
+
+什么是作用域？
+
 One of the most fundamental paradigms of nearly all programming languages is the ability to store values in variables, and later retrieve or modify those values.
 
-变量是编程语言中最基本的概念之一
+变量是编程语言中最基础的概念之一。
+
+我们为什么需要变量这个概念？
 
 Without such a concept, a program could perform some tasks, but they would be extremely limited.
-
-为什么会有作用域这个概念？
 
 But the inclusion of variables into our program begets the most interesting questions we will now address:
 
@@ -21,6 +25,8 @@ How does our program find them when it needs them?
 These questions speak to the need for a well-defined set of rules for storing variables in some location, and for finding those variables at a later time. 
 
 **Scope** is a set of rules that govern how the *Engine* can look up a variable by its identifier name and find it, either in the current *Scope*, or in any of the *Nested Scopes* it's contained within.
+
+作用域、作用域链、执行上下文、词法环境等概念都与代码执行时，标识符的解析有关。
 
 ## Functions As Scopes
 
@@ -101,6 +107,16 @@ The scope chain of a function context is created at function call and consists o
 where Scope by definition is:
 
     Scope = AO + [[Scope]]
+    
+Lexical environments 
 
+倘若没有作用域这一概念，我们在编程过程中需要避免使用相同的标识符，否则会产生混乱。
 
+Concept of a scope helps us to use in one program the same name variables but with 
+
+Block and function concepts lead us to one of the major scope properties - to nest 
+
+In static scoping, an identifier refers to its 
+
+Today static scope is used in many languages:C, Java, ECMAScript, Python, Ruby, Lua, etc.
 

@@ -2,4 +2,6 @@
 
 **WebSocket** is a different TCP protocol from HTTP.
 
+Both 
+
 Great advantage of WebSocket is two way communication.

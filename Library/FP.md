@@ -1,5 +1,9 @@
 继"面向对象编程"之后，"函数式编程"是否会成为下一个编程语言的主流范式？
 
+我们为什么需要函数式编程？
+
+Functional programming makes programs more testable and predictable and therefore leads to fewer bugs.
+
 World's most popular functional programming language: JavaScript.
 
 > A pure function is a function that, given the same input, will always return the same output and does not have any observable side effect.
@@ -53,3 +57,14 @@ Currying seems incredibly unnecessary at first mainly because we are illustratin
 
 This technique is powerful because it gives us better control over our functions.
 
+闭包是与函数式编程息息相关的一个概念
+
+> A closure is the combination of a function and the lexical environment within which that function was declared.
+
+*higher-order function* is a function that accepts another function as an argument.
+
+This passed function is sometimes referred to as the *callback*.
+
+The curried effect is achieved by binding some of the arguments to the first function invoke, so that those values are fixed for the next invocation.
+
+下面是一个我们在讲解柯里化时常常用到的例子：
