@@ -178,3 +178,9 @@ The **try..catch** statement marks a block of statements to try,and specifies a 
 ### break
 
 The **break statement** terminates the current loop,`switch`, or `label` statement and transfers program control to the statement following the terminated statement.
+
+Boolean类型
+
+要将
+
+do-while语句是一种后测试循环语句，

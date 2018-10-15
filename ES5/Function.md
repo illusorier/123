@@ -6,8 +6,6 @@
 
 A function is a code snippet.
 
-每个函数都是Function类型的实例，而且都与其他引用类型一样具有属性和方法。
-
 ### 函数的定义
 
 ECMAScript中的函数使用function关键字来声明，后跟一组参数以及函数体：
@@ -18,11 +16,11 @@ ECMAScript中的函数使用function关键字来声明，后跟一组参数以�
 
 ECMAScript中的函数在定义时不必指定是否返回值。
 
-实际上
+实际上，任何函数在任何时候都可以通过return语句后跟要返回的值来实现返回值。
 
 位于return语句之后的任何代码都永远不会执行。
 
-A function in JavaScript is also an object.
+另外，return语句也可以不带有任何返回值，这些情况下，函数在停止执行后将返回undefined值。
 
 函数内部特殊的对象
 
@@ -38,7 +36,7 @@ The `length` property specifies the number of arguments expected by the function
 
 #### 函数的调用
 
-函数可以通过其函数名来调用，后面还要加上一对圆括号和参数(圆括号中的参数如果有多个)
+函数可以通过其函数名来调用，后面还要加上一对圆括号和参数(圆括号中的参数如果有多个，可以用逗号隔开)。
 
 When a function is called, arguments are passed to the function as input, and the function can optionally return an output.
 
@@ -46,8 +44,6 @@ When a function is called, arguments are passed to the function as input, and th
         
         console.dir(f);
         
-看完下面的内容，你应该能回答这个问题：这时候在控制台打印出来的是什么？
-
 ### Different types of functions
 
 An *anonymous function* is a function without a function name:
@@ -64,16 +60,6 @@ In ECMAScript there are three function types and each of them has its own featur
 
 How each type influences *variables object*.
 
-#### Function Declaration
-
-函数声明是我们最熟悉的一种创建函数的方式。
-    
-A Function Declaration (FD) is a function which:
-
-- has a required name;
-- position: either at the Program level or directly in the body of another function;
-- is created on entering the context stage;
-- influences variable object;
 
 #### Function Expression
 
@@ -97,11 +83,19 @@ What's important here to note
 
 This type of function objects is discussed separately from FD and FE since 
 
-### Arguments
+#### 函数的参数
 
 接下来我们从参数的角度理解。
 
 ECMAScript函数的参数与大多数其他语言中函数的参数有所不同，不介意传递进来多少个参数，也不在乎传进来的参数是什么类型。
+
+在函数内部，有两个特殊的对象：`arguments`和`this`。
+
+arguments是一个类数组对象，包含着传入函数中的所有参数。
+
+也就是说，我们甚至可以在定义时不命名任何参数，而在实际运行时通过arguments访问实际传入的参数。
+
+
 
     function howManyArgs() {
       alert(arguments.length);
@@ -111,19 +105,19 @@ ECMAScript函数的参数与大多数其他语言中函数的参数有所不同�
     howManyArgs(); // 0
     howManyArgs(12); // 1
      
-这个事实说明了ECMAScript函数的一个重要特点： 命名参数只提供便利，但不是必需的。
+
+
+这个事实说明了ECMAScript函数的一个重要特点:命名参数只提供便利，但不是必需的。
 
 其他语言可能需要事先创建一个函数签名，而将来的调用必需与该签名一致。
 
-ECMAScript中的参数在内部是用一个数组来表示的
+虽然arguments的主要用途是保存函数参数，但这个对象还有一个名为callee的属性，该属性是一个指针，指向拥有这个arguments对象的函数。
 
-### A Function is also an Object
+函数内部的另一个特殊对象是this，其行为与Java和C#中的this大致类似。
 
-接下来我们从函数的对象性理解。
+#### 函数的对象性
 
-在函数内部，有两个特殊的对象：`arguments`和`this`。
-
-arguments是一个类数组对象，包含着传入函数中的所有参数
+每个函数都是Function类型的实例，而且都与其他引用类型一样具有属性和方法。
 
 对ECMAScript中的引用类型而言，prototype是保存它们所有实例方法的真正所在
 
