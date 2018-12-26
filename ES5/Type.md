@@ -241,5 +241,17 @@ To use the Object.prototype.toString() with every object, you need to call *Func
 
 The `parseInt()` function parses a string argument and returns an integer of the specified radix.
 
+虽然Boolean类型的字面值只有两个，但ECMAScript中的
 
+这些
+
+Number类型使用IEEE754格式
+
+所谓浮点数值，就是该数值中必须包含一个小数点，并且小数点后面必须至少有一位数字。虽然小数点前面可以没有整数，但不推荐这种写法。
+
+    var floatNum = 1.1;
+    
+由于保存浮点数值需要的内存空间是
+
+NaN, 即非数值(Not a number)
 

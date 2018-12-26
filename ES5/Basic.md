@@ -9,19 +9,23 @@ In a computer language, a group of words, numbers, and operators that perform a 
 
 Programs are just collections of many statements.
 
+Statements are made up of one or more *expressions*.
+
 ## Expressions
 
 什么是表达式？
 
-Statements are made up of one or more *expressions*.
+An expression is any reference to a variable or value, or a set of variable(s) and value(s) combined with operators.
 
-An expression is any reference to a variable or value,　or a set of variable(s) and value(s) combined with operators.
+对变量和值的引用，或变量、值、操作符的组合都是表达式。
+
+表达式的分类
 
         a = b * 2;
 
 This statement has four expressions in it:
 - `2` is a *literal value expression*
-- `b` is a *variable expression*,which means to retrieve its current value.
+- `b` is a *variable expression*, which means to retrieve its current value.
 - `b * 2` is a *arithmetic expression*,　which means to do the multiplication.
 - `a = b * 2` is an *assignment expression*.
 
@@ -178,9 +182,5 @@ The **try..catch** statement marks a block of statements to try,and specifies a 
 ### break
 
 The **break statement** terminates the current loop,`switch`, or `label` statement and transfers program control to the statement following the terminated statement.
-
-Boolean类型
-
-要将
 
 do-while语句是一种后测试循环语句，
