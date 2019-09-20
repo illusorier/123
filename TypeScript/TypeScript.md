@@ -2,6 +2,8 @@ TypeScript是JavaScript的一个超集，主要提供对类型系统和ES6的支
 
 ## Type
 
+Type annotations
+
 布尔值是最基础的数据类型。
 
         let  isDone: boolean = false;
@@ -39,7 +41,15 @@ Another fundamental part of creating programs in JavaScript for webpages and ser
         let myFavoriteNumber =  'seven';
         myFavoriteNumber = 7;
         
-        
+TypeScript, like JavaScript, allows you to work with arrays of values.
+
+Array types can be written in one of two ways.
+
+In the first, you use the type
+
+        let arr: number[] = [0, 1, 1, 2, 4, 8];
+
+那么，我们是否依旧可以像JS中一样不对数组中元素的类型进行限制？
 
 ## Tuple
 

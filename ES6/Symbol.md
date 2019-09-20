@@ -2,15 +2,21 @@
 
 ES6引入了一种新的原始数据类型`Symbol`,表示独一无二的值。
 
-它是JavaScript语言的第七种数据类型。
+Symbol is a primitive type in ECMAScript6.
+
+它是JavaScript的第七种原始数据类型。
 
 With ES6, for the first time in quite a while, a new primitive type has been added to JavaScript: the `symbol`.
 
+Symbol的声明
+
+In the 
+
 Unlike the other primitive types, symbols don't have a literal form.
     
-        var sym = Symbol("some optional description");
-        
-        typeof sym;         // "symbol"
+    var sym = Symbol("some optional description");
+    
+    typeof sym;         // "symbol"
 
 Some things to note:
 - You cannot and should not use `new` with `Symbol(..)`. It's not a constructor,nor are you producing an object.
@@ -64,3 +70,5 @@ Similar to how primitive
 The main point of a symbol is to create
 
 The specification uses the `@@` prefix notation to refer to the built-in symbols,the most common ones being: `@@iterator`,
+
+The **Symbol.iterator** well-know symbol specifies the default iterator for an object.Used by **for...of**.

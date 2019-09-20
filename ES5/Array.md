@@ -51,3 +51,49 @@ Array.prototype.map()
 
 Array类的实例对象所继承的方法，是对该实例的操作。
 
+array-like
+
+要访问数组里特定位置的元素
+
+通过循环遍历数组
+
+迭代(iterate)
+
+递归(recursion):反复调用自身
+
+迭代和递归中都包含了重复和循环。
+
+The concept of Recursion and Iteration is to execute a set of instructions repeatedly.
+
+Iteration is a loop being excuted until a certain condition is met.
+
+Recursion makes code smaller while iteration makes it longer.
+
+循环
+
+遍历数组
+
+traverse an array: do something with each element of an array.
+
+通过for循环可以遍历数组
+
+可以使用数组的length属性
+
+添加元素到数组的开头和末尾
+
+        Array.prototype.every = function(arr) {
+                
+        }
+
+
+表达式 => for语句
+
+数组中最后一个元素的下标的值是length-1
+
+几乎所有的编程语言都原生支持数组类型，因此数组是最简单的内存数据结构。
+
+JavaScript也不例外，此外，我们也可以用Object自主创建一些常用的数据类型。
+
+我们在数组中保存的数据是动态的，是变化的，因此我们需要对数组进行各种操作，以对应数据的变化。
+
+那么，我们用什么形式在代码中去实现这些操作呢，

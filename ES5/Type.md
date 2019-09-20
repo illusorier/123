@@ -12,7 +12,7 @@ Let's see what the ES5.1 specification has to say on the topic:
 
 We're going to use this rough definition: a type is an intrinsic, built-in set of characteristics that uniquely identifies the behavior of a particular value and distinguishes it from other
 
-我们为什么需要类型这个概念？
+**我们为什么需要类型这个概念？**
 
 比如在C++中，一个变量的类型决定了它在内存中所分配的空间大小。
 
@@ -111,9 +111,11 @@ There are a few special object sub-types, which we can refer to as *complex prim
 
 `function` is a sub-type of object (technically, a "callable object").
 
-`typeof` returns `"function"`,which implies that a `function` is a main type -- and can thus have properties,but you typically will only use function object properties in limited cases.
+`typeof` returns `"function"`, which implies that a `function` is a main type -- and can thus have properties, but you typically will only use function object properties in limited cases.
 
 `array` are also a form of objects, with extra behavior.
+
+在JavaScript中, Array是Object的sub-type.
  
  The organization of contents in arrays is slightly more structured than for general objects.
 
@@ -255,3 +257,12 @@ Number类型使用IEEE754格式
 
 NaN, 即非数值(Not a number)
 
+在Java中，所有变量在使用前必须声明，如：
+    
+    int a;
+
+尽管JavaScript中的变量不具有类型，
+
+使用这些不同的数据类型
+
+每个变量仅仅是一个用于保存值的占位符而已

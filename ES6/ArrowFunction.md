@@ -1,6 +1,6 @@
 ## Arrow Functions
 
-箭头函数
+箭头函数出现的意义？
 
 Two factors influenced the introduction of arrow functions: shorter functions and non-binding of `this`.
 
@@ -8,11 +8,15 @@ Two factors influenced the introduction of arrow functions: shorter functions an
 
 An *arrow function expression* has a shorter syntax than a *function expression* and does not have its own *this*, *arguments*, *super*, or *new.target*.
 
-        function foo(x,y) {
-            return x + y;
-        }
-    
-        var foo = (x,y) => x + y;
+    function foo(x,y) {
+        return x + y;
+    }
+
+    var foo = (x,y) => x + y;
+
+These function expressions are best suited for non-method functions, and they cannot be used as constructors.
+
+要注意的是,箭头函数的本质是函数表达式,因此它不能代替其他函数的声明形式。
     
 The arrow function definition consists of a parameter list (of zero or more parameters,and surrounding `(...)`), followed by the `=>` market, followed by a function body.
 
@@ -39,19 +43,21 @@ In ECMAScript 3/5, the `this` issue was fixable by assigning the value in `this`
 
 下面这个例子是在Vue中使用clipboard.js，也是我第一次在项目中遇到此类问题，当时百思不得其解。
 
-        new Vue({
-            data: {
-                count: 0
-            },
-            methods: {
-                add: function() {
-                    clipboard.on('success', function(e) {
-                        // 指向的并不是Vue中的count
-                        this.count ++;
-                    });
-                }
+    new Vue({
+        data: {
+            count: 0
+        },
+        methods: {
+            add: function() {
+                clipboard.on('success', function(e) {
+                    // 指向的并不是Vue中的count
+                    this.count ++;
+                });
             }
-        })
+        }
+    })
+
+使用箭头函数,我们可以
         
         
 下面再看几个例子

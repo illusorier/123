@@ -6,13 +6,17 @@
 
 A function is a code snippet.
 
-### 函数的定义
+### 函数的声明与调用
+
+You may recall typical function declaration syntax as follow:
 
 ECMAScript中的函数使用function关键字来声明，后跟一组参数以及函数体：
 
-      function example(input) {
-        console.log(input);
-      }
+    function example(input) {
+      console.log(input);
+    }
+
+函数可以通过其函数名来调用，后面还要加上一对圆括号和参数(圆括号中的参数如果有多个，可以用逗号隔开)。
 
 ECMAScript中的函数在定义时不必指定是否返回值。
 
@@ -26,31 +30,27 @@ ECMAScript中的函数在定义时不必指定是否返回值。
 
 The `arguments` object is an `Array-like` object corresponding to the arguments passed to a function.
 
-      function f (a, b, c) {
-          console.log(arguments[0]);
-          console.log(arguments[1]);
-          console.log(arguments[2]);
-      }
+    function f (a, b, c) {
+        console.log(arguments[0]);
+        console.log(arguments[1]);
+        console.log(arguments[2]);
+    }
        
 The `length` property specifies the number of arguments expected by the function.
 
-#### 函数的调用
-
-函数可以通过其函数名来调用，后面还要加上一对圆括号和参数(圆括号中的参数如果有多个，可以用逗号隔开)。
-
 When a function is called, arguments are passed to the function as input, and the function can optionally return an output.
 
-        function f() {}
-        
-        console.dir(f);
+    function f() {}
+    
+    console.dir(f);
         
 ### Different types of functions
 
 An *anonymous function* is a function without a function name:
 
-        function () {};
-        
-        () => {};
+    function () {};
+    
+    () => {};
 
 首先我们从函数的类型来理解。
 
@@ -61,9 +61,7 @@ In ECMAScript there are three function types and each of them has its own featur
 How each type influences *variables object*.
 
 
-#### Function Expression
-
-函数表达式对只学过一点C和Java的我来说是个全新的东西。
+### Function Expression
 
 A Function Expression (FE) is a function which:
 
@@ -72,10 +70,19 @@ A Function Expression (FE) is a function which:
 - it's definition has no effect on variable object;
 - and is created at the code execution stage;
 
+关于第三点：
 
-        var foo = function _foo() {
-            ...
-        };
+    console.log(f);
+    console.log(fe);
+
+    function f() {}
+
+    var fe = function() {}
+
+
+    var foo = function _foo() {
+        ...
+    };
         
 What's important here to note 
 
@@ -83,7 +90,7 @@ What's important here to note
 
 This type of function objects is discussed separately from FD and FE since 
 
-#### 函数的参数
+### 函数的参数
 
 接下来我们从参数的角度理解。
 
@@ -132,6 +139,8 @@ ECMAScript 5也规范化了另一个函数对象的属性：caller。
 首先，apply()方法接收两个参数：一个是在其中运行函数的作用域
 
 ### Algorithm of function creation
+
+The pseudo-code of function algorithm is described below.
 
     F = new NativeObject();
             

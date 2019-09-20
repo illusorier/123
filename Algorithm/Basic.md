@@ -1,6 +1,32 @@
 What is an algorithm and why should we care?
 
-查找算法 排序算法
+什么是算法？
+
+Algorithms are steps of how to do some tasks.
+
+There are "good" and "bad" algorithms.
+
+The good ones are fast; the bad ones are slow.
+
+时间复杂度
+
+Time complexity (or running time) is the estimated time an algorithm tasks to run.
+
+时间复杂度通过一个自变量为
+
+However, you do not measure time complexity in seconds, but as a **function** of the input.
+
+The **time complexity** is expressed as a function of the input.
+
+The **time complexity** is not about timing how long the algorithm takes.
+
+Instead, how many operations are executed.
+
+Why is that the time complexity is expressed as a function of the input? 
+
+By, the 
+
+查找算法 排序算法 
 
 算法的五大特征
 
@@ -62,3 +88,19 @@ Sometimes, we want to say that an algorithm takes at least a centain amount of t
 
 给定两个函数，通常存在一些点，在这些点上一个函数的值小于另一个函数的值，在另一些点上，一个函数的值大于另一个函数的值。
 
+
+冒泡排序
+
+排序标准
+
+Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order.   
+
+5 4 3 2 1
+
+4 5 3 2 1
+
+4 3 5 2 1
+
+4 3 2 5 1
+
+4 3 2 1 5

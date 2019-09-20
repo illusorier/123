@@ -10,11 +10,51 @@
 
 就我目前所接触到的高级语言来说，不管它是否OOP，
 
+理解Object引用类型的角度：
+
+Object是一种数据结构，就像基本数据类型Number、String或Arrays、Lists等较为复杂的数据结构。
+
+## 本节所用词汇
+
+Reference type 
+
+Value type
+
+值类型 引用类型
+
+Reference value (== object)
+
+objects are considered to be *instances* of a particular *reference type*.
+
+对象是某个特定引用类型的实例
+
+比如所Array就是一种reference type,而Array的实例则被称为对象
+
+In ECMAScript, reference types are structures used to group data and functionality together.
+
+Although instances of Objects don't have much functionality, they are ideally suited to storing and transmitting data around an application.
+
+Object的实例可用于在应用程序中存储和传输数据。
+
+ECMA-262 defines an object as an "unordered collections of properties each of which contains a primitive value, object or function."
+
 ## Objects
 
 在JavaScript中如何创建对象？
 
 Objects come in two forms: the declarative (literal) form, and the constructed form.
+
+创建Object实例的方式有两种:
+
+        var myObject = {
+            a: 2
+        };
+
+        var myObject = new Object();
+        myObject.a = 2;
+
+第一种是我们在日常编程中使用的
+
 
 The only difference really is that 
 
@@ -32,17 +72,39 @@ The same will be true of most of the built-in objects.
 
 ### Contents
 
-The contents of an object consists of values (any type) stored at 
+The contents of an object consists of values (any type) stored at specifically named locations, which we call properties.
+
+对象中保存的是一系列键值对。
+
+    var myObject = {
+        a:2 
+    };
+
+    myObject.a;
+
+    myObject[a];
+
+To access the value at the location `a` in `myObject`, we need to use either `.` operator or the `[]` operator.
+
+They both access the same location.
+
+
 
 ### Computed Property Names
+
+The `myObject[...]` property access syntax we just described is useful if you need to use a computed expression value as the key name
+
+ES6 adds *computed property names*, where you can specify an 
 
     var prefix = "foo";
     
     var myObject = {
-      [prefix + "bar"]: 'hello'
+      [prefix + "bar"]: "hello"
     }
     
-    console.log(myObject.foobar);
+    console.log(myObject.foobar); 
+
+The most common usage of *computed property names* will probably be for ES6
     
 ### Property Descriptors
 
@@ -394,3 +456,16 @@ ECMAScript5增加了一个新方法，叫Object.getPrototypeOf(),这个方法返
 ECMAScript中描述了原型链的概念，并将原型链作为实现继承的主要方法，只在给定属性存在于
 
 组建自定义类型的最常见方式，就是组合使用构造函数模式与原型模式。构造函数模式用于定义实例属性，而原型模式用于定义方法和共享的属性。
+
+
+
+对象字面量是对象定义的一种简写形式
+
+一般来说，访问对象属性时使用的都是点表示法，这也是
+
+在使用对象字面量语法时，属性名也可以使用字符串
+
+Object-or
+
+Object类型是ECMAScript原生支持的一种类型。
+

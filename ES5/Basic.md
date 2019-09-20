@@ -3,9 +3,15 @@
 ## Code
 A program,often referred to as *source code* or just *code*,is a set of special instructions to tell the computer what tasks to perform.
 
+An *identifier* is the name of a variable, 
+
 ### Statements
 
 In a computer language, a group of words, numbers, and operators that perform a specific task is a *statement*.
+
+Roughly, 
+
+A program is basically a sequence of statements(we're ignoring declarations here).
 
 Programs are just collections of many statements.
 
@@ -13,7 +19,9 @@ Statements are made up of one or more *expressions*.
 
 ## Expressions
 
-什么是表达式？
+什么是表达式？ => JavaScript代码的组成
+
+ 值 变量 操作符 由关键字和特殊字符组成的语句
 
 An expression is any reference to a variable or value, or a set of variable(s) and value(s) combined with operators.
 
@@ -31,9 +39,19 @@ This statement has four expressions in it:
 
 > An *expression* is any valid unit of code that resolves to a value.
 
+
+
 函数调用是不是表达式?
 
 有两种类型的表达式
+
+Expressions can act like statements, 
+
+In JavaScript, statements can never be used 
+
+JavaScript distinguishes *expressions* and *statements*.
+
+Wherever JavaScript expects a statement, 
 
 ### Operators
 

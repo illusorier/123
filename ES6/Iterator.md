@@ -95,3 +95,15 @@ ES6规定，默认的Iterator接口部署在数据结构的 `Symbol.iterator` �
 至于属性名 `Symbol.iterator`
 
 原生具备Iterator
+
+The **iterable** protocol allows JavaScript objects to define or customize 
+
+The for statement creates a loop that consists of three optional expressions
+
+什么是statement?
+
+什么是expressions?
+
+The **for...of** statement 
+
+An object is an iterator when it implements a `next()` method
